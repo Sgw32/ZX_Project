@@ -212,6 +212,42 @@ UpdateCursor:   ld a, b                 ; get the y coord
 ; ReadKeyboard                                                  ;
 ;                                                               ;
 ; Reads the Keyboard                                            ;
+;  W -> UP                                                      ;
+;  A -> LEFT                                                    ;
+;  S -> DOWN                                                    ;
+;  D  -> RIGHT                                                  ;
+; Sp-B -> ACTION                                                ;
+;                                                               ;
+;---------------------------------------------------------------;
+ReadKeyboard:   ld bc, &FBFE
+                in a, (c)
+                cpl
+                and %00000010 ;W
+                call nz, SetMoveUp
+                ld bc, &FDFE
+                in a,(c)
+                cpl
+                and %00000010 ;S
+                call nz, SetMoveDown
+                in a, (c)  
+                cpl  
+                and %00000100 ;D
+                call nz, SetMoveRight
+                in a, (c)
+                cpl    
+                and %00000001 ;A
+                call nz, SetMoveLeft
+                ld bc, 32766
+                in a, (c) 
+                cpl
+                and 31
+                call nz, SetMoveAction
+                ret
+                
+;---------------------------------------------------------------;
+; ReadKeyboard                                                  ;
+;                                                               ;
+; Shitty Reads the Keyboard                                            ;
 ;  Q-T -> UP                                                    ;
 ;  A-G -> DOWN                                                  ;
 ;  PIY -> RIGHT                                                 ;
@@ -219,7 +255,7 @@ UpdateCursor:   ld a, b                 ; get the y coord
 ; Sp-B -> ACTION                                                ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-ReadKeyboard:   ld bc, 64510
+ShittyReadKeyboard:   ld bc, 64510
                 in a, (c)
                 cpl
                 and 31

@@ -7,17 +7,8 @@
 ;                                                               ;
 ;---------------------------------------------------------------;
 
-GameStartNew:   call GenerateGems
-                xor a
-                ld (Level), a
-                ld (MatchesSoFar), a
-                call PrintLevel
-                ld a, GF_START_GAME
-                call ResetGameFlag
-                ld a, GF_PLAYING
+GameStartNew:   ld a, GF_GAME_OVER
                 call SetGameFlag
-                call ResetScore
-                call PrintScore
                 ret
 
 GameOver:       ld b, 24                ; show the hi score table

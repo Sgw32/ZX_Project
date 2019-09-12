@@ -691,13 +691,13 @@ CredMenu_0_Rect defb 3          ; item count
                 defw 0                  ; item 3 callback function address
                 defb 0                  ; item 3 ID flag (set to 0 if not used)
 CredMenu_0_Txt: defb 78                              ; item 1 colour
-                defm "Program : Kiwi + RetroCoder"   ; item 1 text
+                defm "Game by SGL Team"   ; item 1 text
                 defb $ff                             ; item 1 EOL
                 defb 78                              ; item 2 colour
-                defm "Graphics: Sadako + Kiwi"       ; item 2 text
+                defm "Graphics: "       ; item 2 text
                 defb $ff                             ; item 2 EOL
                 defb 78                              ; item 3 colour
-                defm "Music   : Lee_Dc"              ; item 3 text
+                defm "Music   : Sgw32"              ; item 3 text
                 defb $ff                             ; item 3 EOL
 
 ; Main Menu
@@ -872,7 +872,7 @@ HiSMenu_0_Txt:  defb 77
 
 QuitMenu_0:     defw 16523+96
                 defb 79
-                defm "Exit Gem Machine?"
+                defm "Exit Sochi Nights?"
                 defb $ff
 QuitMnu_0_Rect: defb 2
                 defb 88, 72, 88+24, 72+8

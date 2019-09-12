@@ -1,23 +1,27 @@
-;---------------------------------------------------------------;
-;                                                               ;
-;   the Gem Machine - A Bejewelled clone for the ZX Spectrum    ;
-;                                                               ;
-;       Programmed by Tony Thompson and Ian Munro               ;
-;       Developed as part of Team WoS                           ;
-;       Start Date  25 Apr 2006                                 ;
-;       Last Update 21 May 2006                                 ;
-;         Reorganised main loop                                 ;
-;         Integrate new hi score table                          ;
-;         Added main menu                                       ;
-;         Added Graphics themes                                 ;
-;         Added control types (Keys, Joystick, Mouse)           ;
-;                                                               ;
-;---------------------------------------------------------------;
+;------------------------------------------------------------------------;
+;                         Sochi Nights for Yandex Contest' 2019          ;
+;   Based on the Gem Machine - A Bejewelled clone for the ZX Spectrum    ;
+;                                                                        ;
+;       Programmed by Tony Thompson and Ian Munro                        ;
+;       Developed as part of Team WoS                                    ;
+;       Start Date  25 Apr 2006                                          ;
+;       Last Update 21 May 2006                                          ;
+;         Reorganised main loop                                          ;
+;         Integrate new hi score table                                   ;
+;         Added main menu                                                ;
+;         Added Graphics themes                                          ;
+;         Added control types (Keys, Joystick, Mouse)                    ;
+;                                                                        ;
+;------------------------------------------------------------------------;
 
 include "isr.inc"
+include "startuplogo_rt.inc"
+
 ;main:           org 24860
 ;Test codes (commented)
-main:           push af             ; save the registers
+main:
+                call SplashScreen
+main_gs:        push af             ; save the registers
                 push bc
                 push de
                 push  hl
@@ -163,8 +167,9 @@ MovePosLast:    defb 0  ,  0            ; the last position of the mouse
 MouseHasMoved:  defb 0                  ; indicates whether the kempstom mouse has moved
 MouseStartPos:  defb 0  ,  0            ; the start position of the kempston mouse
 GameFlags:      defb GF_MENU            ; start with the main menu
-ControlFlags:   defb CF_INTERFACE_II    ; default to the Interface II joystick
+;ControlFlags:   defb CF_INTERFACE_II    ; default to the Interface II joystick
 ;ControlFlags:   defb CF_KEM_JOYSTICK    ; default to the Interface II joystick
+ControlFlags:   defb CF_KEYBOARD    ; default to the Interface II joystick
 MusicFlags:     defb GF_THEME_1         ; default is theme 1
 GameTune:       defw TUNE_A             ; the default game music
 GemTheme:       defb GF_THEME_1         ; default is theme 1
