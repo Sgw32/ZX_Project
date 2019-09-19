@@ -182,26 +182,26 @@ Level:          defb 0                  ; the current level
 ; Gem Tile Themes Table                                         ;
 ;---------------------------------------------------------------;
 TileTheme1:     defw Tile0
-                defw Tile1
-                defw Tile2
-                defw Tile3
-                defw Tile4
-                defw Tile5
-                defw Tile6
-TileTheme2:     defw Tile10
-                defw Tile11
-                defw Tile12
-                defw Tile13
-                defw Tile14
-                defw Tile15
-                defw Tile16
-TileTheme3:     defw Tile20
-                defw Tile21
-                defw Tile22
-                defw Tile23
-                defw Tile24
-                defw Tile25
-                defw Tile26
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+TileTheme2:     defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+TileTheme3:     defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
+                defw Tile0
 
 ;---------------------------------------------------------------;
 ;                                                               ;
