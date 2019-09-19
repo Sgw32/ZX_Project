@@ -16,7 +16,7 @@
 
 include "isr.inc"
 include "startuplogo_rt.inc"
-include "sabre_game.inc"
+;include "sabre_game.inc"
 ;main:           org 24860
 ;Test codes (commented)
 main:

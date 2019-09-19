@@ -154,7 +154,7 @@ MA_CheckX:      ld a, l                     ; get old x
                 jr nz, MA_End               ; if not zero, then up/down swap is illegal
 MA_CheckEnd:    ld a, e                     ; doing up/down swap
                 ld (SwapFlags), a           ; so set the flags
-                call ActionSwap             ; swap is legal, so do the swap
+                ;call ActionSwap             ; swap is legal, so do the swap
                 ret
                 
 MA_CheckY:      ld a, h                     ; get old y

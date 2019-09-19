@@ -1049,6 +1049,7 @@ dc1:        ld a, (de)                  ; get character data
 ;   Regs destoryed                                              ;
 ;       af,  de,  hl                                            ;
 ;---------------------------------------------------------------;
+
 DrwStr:     ld a, (de)                  ; get character from string
             or a                        ; check character is not end of string
             ret z                       ; return if string is finished
@@ -1137,7 +1138,7 @@ include "sprites_sabre.inc"
 ; Tiles used in the Map                                         ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-include "tiles_sabre.inc"
+;include "tiles_sabre.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1177,6 +1178,8 @@ TXT16:  defm "0001020304050607080910111213141516"
 ;                                                               ;
 ;---------------------------------------------------------------;
 ;Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
+TileTable:      defb 0
+ 
 SM_Sprite:      defw SabreManWalkLeft   ; current sprite set to use for sabreman
 SM_Frame:       defb 0                  ; current frame of the sprite set
 SM_Pos:         defb 120,  80           ; current position of sabreman
