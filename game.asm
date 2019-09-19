@@ -1,22 +1,17 @@
 ;------------------------------------------------------------------------;
 ;                         Sochi Nights for Yandex Contest' 2019          ;
 ;   Based on the Gem Machine - A Bejewelled clone for the ZX Spectrum    ;
+;   Based on the Sabre Wolf clone (TommyGun) for the ZX Spectrum         ;
 ;                                                                        ;
-;       Programmed by Tony Thompson and Ian Munro                        ;
-;       Developed as part of Team WoS                                    ;
-;       Start Date  25 Apr 2006                                          ;
-;       Last Update 21 May 2006                                          ;
-;         Reorganised main loop                                          ;
-;         Integrate new hi score table                                   ;
-;         Added main menu                                                ;
-;         Added Graphics themes                                          ;
-;         Added control types (Keys, Joystick, Mouse)                    ;
 ;                                                                        ;
 ;------------------------------------------------------------------------;
 
 include "isr.inc"
 include "startuplogo_rt.inc"
 ;include "sabre_game.inc"
+include "map_sabre.inc"
+;include "tiles_sabre.inc"
+include "sprites_sabre.inc"
 ;main:           org 24860
 ;Test codes (commented)
 main:
@@ -177,31 +172,6 @@ CursorFlags:    defb CF_NONE            ; default is no buttons pressed
 SwapFlags:      defb 0                  ; 1 - left/right, 2 up/down
 MatchesSoFar:   defb 0                  ; number of matches for the level
 Level:          defb 0                  ; the current level
-
-;---------------------------------------------------------------;
-; Gem Tile Themes Table                                         ;
-;---------------------------------------------------------------;
-TileTheme1:     defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-TileTheme2:     defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-TileTheme3:     defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
-                defw Tile0
 
 ;---------------------------------------------------------------;
 ;                                                               ;

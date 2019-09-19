@@ -201,51 +201,51 @@ MenuGraphics:   call EraseMenuPtr
                 ld b, 56
                 call DrwTile
                 xor a
-                ld hl, Tile3
+                ld hl, Tile0
                 ld c, 144
                 ld b, 56
                 call DrwTile
-                ld hl, Tile4
+                ld hl, Tile0
                 ld c, 168
                 ld b, 56
                 call DrwTile
-                ld hl, Tile5
+                ld hl, Tile0
                 ld c, 192
                 ld b, 56
                 call DrwTile
                 xor a
-                ld hl, Tile11
+                ld hl, Tile0
                 ld c, 120
                 ld b, 96
                 call DrwTile
                 xor a
-                ld hl, Tile15
+                ld hl, Tile0
                 ld c, 144
                 ld b, 96
                 call DrwTile
-                ld hl, Tile12
+                ld hl, Tile0
                 ld c, 168
                 ld b, 96
                 call DrwTile
-                ld hl, Tile14
+                ld hl, Tile0
                 ld c, 192
                 ld b, 96
                 call DrwTile
                 xor a
-                ld hl, Tile20
+                ld hl, Tile0
                 ld c, 120
                 ld b, 136
                 call DrwTile
                 xor a
-                ld hl, Tile21
+                ld hl, Tile0
                 ld c, 144
                 ld b, 136
                 call DrwTile
-                ld hl, Tile26
+                ld hl, Tile0
                 ld c, 168
                 ld b, 136
                 call DrwTile
-                ld hl, Tile23
+                ld hl, Tile0
                 ld c, 192
                 ld b, 136
                 call DrwTile
