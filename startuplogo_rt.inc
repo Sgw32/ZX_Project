@@ -1,16 +1,16 @@
 ATTRIBUTES   equ 22528
-MENU_OFF     equ 64 + 7               ; White Ink, Black Paper, Bright On, Flash Off
-MENU_ON      equ 64 + 32 + 7          ; White Ink, Green Paper, Bright On, Flash Off
-ICON_ON      equ 64 + 32
-ICON_OFF     equ 64
-C1           equ  9
-C2           equ 14
-C3           equ 19
-R1           equ  8
-R2           equ 13
-R3           equ 18
-GRID_STEP    equ  5
-INK_MASK     equ  7
+;MENU_OFF     equ 64 + 7               ; White Ink, Black Paper, Bright On, Flash Off
+;MENU_ON      equ 64 + 32 + 7          ; White Ink, Green Paper, Bright On, Flash Off
+;ICON_ON      equ 64 + 32
+;ICON_OFF     equ 64
+;C1           equ  9
+;C2           equ 14
+;C3           equ 19
+;R1           equ  8
+;R2           equ 13
+;R3           equ 18
+;GRID_STEP    equ  5
+;INK_MASK     equ  7
 CNT1         equ  23675
  
 ;---------------------------------------------------------------;

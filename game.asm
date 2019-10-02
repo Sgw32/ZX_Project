@@ -9,7 +9,7 @@
 include "isr.inc"
 include "startuplogo_rt.inc"
 ;include "sabre_game.inc"
-include "map_sabre.inc"
+;include "map_sabre.inc"
 ;include "tiles_sabre.inc"
 include "sprites_sabre.inc"
 ;main:           org 24860
