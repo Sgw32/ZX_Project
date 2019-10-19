@@ -28,12 +28,6 @@ MoveGameCursor: ld bc, (PointerPos)     ; get the mouse pointer position
                 ld a, (ControlFlags)
                 and CF_INTERFACE_II
                 call nz, ReadInterface2
-                ld a, (ControlFlags)
-                and CF_KEM_JOYSTICK
-                call nz, ReadKempJoystick
-                ld a, (ControlFlags)
-                and CF_KEM_MOUSE
-                call nz, ReadKempMouse
                 call MoveCursor
                 call UpdateCursor
                 call DrawPointer
@@ -321,19 +315,7 @@ ReadInterface2: ld bc, 61438            ; read interface II port 2
 ; Reading from port 0x1f returns the current state of the       ;
 ; Kempston joystick in the form 000FUDLR, with active bits high ;                                                   ;
 ;---------------------------------------------------------------;
-ReadKempJoystick:
-                ld bc, 31
-                in a, (c) ; read the kempston joystick data from port 31
-                bit 0, a
-                call nz, SetMoveRight
-                bit 1, a
-                call nz, SetMoveLeft
-                bit 2, a
-                call nz, SetMoveDown
-                bit 3, a
-                call nz, SetMoveUp
-                bit 4, a
-                call nz, SetMoveAction
+ReadKempJoystick: 
                 ret
 
 ;---------------------------------------------------------------;
@@ -342,23 +324,7 @@ ReadKempJoystick:
 ; Reads the Kempston mouse                                      ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-ReadKempMouse:  ld bc, 64479            ; read the mouse x axis
-                in a, (c)               ; get the x axis value
-                ld e, a                 ; save in e reg
-                ld bc, 65503            ; read the mouse y axis
-                in a, (c)               ; get the y axis value
-                ld d, a                 ; save in the d reg
-                ld a, 255               ; invert the y axis value
-                sub d                   ; do inversion
-                ld d, a                 ; save the result in d
-                ld bc, 64223            ; read the mouse buttons
-                in a, (c)               ; get the button values
-                and CF_MOUSE_LEFT       ; check the left mouse button
-                call z, SetMoveAction   ; set action if left mouse button pressed
-                ld b, d                 ; put y value in b
-                ld c, e                 ; put x value in c
-                ld (PointerPos), bc
-                ret                     ; done
+ReadKempMouse:  ret                     ; done
 
 
 ;---------------------------------------------------------------;
@@ -391,23 +357,8 @@ CheckButtons:   ld de, (PointerPos)
                 scf
                 ret
 
-CalcGridPos:    ld bc, (PointerPos)     ; get the pointer position
-                ld a, c                 ; get x position
-                sub 64                  ; is it less than 64
-                jr c, CGPSkip           ; yes, then grid cursor position not changed
-                ld c, a                 ; save the adjusted x position
-                ld a, b                 ; get y position
-                add a, 40               ; is it less than 192?
-                jr c, CGPSkip           ; no, so grid cursor position is not changed
-                ld a, c                 ; get the x position
-                call Snap24             ; snap to 24 pixel grid
-                add a, 64               ; add the width of the score panel
-                ld c, a                 ; save the grid snapped x position
-                ld a, b                 ; get the y position
-                call Snap24             ; snap to 24 pixel grid
-                ld b, a                 ; save the snapped grid position
-                ld (CursorPos), bc      ; save the snapped grid coordinates
-                ret                     ; done
+CalcGridPos:    ret
+                
 CGPSkip         ld bc, (CursorPos)      ; use the current cursor position
                 ret                     ; done
 

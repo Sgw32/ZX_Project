@@ -8,10 +8,10 @@
 
 include "isr.inc"
 include "startuplogo_rt.inc"
-;include "sabre_game.inc"
+include "sabre_game.inc"
 ;include "map_sabre.inc"
 ;include "tiles_sabre.inc"
-include "sprites_sabre.inc"
+;include "sprites_sabre.inc"
 ;main:           org 24860
 ;Test codes (commented)
 main:
@@ -26,13 +26,6 @@ main_gs:        push af             ; save the registers
                 call SND_SETSFXM    ; turn off sound fx
                 call ClrScr         ; clear the screen
                 call SFX_INIT
-                ld hl, ScorePanel   ; hl points to score panel tile
-                ld bc, 0            ; set x,y to 0,0
-                xor a               ; clear accum
-                ld (Level), a
-                ld (MatchesSoFar), a
-                call DrwTile        ; draw the score panel tile with attributes
-                call PrintLevel
                 ld a, GF_MENU       ; set the game flags to show the menu
                 ld (GameFlags), a   ; clear the game flags
                 ld bc, (PointerPos) ; get the mouse pointer position
@@ -134,7 +127,6 @@ include "gameplay.inc"
 include "control.inc"
 include "hiscore.inc"
 include "screen.inc"
-include "math.inc"
 include "window.inc"
 include "menu.inc"
 include "ay_player.inc"

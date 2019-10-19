@@ -2696,6 +2696,10 @@ defw cave01r
 defw cave03a
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile\cave03a>]
 
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\ScorePanel><Data:>]
+defw ScorePanel
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\ScorePanel>]
+
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile>]
 
 ; ]RESOURCES SECTION

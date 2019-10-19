@@ -16,7 +16,7 @@ MainMenu:       call EraseMenuPtr
                 ld a, 72
                 call WindowSetColor
                 ld b, 16
-                ld c, 80
+                ld c, 60
                 ld d, 12
                 ld e, 19
                 call WindowOpen
@@ -707,28 +707,28 @@ MainMenu_0:     defw 16495
                 defm "Game Menu"
                 defb $ff
 MainMenu_0_Rect defb 8
-                defb 104, 40, 192, 48
+                defb 74, 40, 192, 48
                 defw MainGameNormal
                 defb 0
-                defb 104, 48, 184, 56
+                defb 74, 48, 184, 56
                 defw MainGameTimed
                 defb 0
-                defb 104, 56, 168, 64
+                defb 74, 56, 168, 64
                 defw MenuControl
                 defb 0
-                defb 104, 64, 144, 72
+                defb 74, 64, 144, 72
                 defw MenuMusic
                 defb 0
-                defb 104, 72, 168, 80
+                defb 74, 72, 168, 80
                 defw MenuGraphics
                 defb 0
-                defb 104, 80, 208, 88
+                defb 74, 80, 208, 88
                 defw MainMenuCont
                 defb 0
-                defb 104, 88, 192, 96
+                defb 74, 88, 192, 96
                 defw MenuHighScore
                 defb 0
-                defb 104, 96, 136, 104
+                defb 74, 96, 136, 104
                 defw MenuQuitVerify
                 defb 0
 MainMenu_0_Txt: defb 77

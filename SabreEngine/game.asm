@@ -15,36 +15,39 @@
 ;---------------------------------------------------------------;
 MAPWIDTH:   equ     16                  ; number of screens the map is wide
 MAPHEIGHT:  equ     16                  ; number of screens the map is tall
-SABRE_SCREEN:     equ     16384               ; spectrum display memory address
-SABRE_SCREEN2:    equ     SABRE_SCREEN+64           ; address to draw the offset screen buffer
-SABRE_ATTR:       equ     22528               ; spectrum attribute memory address
-SABRE_SCRLEN:     equ     6144                ; size of the screen pixels in bytes
-SABRE_ATTRLEN:    equ     768                 ; size of the SABRE_ATTR in bytes
-SABRE_MEMSCRLEN:  equ     6335                ; size of the offscreen buffer
+SCREEN:     equ     16384               ; spectrum display memory address
+SCREEN2:    equ     SCREEN+64           ; address to draw the offset screen buffer
+ATTR:       equ     22528               ; spectrum attribute memory address
+SCRLEN:     equ     6144                ; size of the screen pixels in bytes
+ATTRLEN:    equ     768                 ; size of the ATTR in bytes
+MEMSCRLEN:  equ     6335                ; size of the offscreen buffer
 CHRSET:     equ     15616               ; address of the spectrum ROM character
-;SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
+SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
 
 ;include "screen.inc"
 
+            org 24768
+            jp Start
+            defb 0
 MemScr:     defs 5632                   ; off screen memory aligned to 4 byte boundary
 MemAttr:    defs 705
 
-Sabre_Start:      ;ld sp,  63488
+Start:      ;ld sp,  63488
             ;jp Start
-            call Sabre_ClrScr
-            call Sabre_DrwPanel
-            call Sabre_DrwMapPos
-            call Sabre_DrawMap
-            call Sabre_SM_Draw
+            call ClrScr
+            call DrwPanel
+            call DrwMapPos
+            call DrawMap
+            call SM_Draw
             ;ret
 
-Sabre_MoveLoop:   call Sabre_MM_Move                ; move the Monsters
-            call Sabre_SM_Move                ; move SabreMan
-            call Sabre_Pause                  ; pause a little while
-            jr Sabre_MoveLoop                 ; move again
+MoveLoop:   call MM_Move                ; move the Monsters
+            call SM_Move                ; move SabreMan
+            call Pause                  ; pause a little while
+            jr MoveLoop                 ; move again
 
 
-Sabre_Pause:      push bc                     ; save bc
+Pause:      push bc                     ; save bc
             push de                     ; save de
             push hl                     ; hl
             ld bc, 5000                 ; define the pause length
@@ -56,38 +59,38 @@ Sabre_Pause:      push bc                     ; save bc
             pop bc                      ; restore bc
             ret                         ; pause complete
 
-Sabre_DrwPanel:   ld hl, SABRE_SCREEN+3
+DrwPanel:   ld hl, SCREEN+3
             ld de, UP1
             call DrwStr
-            ld hl, SABRE_SCREEN+33
+            ld hl, SCREEN+33
             ld de, SCORE1
             call DrwStr
-            ld hl,  SABRE_SCREEN+27
+            ld hl,  SCREEN+27
             ld de,  UP2
             call DrwStr
-            ld hl,  SABRE_SCREEN+57
+            ld hl,  SCREEN+57
             ld de,  SCORE2
             call DrwStr
-            ld hl, SABRE_SCREEN+15
+            ld hl, SCREEN+15
             ld de,  HI
             call DrwStr
-            ld hl,  SABRE_SCREEN+45
+            ld hl,  SCREEN+45
             ld de,  SCOREH
             call DrwStr
 
             ld hl, SCOREC
-            ld de, SABRE_ATTR
+            ld de, ATTR
             ld bc, 64
             ldir
             ret
 
-Sabre_DrwMapPos:  ld a, (MAP_Coord)
+DrwMapPos:  ld a, (MAP_Coord)
             ld de, MAPPOS
             call Num2Txt
             ld a, (MAP_Coord + 1)
             ld de, MAPPOS + 4
             call Num2Txt
-            ld hl, SABRE_SCREEN+33
+            ld hl, SCREEN+33
             ld de, MAPPOS
             call DrwStr
             ret
@@ -105,7 +108,7 @@ Num2Txt:    add a, a
 
 
 ;---------------------------------------------------------------;
-; Sabre_MM_Move                                                       ;
+; MM_Move                                                       ;
 ;                                                               ;
 ;   Moves the Monsters on the screen                            ;
 ;                                                               ;
@@ -127,12 +130,12 @@ Num2Txt:    add a, a
 ;       none                                                    ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-Sabre_MM_Move:    ret
+MM_Move:    ret
 
 
 
 ;---------------------------------------------------------------;
-; Sabre_SM_Move                                                       ;
+; SM_Move                                                       ;
 ;                                                               ;
 ;   Moves SabreMan by using the Interface II port 2             ;
 ;                                                               ;
@@ -156,7 +159,7 @@ Sabre_MM_Move:    ret
 ;       af,  af',  bc',  de'. hl'                               ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-Sabre_SM_Move:    ld bc, 61438                ; load bc with Interface II port 2 address
+SM_Move:    ld bc, 61438                ; load bc with Interface II port 2 address
             in a, (c)                   ; read the Interface II port
             and 191                     ; mask the 4 movement keys from the port value
             xor 191                     ; invert the keys so that if no keys are pressed
@@ -199,14 +202,14 @@ UP:         ld hl, (SM_Sprite)          ; get the current sprite set
             sbc hl, de                  ; compare them
             jr z, UPMOVE                ; zero if the same so goto next frame
             push de                     ; save the sprite pointer
-            call Sabre_SM_Draw                ; erase the last sabreman
+            call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
             ld (SM_Sprite), de          ; not the same,  so change the sprite set
             ld a, (SM_Frame)            ; get the frame index
             xor a                       ; reset the frame to zero
             ld (SM_OFrame), a           ; save the frame index
             ld (SM_Frame),  a           ; set the frame index
-            call Sabre_SM_Draw                ; draw the new sabreman
+            call SM_Draw                ; draw the new sabreman
             ret                         ; done
 UPMOVE:	    call SM_Size
             ld bc, (SM_Pos)             ; load position into bc
@@ -228,20 +231,20 @@ UPDOTEST:   call ColTest
             sub 4
             ld b, a
             cp 16
-            jr z, UPSABRE_SCREEN
+            jr z, UPSCREEN
             ld (SM_Pos), bc
             jp NEXTFRAME
-UPSABRE_SCREEN:   ld bc, (SM_Pos)
+UPSCREEN:   ld bc, (SM_Pos)
             ld b, 164
             ld (SM_Pos), bc
             ld bc, (MAP_Coord)          ; get the current map coords
             dec b                       ; move to the next map
             ld (MAP_Coord), bc          ; save the new map coord
-            call Sabre_DrwMapPos
-            call Sabre_DrawMap
+            call DrwMapPos
+            call DrawMap
             call FixSMPos
-            call Sabre_SM_Draw
-            call Sabre_SM_Draw
+            call SM_Draw
+            call SM_Draw
             ld hl, (SM_Pos)
             ld (SM_OPos), hl
             ld hl, (SM_Sprite)          ; get the current sprite set
@@ -258,14 +261,14 @@ DOWN:       ld hl, (SM_Sprite)          ; get the current sprite set
             sbc hl, de                  ; compare them
             jr z,  DOWNMOVE             ; zero if the same so goto next frame
             push de                     ; save the sprite pointer
-            call Sabre_SM_Draw                ; erase the last sabreman
+            call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
             ld (SM_Sprite), de          ; not the same,  so change the sprite set
             ld a, (SM_Frame)            ; get the frame index
             ld (SM_OFrame), a           ; save the frame index
             xor a                       ; reset the frame to zero
             ld (SM_Frame),  a           ; set the frame index
-            call Sabre_SM_Draw                ; draw the new sabreman
+            call SM_Draw                ; draw the new sabreman
             ;call SM_Erase              ; erase the old sabreman
             ret                         ; done
 DOWNMOVE:   call SM_Size
@@ -289,20 +292,20 @@ DOWNDOTEST: call ColTest
             ld b, a
             ld a, 168
             cp b
-            jr z,  DOWNSABRE_SCREEN
+            jr z,  DOWNSCREEN
             ld (SM_Pos), bc
             jp NEXTFRAME
-DOWNSABRE_SCREEN: ld bc, (SM_Pos)
+DOWNSCREEN: ld bc, (SM_Pos)
             ld b, 20
             ld (SM_Pos), bc
             ld bc, (MAP_Coord)          ; get the current map coords
             inc b                       ; move to the next map
             ld (MAP_Coord), bc          ; save the new map coord
-            call Sabre_DrwMapPos
-            call Sabre_DrawMap
+            call DrwMapPos
+            call DrawMap
             call FixSMPos
-            call Sabre_SM_Draw
-            call Sabre_SM_Draw
+            call SM_Draw
+            call SM_Draw
             ld hl, (SM_Pos)
             ld (SM_OPos), hl
             ld hl, (SM_Sprite)          ; get the current sprite set
@@ -319,14 +322,14 @@ LEFT:       ld hl, (SM_Sprite)          ; get the current sprite set
             sbc hl, de                  ; compare them
             jr z,  LEFTMOVE             ; zero if the same so goto next frame
             push de                     ; save the sprite pointer
-            call Sabre_SM_Draw                ; erase the last sabreman
+            call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
             ld (SM_Sprite), de          ; not the same,  so change the sprite set
             ld a, (SM_Frame)            ; get the frame index
             ld (SM_OFrame), a           ; save the frame index
             xor a                       ; reset the frame to zero
             ld (SM_Frame), a            ; set the frame index
-            call Sabre_SM_Draw                ; draw the new sabreman
+            call SM_Draw                ; draw the new sabreman
             ;call SM_Erase              ; erase the old sabreman
             ret                         ; done
 LEFTMOVE:   call SM_Size                ; get the size of the current sprite
@@ -348,19 +351,19 @@ LEFTDOTEST: call ColTest                ; will the new position collide?
             ld a, c
             sub 4
             ld c, a
-            jr z, LEFTSABRE_SCREEN
+            jr z, LEFTSCREEN
             ld (SM_Pos), bc             ; save the new position
             jp NEXTFRAME                ; go to the next frame
-LEFTSABRE_SCREEN: ld bc, (SM_Pos)
+LEFTSCREEN: ld bc, (SM_Pos)
             ld c, 232
             ld (SM_Pos), bc
             ld bc, (MAP_Coord)          ; get the current map coords
             dec c                       ; move to the next map
             ld (MAP_Coord), bc          ; save the new map coord
-            call Sabre_DrwMapPos
-            call Sabre_DrawMap
-            call Sabre_SM_Draw
-            call Sabre_SM_Draw
+            call DrwMapPos
+            call DrawMap
+            call SM_Draw
+            call SM_Draw
             ld hl, (SM_Pos)
             ld (SM_OPos), hl
             ld hl, (SM_Sprite)          ; get the current sprite set
@@ -377,14 +380,14 @@ RIGHT:      ld hl, (SM_Sprite)          ; get the current sprite set
             sbc hl, de                  ; compare them
             jr z, RIGHTMOVE             ; zero if the same so move sprite
             push de                     ; save the sprite pointer
-            call Sabre_SM_Draw                ; erase the last sabreman
+            call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
             ld (SM_Sprite), de          ; not the same,  so change the sprite set
             ld a, (SM_Frame)            ; get the frame index
             ld (SM_OFrame), a           ; save the frame index
             xor a                       ; reset the frame to zero
             ld (SM_Frame), a            ; set the frame index
-            call Sabre_SM_Draw                ; draw the new sabreman
+            call SM_Draw                ; draw the new sabreman
             ret                         ; done
 RIGHTMOVE:  call SM_Size
             ld bc, (SM_Pos)             ; load position into bc
@@ -406,19 +409,19 @@ RIGHTDOTEST:call ColTest
             add a, c
             ld c, a
             cp 240
-            jr z, RIGHTSABRE_SCREEN
+            jr z, RIGHTSCREEN
             ld (SM_Pos), bc             ; save the new position
             jr NEXTFRAME                ; go to the next frame
-RIGHTSABRE_SCREEN:ld bc, (SM_Pos)
+RIGHTSCREEN:ld bc, (SM_Pos)
             ld c, 4
             ld (SM_Pos), bc
             ld bc, (MAP_Coord)          ; get the current map coords
             inc c                       ; move to the next map
             ld (MAP_Coord), bc          ; save the new map coord
-            call Sabre_DrwMapPos
-            call Sabre_DrawMap
-            call Sabre_SM_Draw
-            call Sabre_SM_Draw
+            call DrwMapPos
+            call DrawMap
+            call SM_Draw
+            call SM_Draw
             ld hl, (SM_Pos)
             ld (SM_OPos), hl
             ld hl, (SM_Sprite)          ; get the current sprite set
@@ -437,7 +440,7 @@ NEXTFRAME:  ld hl, (SM_Sprite)          ; get the current sprite set
             jr nz, NEXTFRAME1           ; skip if the result is not zero
             xor a                       ; reset the frame index to zero (ie. loop around)
             ld (SM_Frame), a            ; store the new frame index
-NEXTFRAME1: call Sabre_SM_Draw                ; draw the new sabreman
+NEXTFRAME1: call SM_Draw                ; draw the new sabreman
             call SM_Erase               ; erase the old sabreman
             ret
 
@@ -493,7 +496,7 @@ FixCheck    ld a, (hl)                  ; get attr at hl
             ret                         ; return set flags
 
 ;---------------------------------------------------------------;
-; Sabre_SM_Draw                                                       ;
+; SM_Draw                                                       ;
 ;                                                               ;
 ;   Draws the SabreMan sprite at it current position,  frame and;
 ;   color in the off screen buffer                              ;
@@ -517,7 +520,7 @@ FixCheck    ld a, (hl)                  ; get attr at hl
 ;   Regs destoryed                                              ;
 ;       af,  bc,  de,  hl                                       ;
 ;---------------------------------------------------------------;
-Sabre_SM_Draw:    ld hl, (SM_Sprite)          ; load the sprite set into hl
+SM_Draw:    ld hl, (SM_Sprite)          ; load the sprite set into hl
             inc hl                      ; move pass the number of frames to the sprite pointers
             ld a, (SM_Frame)            ; load the current frame index into a
             ld c, a                     ; and place into c
@@ -545,7 +548,7 @@ SM_Erase:   ld hl,  (SM_OSprite)        ; load the sprite set into hl
             ld d, (hl)
             ex de, hl                   ; place the frame pointer in hl
             ld bc,  (SM_OPos)           ; load bc with the position of the sprite
-            xor a                       ; indicate we don't want to change the SABRE_ATTR
+            xor a                       ; indicate we don't want to change the ATTR
             call DrwSprNC               ; erase the old sabreman frame
             ret
 
@@ -575,10 +578,128 @@ SM_Size:    ld hl, (SM_OSprite)         ; load the sprite set into hl
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
 ;
-Sabre_DrawMap:    ld bc, (MAP_Coord)          ; get the map coords
+DrawMap:    ld bc, (MAP_Coord)          ; get the map coords
             call Map2Scr                ; convert map cell coords to tile screen address
             call DrwScr                 ; draw the screen
             call BltMemScr              ; show the screen
+            ret
+
+;---------------------------------------------------------------;
+; Incy                                                          ;
+;                                                               ;
+;   Moves the screen address down 1 line                        ;
+;   Written by Tony Thompson                                    ;
+;   Written by Nick Fleming                                     ;
+;   Both versions where identical                               ;
+;   Created         1984                                        ;
+;   Last Changed    1st May 2003                                ;
+;                                                               ;
+;   Inputs                                                      ;
+;       hl - the address of a screen location                   ;
+;                                                               ;
+;   Outputs                                                     ;
+;       hl - the address of the line below                      ;
+;                                                               ;
+;   Regs Used                                                   ;
+;       af,  hl                                                  ;
+;                                                               ;
+;   Regs destoryed                                              ;
+;       af                                                      ;
+;---------------------------------------------------------------;
+Incy:       inc h                       ; try to move down 1 line in a character                1M  4T
+            ld a, h                     ; get h into a                                          1M  4T
+            and 7                       ; test if still inside character                        2M  7T
+            ret nz                      ; ret if in character square                            1M  5T  3M  5T  7M  20T
+            ld a, l                     ; no,  get lower byte of address                        1M  4T
+            add a, 32                   ; and move it to the next character block               2M  7T
+            ld l, a                     ; store the result                                      1M  4T
+            ret c                       ; return if we are still in the same segment?           1M  5T  3M  5T  13M 40T
+            ld a, h                     ; no,  so need to adjust high order byte of address     1M  4T
+            sub 8                       ; adjust screen segment                                 2M  7T
+            ld h, a                     ; store the correction                                  1M  4T
+            ret                         ;                                                       3M 10T          18M 60T
+
+;---------------------------------------------------------------;
+; Decy                                                          ;
+;                                                               ;
+;   Moves the screen address up 1 line                          ;
+;   Written by Nick Fleming                                     ;
+;                                                               ;
+;   Inputs                                                      ;
+;       hl - the address of a screen location                   ;
+;                                                               ;
+;   Outputs                                                     ;
+;       hl - the address of the line above                      ;
+;                                                               ;
+;   Regs Used                                                   ;
+;       af,  hl                                                 ;
+;                                                               ;
+;   Regs destoryed                                              ;
+;       af                                                      ;
+;---------------------------------------------------------------;
+
+Decy:       dec h                       ; try to move up 1 line in a character
+            ld a, h                     ; test high order of address
+            and 7                       ; mask off top 5 bits,  keep lower 3
+            cp 7                        ; is the result 7?,  if yes we are at the bottom of a character square
+            ret nz                      ; yes,
+            ld a, l                     ; so get lower order byte of screen address
+            sub 32                      ; and try to move up by 1 character to next line
+            ld l, a                     ; store resul in lower order byte screen address
+            ret c                       ; are we still in the correct segment?
+            ld a, h                     ; no,  so need to adjust screen segemnt
+            add a, 8                    ; correct the segment we are in
+            ld h, a                     ; store the correction
+            ret
+
+;---------------------------------------------------------------;
+; Pix                                                           ;
+;                                                               ;
+;   Converts a screen pixel coord into a screen address and     ;
+;   pixel position                                              ;
+;   Written by Tony Thompson                                    ;
+;   Created         1984                                        ;
+;   Last Changed    1st May 2003                                ;
+;                                                               ;
+;   Inputs                                                      ;
+;       b - y position in pixels                                ;
+;       c - x position in pixels                                ;
+;                                                               ;
+;   Outputs                                                     ;
+;       hl - the attribute address for the screen location      ;
+;       a  - contains the bit position of the pixel             ;
+;                                                               ;
+;   Regs Used                                                   ;
+;       af,  bc,  hl                                            ;
+;                                                               ;
+;   Regs destoryed                                              ;
+;       af                                                      ;
+;---------------------------------------------------------------;
+Pix:        ld a, b
+            rra
+            scf
+            rra
+            rra
+            and 88
+            ld h, a
+            ld a, b
+            and 7
+            add a, h
+            ld h, a
+            ld a, c
+            rrca
+            rrca
+            rrca
+            and 31
+            ld l, a
+            ld a, b
+            and 56
+            add a, a
+            add a, a
+            or l
+            ld l, a
+            ld a, c
+            and 7
             ret
 
 ;---------------------------------------------------------------;
@@ -683,6 +804,33 @@ MAttr2:     push de
             ret
 
 ;---------------------------------------------------------------;
+; Attr                                                          ;
+;                                                               ;
+;   Converts a screen addr into an attribute address            ;
+;   Written by Nick Fleming                                     ;
+;                                                               ;
+;   Inputs                                                      ;
+;       hl - the address of a screen location                   ;
+;                                                               ;
+;   Outputs                                                     ;
+;       hl - the attribute address for the screen location      ;
+;                                                               ;
+;   Regs Used                                                   ;
+;       af,  h                                                  ;
+;                                                               ;
+;   Regs destoryed                                              ;
+;       af                                                      ;
+;---------------------------------------------------------------;
+Attr:       ld a, h                 ; get the high byte of screen address
+            rra                     ; divide h by 8
+            rra                     ;
+            rra                     ;
+            and 3                   ; keep lower 3 bits,  these mimick the lower 4 bits of the attribute address
+            or 0x58                 ; set the high order byte to the start of the attribute block
+            ld h, a                 ; load the result into h
+            ret                     ; hl now contains the attribute address
+
+;---------------------------------------------------------------;
 ; Map2Scr                                                       ;
 ;   Converts a Screen grid coords to an address of a Tiled      ;
 ;   Screen address that can be passed to DrwScr                 ;
@@ -722,7 +870,7 @@ Map2Scr:    push bc                     ; save the coords
             ld b, 0
 MapIdx2Scr: sla c                       ; multiply bc by 2
             rl b                        ;
-            ld hl, 100; MapTable             ;
+            ld hl, MapTable             ;
             add hl, bc
             pop bc                      ; restore the coords
             ld e, (hl)                  ; put the address of the tile screen into de
@@ -733,7 +881,7 @@ MapIdx2Scr: sla c                       ; multiply bc by 2
 
 
 ;---------------------------------------------------------------;
-; Sabre_ClrScr                                                        ;
+; ClrScr                                                        ;
 ;                                                               ;
 ;   Clears the screen                                           ;
 ;                                                               ;
@@ -753,19 +901,19 @@ MapIdx2Scr: sla c                       ; multiply bc by 2
 ;   Regs destoryed                                              ;
 ;       bc,  de,  hl                                            ;
 ;---------------------------------------------------------------;
-Sabre_ClrScr:     push bc                     ; save bc
+ClrScr:     push bc                     ; save bc
             push de                     ; save de
             push hl                     ; save hl
-                                        ; clear the SABRE_ATTR first - makes for a smoother clear
-            ld hl,  SABRE_ATTR                ; point hl to screen address
-            ld de,  SABRE_ATTR+1              ; point de to screen address + 1
-            ld bc,  SABRE_ATTRLEN-1           ; load bc with the size of the screen - 1
+                                        ; clear the ATTR first - makes for a smoother clear
+            ld hl,  ATTR                ; point hl to screen address
+            ld de,  ATTR+1              ; point de to screen address + 1
+            ld bc,  ATTRLEN-1           ; load bc with the size of the screen - 1
             ld (hl),  0                 ; clear the first element of the screen
             ldir                        ; block transfer zeroes to all of the screen
                                         ; clear the screen data
-            ld hl,  SABRE_SCREEN              ; point hl to screen address + 1
-            ld de,  SABRE_SCREEN+1            ; point de to screen address
-            ld bc,  SABRE_SCRLEN-1            ; load bc with the size of the screen - 1
+            ld hl,  SCREEN              ; point hl to screen address + 1
+            ld de,  SCREEN+1            ; point de to screen address
+            ld bc,  SCRLEN-1            ; load bc with the size of the screen - 1
             ld (hl),  0                 ; clear the first element of the screen
             ldir                        ; block transfer zeroes to all of the screen
             pop hl                      ; restore hl
@@ -800,7 +948,7 @@ ClrMemScr:  push bc                     ; save bc
             ld hl,  MemScr              ; point hl to the offscreen buffer
             ld de,  MemScr              ; point de to the offscreen buffer
             inc de
-            ld bc,  SABRE_MEMSCRLEN           ; set bc to the size of the buffer
+            ld bc,  MEMSCRLEN           ; set bc to the size of the buffer
             ld (hl), 0                  ; clear the first byte of the buffer
             ldir                        ; clear all of the buffer
             pop hl                      ; restore hl
@@ -830,14 +978,14 @@ ClrMemScr:  push bc                     ; save bc
 ;       af,  bc,  de,  hl                                       ;
 ;---------------------------------------------------------------;
 BltMemScr:  ;di
-            ld hl,  MemAttr             ; copy the SABRE_ATTR first
-            ld de,  SABRE_ATTR + 64           ; this makes for a smoother copy
+            ld hl,  MemAttr             ; copy the ATTR first
+            ld de,  ATTR + 64           ; this makes for a smoother copy
             ld bc,  704                 ; onto the screen
             ldir                        ; copy attribute in 1 block transfer
                                         ; copy the screen data
             ld b, 176                   ; lines to copy
             ld hl, MemScr               ; off screen buffer
-            ld de, SABRE_SCREEN2              ; destination on screen
+            ld de, SCREEN2              ; destination on screen
 bms1:       push bc                     ; save lines to copy
             ld bc,  32                  ; set size of line to block transfer
             push de                     ; save screen address
@@ -908,7 +1056,7 @@ ds1:        inc hl                      ; move to first tile description
             inc hl                      ;
             ld d, (hl)                  ;
             ex de, hl                   ; put the tile address in hl
-            call DrwTileSabre                ; draw the tile
+            call DrwTile                ; draw the tile
             pop hl                      ; get current index address into screen
             pop bc                      ; get no of tiles
             djnz ds1                    ; draw all tiles
@@ -939,7 +1087,7 @@ ds1:        inc hl                      ; move to first tile description
 ;   Regs destoryed                                              ;
 ;       af,  bc,  de,  hl                                       ;
 ;---------------------------------------------------------------;
-DrwTileSabre:    ld e, (hl)                  ; read the width of the tile
+DrwTile:    ld e, (hl)                  ; read the width of the tile
             inc hl                      ; move to height
             ld d, (hl)                  ; read the height of the tile
             inc hl                      ; hl now points to the tile data,  and de contains the size of the tile
@@ -954,7 +1102,7 @@ DrwTileSabre:    ld e, (hl)                  ; read the width of the tile
             sla b                       ; convert character height to
             sla b                       ; pixel height by muliplying the
             sla b                       ; character height by 8
-dt1_sabre:        push bc                     ; save the size
+dt1:        push bc                     ; save the size
             push hl                     ; save the screen address
             ex de, hl                   ; swap screen addr and tile addr (hl - tile)
             ld b, 0                     ; load b with zero,  now bc contains width
@@ -964,7 +1112,7 @@ dt1_sabre:        push bc                     ; save the size
             ld c, 32                    ; size of a line in the buffer
             add hl, bc                  ; move down 1 line in the screen buffer
             pop bc                      ; get the size
-            djnz dt1_sabre                    ; draw all lines of the tile
+            djnz dt1                    ; draw all lines of the tile
             pop bc                      ; get the size
             pop hl                      ; get the top/left screen address
             pop af                      ; put position into af
@@ -973,7 +1121,7 @@ dt1_sabre:        push bc                     ; save the size
             pop bc                      ; put position back into bc
             call MAttr                  ; convert tile pos to attribute address
             pop bc                      ; put size back into bc
-dt2_sabre:        push bc                     ; save the size
+dt2:        push bc                     ; save the size
             push hl                     ; save the attr address
             ld b, 0                     ; make bc contain only the width
             ex de, hl                   ; swap attr addr and tile addr
@@ -983,7 +1131,7 @@ dt2_sabre:        push bc                     ; save the size
             ld c, 32                    ; ld bc with width of screen
             add hl, bc                  ; goto the next line down
             pop bc                      ; put currently drawn size into bc
-            djnz dt2_sabre                    ; do all the lines of attr's
+            djnz dt2                    ; do all the lines of attr's
             ret                         ; finished drawing tile
 
 ;---------------------------------------------------------------;
@@ -1049,7 +1197,6 @@ dc1:        ld a, (de)                  ; get character data
 ;   Regs destoryed                                              ;
 ;       af,  de,  hl                                            ;
 ;---------------------------------------------------------------;
-
 DrwStr:     ld a, (de)                  ; get character from string
             or a                        ; check character is not end of string
             ret z                       ; return if string is finished
@@ -1066,7 +1213,7 @@ DrwStr:     ld a, (de)                  ; get character from string
 ;---------------------------------------------------------------;
 ; DrwSprNC                                                      ;
 ;                                                               ;
-;   Draws a sprite with no color SABRE_ATTR onto the screen           ;
+;   Draws a sprite with no color ATTR onto the screen           ;
 ;   off screen buffer                                           ;
 ;                                                               ;
 ;   Written by Tony Thompson                                    ;
@@ -1088,11 +1235,183 @@ DrwStr:     ld a, (de)                  ; get character from string
 ;   Regs destoryed                                              ;
 ;       af,  bc,  de,  hl                                       ;
 ;---------------------------------------------------------------;
-;DrwSprNC:   ex af, af'                  ; save the sprite color
-;            ld a,  c                    ; do we need to scroll the sprite into position?
-;            and 7                       ; set z flags
-;            jr z, DSNCfast              ; if zero if set,  then we can draw the sprite the fast way
+DrwSprNC:   ex af, af'                  ; save the sprite color
+            ld a,  c                    ; do we need to scroll the sprite into position?
+            and 7                       ; set z flags
+            jr z, DSNCfast              ; if zero if set,  then we can draw the sprite the fast way
                                         ; need to draw the sprite the slow way
+DSNCslow:   ;
+            ; draw the pixels for the sprite
+            ;
+            ld (Scrolls), a             ; save the scroll count
+            push bc                     ; save the sprite position (pos)
+            push bc                     ; save the sprite position again (pos, pos)
+            push hl                     ; save the sprite data address (pos, pos, spr)
+            call Pix                    ; convert the position to an screen address
+            ex de,  hl                  ; put the off screen address into de
+            pop hl                      ; get the sprite data address into hl (pos, pos)
+            pop bc                      ; get the sprite position (pos)
+            ld c, (hl)                  ; put sprite width into c
+            srl c                       ; div c by 2
+            srl c                       ; div c by 4
+            srl c                       ; div c by 8 into total
+            inc hl                      ; move to sprite height
+            ld b, (hl)                  ; put the sprite height into b
+            inc hl                      ; move to the sprite data
+            push bc                     ; save the size of the sprite (pos, size)
+            bit 0,  c
+            jr nz,  DSNCodd
+            ;
+            ; sprite width is even and we can draw this easier than an odd width
+            ; hl - sprite data
+            ; de - screen address
+            ; bc - sprite size
+            ;
+DSNCslow0:  push bc                     ; save the size of the sprite (pos, size, size)
+            push de                     ; save the screen (pos, size, scr)
+DSNCslow1:  push bc                     ; save the size of the sprite (pos, size, size, scr, size)
+            ld b, (hl)                  ; load b with sprite data
+            inc hl                      ; move to next sprite data
+            ld c, (hl)                  ; load c with sprite data
+            inc hl                      ; move to next sprite data
+            push hl                     ; save the sprite address (pos, size, size, scr, size, spr)
+            ld a, (Scrolls)             ; put the number of scrolls into d
+            ld l, 0
+DSNCslow2:  srl b                       ; scroll b
+            rr c                        ; scroll b into c
+            rr l                        ; and scroll c into l
+            dec a                       ; dec the counter
+            jr nz, DSNCslow2            ; keep scrolling until complete
+            ld a, (de)                  ; get pixels from screen
+            xor b                       ; merge in some of left byte of sprite
+            ld (de),  a                 ; store result
+            inc e                       ; next screen address
+            ld a, (de)                  ; get pixels from screen
+            xor c                       ; merge in some left and some right pixels of sprite
+            ld (de), a                  ; store result
+            inc e                       ; next screen address
+            ld a, (de)                  ; get pixels from screen
+            xor l                       ; merge in the last of the right pixels of sprite
+            ld (de), a                  ; store result
+            dec e                       ; move back 1 character
+            pop hl                      ; get the sprite addr (pos, size, size, scr, size)
+            pop bc                      ; get the sprite size (pos, size, size, scr)
+            dec c                       ; completed 1st character
+            dec c                       ; completed 2nd character
+            jr nz, DSNCslow1            ; loop back and complete the sprite if we are not finished
+            pop de                      ; restore the screen pointer (pos, size, size)
+            ex de, hl                   ; hl = scr addr,  de = spr addr
+            ;ld bc, SCRWIDTH            ; load bc with the width of the off screen buffer
+            ;add hl, bc                 ; move down 1 line in the off screen buffer
+            call Incy                   ; move down 1 line in the off screen buffer
+            ex de, hl                   ; de = scr addr,  hl = spr addr
+            pop bc                      ; get the size of the sprite (pos, size)
+            djnz DSNCslow0              ; draw all lines
+            jr DSNCattr
+
+DSNCodd:    ;
+            ; draw a sprite what has an odd width
+            ; hl - sprite data
+            ; de - screen address
+            ; bc - sprite size
+            ;
+
+DSNCattr:   pop de                      ; put the size into de	(pos)
+            pop bc                      ; put the position into bc ()
+            srl d                       ; div d by 2
+            srl d                       ; div d by 4
+            srl d                       ; div d by 8
+            inc d                       ; add a extra character block to the height
+            inc e                       ; and the width
+            jr DSNCAttrs                ; set the ATTR
+
+DSNCfast:   ;
+            ; draw the pixels for the sprite
+            ;
+            push bc                     ; save the sprite position (pos)
+            push bc                     ; save the sprite position again (pos, pos)
+            push hl                     ; save the sprite data address (pos, pos, spr)
+            call Pix                    ; convert the position to an off screen address
+            ex de,  hl                  ; put the off screen address into de
+            pop hl                      ; get the sprite data address into hl (pos, pos)
+            pop bc                      ; get the sprite position (pos)
+            ld c, (hl)                  ; put sprite width into c
+            srl c                       ; div c by 2
+            srl c                       ; div c by 4
+            srl c                       ; div c by 8 into total
+            inc hl                      ; move to sprite height
+            ld b, (hl)                  ; put the sprite height into b
+            inc hl                      ; move to the sprite data
+            push bc                     ; save the size of the sprite (pos, size)
+DSNCfast1:  push bc                     ; save the size of the sprite	(pos, size, size)
+            push de                     ; save the off screen address (pos, size, size, scr)
+            ld b, c                     ; place the sprite width into b
+DSNCfast2:  ld a, (de)                  ; get the screen contents
+            xor (hl)                    ; merge the sprite data
+            ld (de), a                  ; place data onto the screen
+            inc e                       ; move to next screen position
+            inc hl                      ; move to next sprite data
+            djnz DSNCfast2              ; draw the entire line onto the screen
+            ex de, hl                   ; put the sprite address into de
+            pop hl                      ; restore the off screen address into hl (pos, size, size)
+            ;ld bc, SCRWIDTH            ; place the off screen buffer width into bc
+            ;add hl, bc                 ; move the screen buffer address to the next line
+            call Incy                   ; move the screen buffer address to the next line
+            ex de, hl                   ; place the screen addr into de,  and the sprite addr into hl
+            pop bc                      ; get the sprite size into bc (pos, size)
+            djnz DSNCfast1              ; draw all lines of the sprite
+            pop de                      ; put the sprite size into de (pos)
+            srl d                       ; div d by 2
+            srl d                       ; div d by 4
+            srl d                       ; div d by 8
+            inc d
+            pop bc                      ; put the sprite position into bc ()
+            ;
+            ; draw the ATTR for the sprite
+            ;
+            ; bc - position of sprite in pixels
+            ; de - the size of the sprite in characters
+            ;
+DSNCAttrs:  ex af, af'                  ; get the color of the sprite
+            and a                       ; is it zero?
+            ret z                       ; if so,  no need to draw ATTR
+            ex af, af'                  ; save the color
+            push bc                     ; save the sprite position (pos)
+            call MAttr2                 ; get the offscreen attribute address of the position
+            pop bc                      ; restore the sprite position into bc ()
+            push hl                     ; save the attr addr (attr)
+            call Pix                    ; convert bc to a screen addr
+            call Attr                   ; convert hl to a screen attr address
+            ld b, d                     ; put the sprite height into b
+            ld c, e                     ; put the sprite width  into c
+            pop de                      ; put the off screen attr addr into de ()
+DSNCAttrs1: push de                     ; save the off screen attr addr (osattr)
+            push bc                     ; save the sprite size (osattr, size)
+            ld b, c                     ; put the sprite width into b
+            push hl                     ; save the attr address (osattr, size, attr)
+DSNCAttrs2: ld a, (de)                  ; get the off screen attribute
+            inc de                      ; move the attr pointer
+            and a                       ; check for zero
+            jr nz, DSNCSkip             ; if its zero,  we can set the screen attr
+            ex af, af'                  ; get the color of the sprite
+            ld (hl), a                  ; replace the attr with the new sprite color
+            ex af, af'                  ; save the color of the sprite
+DSNCSkip:   inc hl                      ; move to next attr
+            djnz DSNCAttrs2             ; do all the ATTR in the row
+            pop hl                      ; restore the attr address (osattr, size)
+            ld bc,  SCRWIDTH            ; place the off screen buffer width into bc
+            add hl, bc                  ; move down 1 line of ATTR
+            ex de, hl                   ; de = scr attr
+            pop bc                      ; restore the sprite size (osattr)
+            pop hl                      ; load hl with the off screen attr addr
+            push bc                     ; save the sprite size (size)
+            ld bc,  SCRWIDTH            ; place the off screen buffer width into bc
+            add hl, bc                  ; move to the next line in the off screen attrs
+            ex de, hl                   ; de = off screen attr,  hl = scr attr
+            pop bc                      ; get the sprite size into bc
+            djnz DSNCAttrs1             ; draw all the lines of ATTR
+            ret
+
 
 ; bc - position in pixels
 ; de - size of characters to test
@@ -1131,21 +1450,21 @@ LastCode:   nop
 ; Sprites and Sprite Table used in the game                     ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-include "sprites_sabre.inc"
+include "sprites.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
 ; Tiles used in the Map                                         ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-include "tiles_sabre.inc"
+include "tiles.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
 ; Map Table and Screens used in the game                        ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-;include "map_sabre.inc"
+include "map.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1166,7 +1485,7 @@ SCOREH: defm "100000"
         defb 0
 MAPPOS: defm "08, 10"
         defb 0
-; SABRE_ATTR for the score panel at the top of the screen
+; ATTR for the score panel at the top of the screen
 SCOREC: defb 69, 69, 69, 69, 69, 69, 71, 71, 71,  7,  7,  7,  7,  7,  7, 87, 87,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 69, 69, 69, 69, 69
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
 
@@ -1177,9 +1496,7 @@ TXT16:  defm "0001020304050607080910111213141516"
 ;   Global Variables                                            ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-;Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
-;TileTable:      defb 0
- 
+Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
 SM_Sprite:      defw SabreManWalkLeft   ; current sprite set to use for sabreman
 SM_Frame:       defb 0                  ; current frame of the sprite set
 SM_Pos:         defb 120,  80           ; current position of sabreman
@@ -1190,3 +1507,7 @@ SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 128,  24           ; old position of sabreman
 MAP_Coord:      defb 8, 10              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
+;ScorePanel      defw 0
+
+end 24768
+
