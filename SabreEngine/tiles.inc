@@ -2591,6 +2591,687 @@ defb   7,  71,   7
 defb   7,   7,   7
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_1>]    
 
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_grass_checker><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_grass_checker
+; Size   : 56x56
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_grass_checker:
+defb 7, 7             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255,   0, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255,   0, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255,   0
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255,   0, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb   0, 255, 255, 255, 255, 255, 255
+defb   0, 255, 255, 255, 255, 255, 255
+defb   0, 255, 255, 255, 255, 255, 255
+defb 255,   0,   0,   0,   0,   0,   0
+defb 255,   0,   2,   0,   4,   0,  16
+defb 255,   0,   0,   0,   0,   0,   0
+defb 255,   0,   0,   0,   0,   0,   0
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255,   0, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255,   0
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255,   0, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255,   0, 255
+defb 255, 255,   0, 255, 255, 255, 255
+defb 255, 255, 255, 255, 255, 255, 255
+; attrs
+defb  68,  68,  68,  68, 100,  68,  68
+defb  68, 100,  68,  68,  68,  68, 100
+defb  68,  68,  68,  68, 100,  68,  68
+defb  36, 100,  36, 100,  36, 100,  36
+defb   4,   4,   4,  36,   4,   4,  36
+defb   4,  36,   4,   4,   4,   4,   4
+defb   4,   4,  36,   4,   4,  36,   4
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_grass_checker>] 
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_metal
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_metal:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 128,   0,   1
+defb 128,   0,   1
+defb 145,  17,  17
+defb 136, 136, 137
+defb 128,   0,   1
+defb 128,   0,   1
+defb 130,  34,  33
+defb 132,  68,  65
+defb 128,   0,   1
+defb 128,   0,   1
+defb 145,  17,  17
+defb 136, 136, 137
+defb 128,   0,   1
+defb 128,   0,   1
+defb 130,  34,  33
+defb 132,  68,  65
+defb 128,   0,   1
+defb 128,   0,   1
+defb 145,  17,  17
+defb 136, 136, 137
+defb 128,   0,   1
+defb 128,   0,   1
+defb 255, 255, 255
+; attrs
+defb  69,  69,  69
+defb  69,  69,  69
+defb  69,  69,  69
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal>]         
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal_block><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_metal_block
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_metal_block:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 128,  24,   1
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 191, 219, 253
+defb 128,  24,   1
+defb 255, 255, 255
+defb 255, 255, 255
+defb 128,  24,   1
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 128,  88,   5
+defb 191, 219, 253
+defb 128,  24,   1
+defb 255, 255, 255
+; attrs
+defb   7,   7,   7
+defb   7,   7,   7
+defb   7,   7,   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal_block>]   
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal_block_mini><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_metal_block_mini
+; Size   : 8x8
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_metal_block_mini:
+defb 1, 1             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255
+defb 129
+defb 133
+defb 133
+defb 133
+defb 189
+defb 129
+defb 255
+; attrs
+defb   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_metal_block_mini>]
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_concrete_wall
+; Size   : 8x8
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_concrete_wall:
+defb 1, 1             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 129
+defb 194
+defb 228
+defb 248
+defb 248
+defb 228
+defb 194
+defb 129
+; attrs
+defb   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall>] 
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_dangerZone><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_dangerZone
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_dangerZone:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb  31,   1, 240
+defb  62,   3, 224
+defb 124,   7, 192
+defb 248,  15, 128
+defb 240,  31,   1
+defb 224,  62,   3
+defb 192, 124,   7
+defb 128, 248,  15
+defb   1, 240,  31
+defb   3, 224,  62
+defb   7, 192, 124
+defb  15, 128, 248
+defb  31,   1, 240
+defb  62,   3, 224
+defb 124,   7, 192
+defb 248,  15, 128
+defb 240,  31,   1
+defb 224,  62,   3
+defb 192, 124,   7
+defb 128, 248,  15
+defb   1, 240,  31
+defb   3, 224,  62
+defb   7, 192, 124
+defb  15, 128, 248
+; attrs
+defb   6,   6,   6
+defb   6,   6,   6
+defb   6,   6,   6
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_dangerZone>]    
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_door><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_door
+; Size   : 8x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_door:
+defb 1, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   0
+defb  44
+defb  44
+defb 108
+defb 122
+defb  42
+defb  42
+defb  58
+defb  58
+defb  54
+defb  84
+defb 108
+defb 122
+defb  58
+defb  58
+defb 118
+defb 106
+defb  92
+defb  58
+defb 104
+defb 116
+defb  52
+defb 108
+defb   0
+; attrs
+defb   2
+defb   2
+defb   2
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_door>]          
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_box><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_box
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_box:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 128,   0,   1
+defb 191, 255, 253
+defb 160,   0,   5
+defb 173, 221, 181
+defb 174, 238, 117
+defb 167, 118, 229
+defb 171, 185, 213
+defb 173, 219, 149
+defb 174, 231, 101
+defb 167, 110, 117
+defb 171, 157, 181
+defb 173, 185, 213
+defb 174, 118, 229
+defb 166, 231, 117
+defb 169, 219, 181
+defb 171, 157, 213
+defb 167, 110, 229
+defb 174, 119, 117
+defb 173, 187, 181
+defb 160,   0,   5
+defb 191, 255, 253
+defb 128,   0,   1
+defb 255, 255, 255
+; attrs
+defb   6,   6,   6
+defb   6,   6,   6
+defb   6,   6,   6
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_box>]           
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_box_1><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_box_1
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_box_1:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 128,   0,   1
+defb 191, 255, 253
+defb 160,   0,   5
+defb 167, 255, 229
+defb 171, 255, 213
+defb 173, 255, 181
+defb 174, 255, 117
+defb 175, 126, 245
+defb 175, 189, 245
+defb 175, 219, 245
+defb 175, 231, 245
+defb 175, 231, 245
+defb 175, 219, 245
+defb 175, 189, 245
+defb 175, 126, 245
+defb 174, 255, 117
+defb 173, 255, 181
+defb 171, 255, 213
+defb 167, 255, 229
+defb 160,   0,   5
+defb 191, 255, 253
+defb 128,   0,   1
+defb 255, 255, 255
+; attrs
+defb   6,   6,   6
+defb   6,   6,   6
+defb   6,   6,   6
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_box_1>]         
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_window><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_window
+; Size   : 8x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_window:
+defb 1, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255
+defb 197
+defb 137
+defb 145
+defb 163
+defb 197
+defb 137
+defb 145
+defb 163
+defb 197
+defb 137
+defb 145
+defb 163
+defb 197
+defb 137
+defb 145
+defb 163
+defb 197
+defb 137
+defb 145
+defb 163
+defb 197
+defb 137
+defb 255
+; attrs
+defb   5
+defb   5
+defb   5
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_window>]        
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_bricks_1><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_bricks_1
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_bricks_1:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 144,   1,   1
+defb 144,   1,   1
+defb 144,   1,   1
+defb 144,   1,   1
+defb 255, 255, 255
+defb 129,   0,  17
+defb 129,   0,  17
+defb 129,   0,  17
+defb 129,   0,  17
+defb 129,   0,  17
+defb 255, 255, 255
+defb 128,  16,   5
+defb 128,  16,   5
+defb 128,  16,   5
+defb 128,  16,   5
+defb 128,  16,   5
+defb 255, 255, 255
+defb 130,   0,  65
+defb 130,   0,  65
+defb 130,   0,  65
+defb 130,   0,  65
+defb 130,   0,  65
+defb 255, 255, 255
+; attrs
+defb   5,   5,   5
+defb   5,   5,   5
+defb   5,   5,   5
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_bricks_1>]      
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_window_1><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_window_1
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_window_1:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   1,   0, 128
+defb   1,   0, 128
+defb   1,   0, 128
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 118,   0
+defb   0, 110,   0
+defb   0,  90,   0
+defb   0, 118,   0
+defb   0, 110,   0
+defb   0,  90,   0
+defb   0, 118,   0
+defb   0, 110,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   0, 255,   0
+defb   1,   0, 128
+defb   1,   0, 128
+defb   1,   0, 128
+; attrs
+defb   7, 125,   7
+defb   0,  69,   0
+defb   7, 125,   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_window_1>]      
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_checker><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_checker
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_checker:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb   3, 240,  63
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+defb 252,  15, 192
+; attrs
+defb   3,   3,   3
+defb   3,   3,   3
+defb   3,   3,   3
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_checker>]       
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_roadLane><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_roadLane
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_roadLane:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+defb  56,   0,   0
+; attrs
+defb   7,   0,   0
+defb   7,   0,   0
+defb   7,   0,   0
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_roadLane>]      
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_chair><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_chair
+; Size   : 16x16
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_chair:
+defb 2, 2             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   0,   0
+defb  62, 212
+defb  62, 148
+defb  55, 150
+defb  54, 152
+defb  54, 156
+defb  62, 220
+defb  62, 218
+defb  54, 218
+defb 118, 218
+defb 111, 214
+defb 110, 214
+defb 110, 222
+defb  93, 156
+defb  61, 148
+defb   0,   0
+; attrs
+defb  66,  66
+defb  66,  66
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_chair>]         
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_table><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_table
+; Size   : 24x48
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_table:
+defb 3, 6             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   0,   0,   0
+defb  95, 107,  92
+defb  95,  91, 212
+defb  91, 219,  84
+defb  91,  94, 212
+defb  91,  94, 180
+defb  95, 126, 180
+defb  95, 125, 174
+defb  91, 109, 172
+defb  59, 109, 172
+defb 119, 235, 172
+defb 119, 123, 124
+defb 119, 127, 108
+defb 110, 223, 108
+defb  94, 219,  92
+defb  61, 218, 220
+defb 123, 254, 218
+defb 119, 190, 218
+defb 111, 254, 218
+defb  95, 109, 186
+defb  95, 237, 186
+defb  62, 221, 182
+defb  61, 219, 182
+defb 123, 251, 118
+defb  91, 107,  84
+defb  95, 107,  92
+defb  95,  91, 212
+defb  91, 219,  84
+defb  91,  94, 212
+defb  91,  94, 180
+defb  95, 126, 180
+defb  95, 125, 174
+defb  91, 109, 172
+defb  59, 109, 172
+defb 119, 235, 172
+defb 119, 123, 124
+defb 119, 127, 108
+defb 110, 223, 108
+defb  94, 219,  92
+defb  61, 218, 220
+defb 123, 254, 218
+defb 119, 190, 218
+defb 111, 254, 218
+defb  95, 109, 186
+defb  95, 237, 186
+defb  62, 221, 182
+defb  61, 219, 182
+defb   0,   0,   0
+; attrs
+defb  66,  66,  66
+defb  66,  66,  66
+defb  66,  66,  66
+defb  66,  66,  66
+defb  66,  66,  66
+defb  66,  66,  66
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_table>]         
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_bricks><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_bricks
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_bricks:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   8,   2,   0
+defb   8,   2,   0
+defb  89,  86,  85
+defb 170, 170, 170
+defb 255, 255, 255
+defb   0,  64,  16
+defb   0,  64,  16
+defb  42, 202, 178
+defb  85,  85,  85
+defb 255, 255, 255
+defb   8,   2,   0
+defb   8,   2,   0
+defb  89,  86,  85
+defb 170, 170, 170
+defb 255, 255, 255
+defb   0,  64,  16
+defb   0,  64,  16
+defb  42, 202, 178
+defb  85,  85,  85
+defb 255, 255, 255
+defb   8,   2,   0
+defb   8,   2,   0
+defb  89,  86,  85
+defb 170, 170, 170
+; attrs
+defb   5,   5,   5
+defb   5,   5,   5
+defb   5,   5,   5
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_bricks>]        
+
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile><Data:[Begin]>]
@@ -2781,6 +3462,74 @@ defw td_concrete
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_1><Data:>]
 defw td_concrete_1
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_1>]
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_grass_checker><Data:>]    
+defw td_grass_checker
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_grass_checker>]           
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal><Data:>]            
+defw td_metal
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal>]                   
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal_block><Data:>]      
+defw td_metal_block
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal_block>]             
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal_block_mini><Data:>] 
+defw td_metal_block_mini
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_metal_block_mini>]        
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_wall><Data:>]    
+defw td_concrete_wall
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_wall>]           
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_dangerZone><Data:>]       
+defw td_dangerZone
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_dangerZone>]              
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_door><Data:>]             
+defw td_door
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_door>]                    
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_box><Data:>]              
+defw td_box
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_box>]                     
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_box_1><Data:>]            
+defw td_box_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_box_1>]                   
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_window><Data:>]           
+defw td_window
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_window>]                  
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_bricks_1><Data:>]         
+defw td_bricks_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_bricks_1>]                
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_window_1><Data:>]         
+defw td_window_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_window_1>]                
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_checker><Data:>]          
+defw td_checker
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_checker>]                 
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_roadLane><Data:>]         
+defw td_roadLane
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_roadLane>]                
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_chair><Data:>]            
+defw td_chair
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_chair>]                   
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_table><Data:>]            
+defw td_table
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_table>]                   
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_bricks><Data:>]           
+defw td_bricks
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_bricks>]                  
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile\ScorePanel><Data:>]
 defw ScorePanel

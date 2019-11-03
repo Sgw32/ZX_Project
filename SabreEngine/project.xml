@@ -2097,6 +2097,295 @@
           <Attributes>AHAHAHAHEHAHAHAHAH</Attributes>
         </Frame>
       </Image>
+      <Image>
+        <Frame>
+          <Name>td_grass_checker</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>56</Width>
+          <Height>56</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPAAPPPPPPPPPPPPAAPPPPPPPPPPPPPPAAAAAAAAAAAAPPAAACAAAEAABAPPAAAAAAAAAAAAPPAAAAAAAAAAAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPAAPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPAAPPPPPPAAPPPPPPPPPPPPPPPPPPPPPP</Pixels>
+          <Attributes>EEEEEEEEGEEEEEEEGEEEEEEEEEGEEEEEEEEEGEEEEECEGECEGECEGECEAEAEAECEAEAECEAECEAEAEAEAEAEAEAECEAEAECEAE</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_metal</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>1</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPIAAAABIAAAABJBBBBBIIIIIJIAAAABIAAAABICCCCBIEEEEBIAAAABIAAAABJBBBBBIIIIIJIAAAABIAAAABICCCCBIEEEEBIAAAABIAAAABJBBBBBIIIIIJIAAAABIAAAABPPPPPP</Pixels>
+          <Attributes>EFEFEFEFEFEFEFEFEF</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_metal_block</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPIABIABIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFLPNLPNIABIABPPPPPPPPPPPPIABIABIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFIAFLPNLPNIABIABPPPPPP</Pixels>
+          <Attributes>AHAHAHAHAHAHAHAHAH</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_metal_block_mini</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>8</Width>
+          <Height>8</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPIBIFIFIFLNIBPP</Pixels>
+          <Attributes>AH</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_concrete_wall</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>8</Width>
+          <Height>8</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>IBMCOEPIPIOEMCIB</Pixels>
+          <Attributes>AH</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_dangerZone</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>BPABPADOADOAHMAHMAPIAPIAPABPABOADOADMAHMAHIAPIAPABPABPADOADOAHMAHMAPIAPIBPABPADOADOAHMAHMAPIAPIAPABPABOADOADMAHMAHIAPIAPABPABPADOADOAHMAHMAPIAPI</Pixels>
+          <Attributes>AGAGAGAGAGAGAGAGAG</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_door</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>8</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>AACMCMGMHKCKCKDKDKDGFEGMHKDKDKHGGKFMDKGIHEDEGMAA</Pixels>
+          <Attributes>ACACAC</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_box</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPIAAAABLPPPPNKAAAAFKNNNLFKOOOHFKHHGOFKLLJNFKNNLJFKOOHGFKHGOHFKLJNLFKNLJNFKOHGOFKGOHHFKJNLLFKLJNNFKHGOOFKOHHHFKNLLLFKAAAAFLPPPPNIAAAABPPPPPP</Pixels>
+          <Attributes>AGAGAGAGAGAGAGAGAG</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_box_1</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPIAAAABLPPPPNKAAAAFKHPPOFKLPPNFKNPPLFKOPPHFKPHOPFKPLNPFKPNLPFKPOHPFKPOHPFKPNLPFKPLNPFKPHOPFKOPPHFKNPPLFKLPPNFKHPPOFKAAAAFLPPPPNIAAAABPPPPPP</Pixels>
+          <Attributes>AGAGAGAGAGAGAGAGAG</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_window</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>8</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPMFIJJBKDMFIJJBKDMFIJJBKDMFIJJBKDMFIJJBKDMFIJPP</Pixels>
+          <Attributes>AFAFAF</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_bricks_1</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>PPPPPPJAABABJAABABJAABABJAABABPPPPPPIBAABBIBAABBIBAABBIBAABBIBAABBPPPPPPIABAAFIABAAFIABAAFIABAAFIABAAFPPPPPPICAAEBICAAEBICAAEBICAAEBICAAEBPPPPPP</Pixels>
+          <Attributes>AFAFAFAFAFAFAFAFAF</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_window_1</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>ABAAIAABAAIAABAAIAAAPPAAAAPPAAAAPPAAAAPPAAAAPPAAAAHGAAAAGOAAAAFKAAAAHGAAAAGOAAAAFKAAAAHGAAAAGOAAAAPPAAAAPPAAAAPPAAAAPPAAAAPPAAABAAIAABAAIAABAAIA</Pixels>
+          <Attributes>AHHNAHAAEFAAAHHNAH</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_checker</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>ADPADPADPADPADPADPADPADPADPADPADPADPPMAPMAPMAPMAPMAPMAPMAPMAPMAPMAPMAPMAADPADPADPADPADPADPADPADPADPADPADPADPPMAPMAPMAPMAPMAPMAPMAPMAPMAPMAPMAPMA</Pixels>
+          <Attributes>ADADADADADADADADAD</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_roadLane</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>DIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAADIAAAA</Pixels>
+          <Attributes>AHAAAAAHAAAAAHAAAA</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_chair</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>16</Width>
+          <Height>16</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>AAAADONEDOJEDHJGDGJIDGJMDONMDONKDGNKHGNKGPNGGONGGONOFNJMDNJEAAAA</Pixels>
+          <Attributes>ECECECEC</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_table</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
+          <Width>24</Width>
+          <Height>48</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>AAAAAAFPGLFMFPFLNEFLNLFEFLFONEFLFOLEFPHOLEFPHNKOFLGNKMDLGNKMHHOLKMHHHLHMHHHPGMGONPGMFONLFMDNNKNMHLPONKHHLONKGPPONKFPGNLKFPONLKDONNLGDNNLLGHLPLHGFLGLFEFPGLFMFPFLNEFLNLFEFLFONEFLFOLEFPHOLEFPHNKOFLGNKMDLGNKMHHOLKMHHHLHMHHHPGMGONPGMFONLFMDNNKNMHLPONKHHLONKGPPONKFPGNLKFPONLKDONNLGDNNLLGAAAAAA</Pixels>
+          <Attributes>ECECECECECECECECECECECECECECECECECEC</Attributes>
+        </Frame>
+      </Image>
+      <Image>
+        <Frame>
+          <Name>td_bricks</Name>
+          <Palette>ZX Spectrum</Palette>
+          <SubType>2</SubType>
+          <Width>24</Width>
+          <Height>24</Height>
+          <IsMasked>false</IsMasked>
+          <MaskMode>false</MaskMode>
+          <MaskAlpha>0.750000</MaskAlpha>
+          <MaskColor>255</MaskColor>
+          <HotSpotX>-1</HotSpotX>
+          <HotSpotY>-1</HotSpotY>
+          <Pixels>AIACAAAIACAAFJFGFFKKKKKKPPPPPPAAEABAAAEABACKMKLCFFFFFFPPPPPPAIACAAAIACAAFJFGFFKKKKKKPPPPPPAAEABAAAEABACKMKLCFFFFFFPPPPPPAIACAAAIACAAFJFGFFKKKKKK</Pixels>
+          <Attributes>AFAFAFAFAFAFAFAFAF</Attributes>
+        </Frame>
+      </Image>
     </Images>
     <Images>
       <Type>ChrSet</Type>
@@ -3077,11 +3366,6 @@
           <Tile>
             <Name>td_concrete_1</Name>
             <Left>72</Left>
-            <Top>72</Top>
-          </Tile>
-          <Tile>
-            <Name>td_concrete_1</Name>
-            <Left>72</Left>
             <Top>48</Top>
           </Tile>
           <Tile>
@@ -3115,9 +3399,149 @@
             <Top>0</Top>
           </Tile>
           <Tile>
+            <Name>td_door</Name>
+            <Left>80</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_door</Name>
+            <Left>80</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_door</Name>
+            <Left>80</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_door</Name>
+            <Left>80</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_door</Name>
+            <Left>176</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
             <Name>td_concrete</Name>
             <Left>120</Left>
             <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>48</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>48</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>48</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>48</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>24</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>24</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>24</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>216</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>192</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>216</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>192</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>216</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>192</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>216</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>192</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>216</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>192</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>144</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>144</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>120</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>24</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>24</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>48</Left>
+            <Top>144</Top>
           </Tile>
         </Tiles>
         <Sprites/>
@@ -4566,6 +4990,16 @@
             <Name>Plants02</Name>
             <Left>144</Left>
             <Top>40</Top>
+          </Tile>
+          <Tile>
+            <Name>td_door</Name>
+            <Left>152</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>200</Left>
+            <Top>56</Top>
           </Tile>
           <Tile>
             <Name>td_concrete_1</Name>
@@ -5244,9 +5678,29 @@
             <Top>144</Top>
           </Tile>
           <Tile>
+            <Name>td_chair</Name>
+            <Left>120</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_chair</Name>
+            <Left>120</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_table</Name>
+            <Left>144</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_window_1</Name>
+            <Left>176</Left>
+            <Top>104</Top>
+          </Tile>
+          <Tile>
             <Name>td_concrete_1</Name>
             <Left>56</Left>
-            <Top>144</Top>
+            <Top>136</Top>
           </Tile>
         </Tiles>
         <Sprites/>
