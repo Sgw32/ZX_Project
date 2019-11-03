@@ -190,9 +190,9 @@ SM_Move:    ld bc, 61438                ; load bc with Interface II port 2 addre
             exx
             ret                         ; finished moving
 TOGGLECOLLISONS:
-            ld a, (DoColTest)
-            xor 1
-            ld (DoColTest), a
+            ;ld a, (DoColTest)
+            ;xor 1
+            ;ld (DoColTest), a
             ret
 
 UP:         ld hl, (SM_Sprite)          ; get the current sprite set

@@ -2230,11 +2230,6 @@
             <Left>232</Left>
             <Top>120</Top>
           </Tile>
-          <Tile>
-            <Name>mountain_side00</Name>
-            <Left>0</Left>
-            <Top>24</Top>
-          </Tile>
         </Tiles>
         <Sprites/>
       </Screen>
@@ -2873,14 +2868,44 @@
             <Top>24</Top>
           </Tile>
           <Tile>
-            <Name>mountain_side00</Name>
-            <Left>0</Left>
-            <Top>24</Top>
-          </Tile>
-          <Tile>
             <Name>mountain_top01</Name>
             <Left>0</Left>
             <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>cave10</Name>
+            <Left>8</Left>
+            <Top>168</Top>
           </Tile>
         </Tiles>
         <Sprites/>
