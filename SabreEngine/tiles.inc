@@ -2513,6 +2513,84 @@ defb  70,  70,  70,  70
 defb  70,  70,  70,  70
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\cave03a>]
 
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_concrete
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_concrete:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb  68,  68,  68
+defb   0,   0,   0
+defb   0,   0,   0
+defb  16,  16,  17
+defb 128,   0,   0
+defb   0,   0,   0
+defb   0,   0,   0
+defb   2,   2,   2
+defb   0,   0,   0
+defb   0,   0,   0
+defb   0,   0,   0
+defb  16,  16,  17
+defb 128,   0,   0
+defb   0,   0,   0
+defb   0,   0,   0
+defb   2,   2,   2
+defb   0,   0,   0
+defb   0,   0,   0
+defb   0,   0,   0
+defb  16,  16,  17
+defb 128,   0,   0
+defb   0,   0,   0
+defb   0,   0,   0
+defb  34,  34,  34
+; attrs
+defb  69,  69,  69
+defb  69,  69,  69
+defb  69,  69,  69
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete>]      
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_1><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_concrete_1
+; Size   : 24x24
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_concrete_1:
+defb 3, 3             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 255, 255, 255
+defb 128,   0, 129
+defb 128,   0,   1
+defb 128,   0,   1
+defb 160, 128,   1
+defb 128,   0,   1
+defb 128,   0, 129
+defb 128,   0,   1
+defb 128,   0,   1
+defb 160,   0,   1
+defb 128,   8,   3
+defb 128,   0,   1
+defb 128,   0,   1
+defb 128,   0,   1
+defb 128,   0,   1
+defb 128,   0,   1
+defb 132,   4,   9
+defb 128,   0,   1
+defb 128,   0,   1
+defb 128,   0,   1
+defb 128,   0,   3
+defb 144,  32,   1
+defb 128,   0,   1
+defb 255, 255, 255
+; attrs
+defb   7,   7,   7
+defb   7,  71,   7
+defb   7,   7,   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_1>]    
+
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile><Data:[Begin]>]
@@ -2695,6 +2773,14 @@ defw cave01r
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile\cave03a><Data:>]
 defw cave03a
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile\cave03a>]
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete><Data:>]
+defw td_concrete
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete>]
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_1><Data:>]
+defw td_concrete_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\td_concrete_1>]
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile\ScorePanel><Data:>]
 defw ScorePanel
