@@ -1475,7 +1475,7 @@ UP1:    defm "P1"
         defb 0
 UP2:    defm "P2"
         defb 0
-HI:     defm "HI"
+H I:     defm "HI"
         defb 0
 SCORE1: defm "000000"
         defb 0

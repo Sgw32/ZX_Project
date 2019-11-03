@@ -3778,11 +3778,6 @@
           <Tile>
             <Name>td_bricks_1</Name>
             <Left>112</Left>
-            <Top>48</Top>
-          </Tile>
-          <Tile>
-            <Name>td_bricks_1</Name>
-            <Left>112</Left>
             <Top>24</Top>
           </Tile>
           <Tile>
@@ -3811,9 +3806,124 @@
             <Top>96</Top>
           </Tile>
           <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>128</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>120</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>112</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>128</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>120</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>112</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
             <Name>td_bricks_1</Name>
             <Left>112</Left>
             <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>32</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>136</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>128</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>8</Left>
+            <Top>8</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>0</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>0</Left>
+            <Top>64</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>8</Left>
+            <Top>40</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>0</Left>
+            <Top>112</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>8</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>0</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants19</Name>
+            <Left>8</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>104</Left>
+            <Top>40</Top>
           </Tile>
         </Tiles>
         <Sprites/>
@@ -5280,104 +5390,299 @@
         <Top>2</Top>
         <Tiles>
           <Tile>
-            <Name>Plants03</Name>
-            <Left>0</Left>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
             <Top>0</Top>
           </Tile>
           <Tile>
-            <Name>Plants05</Name>
-            <Left>32</Left>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
             <Top>0</Top>
           </Tile>
           <Tile>
-            <Name>Plants08</Name>
-            <Left>96</Left>
+            <Name>td_roadLane</Name>
+            <Left>72</Left>
             <Top>0</Top>
           </Tile>
           <Tile>
-            <Name>Plants08</Name>
-            <Left>232</Left>
-            <Top>0</Top>
-          </Tile>
-          <Tile>
-            <Name>Plants09</Name>
-            <Left>200</Left>
-            <Top>0</Top>
-          </Tile>
-          <Tile>
-            <Name>Plants08</Name>
-            <Left>200</Left>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
             <Top>24</Top>
           </Tile>
           <Tile>
-            <Name>Plants01</Name>
-            <Left>200</Left>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>72</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
             <Top>48</Top>
           </Tile>
           <Tile>
-            <Name>Plants02</Name>
-            <Left>240</Left>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
             <Top>48</Top>
           </Tile>
           <Tile>
-            <Name>Plants03</Name>
-            <Left>168</Left>
-            <Top>0</Top>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
+            <Top>72</Top>
           </Tile>
           <Tile>
-            <Name>Plants03</Name>
-            <Left>136</Left>
-            <Top>0</Top>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
+            <Top>72</Top>
           </Tile>
           <Tile>
-            <Name>Plants02</Name>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>72</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>24</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>48</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_roadLane</Name>
+            <Left>72</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants07</Name>
+            <Left>96</Left>
+            <Top>112</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants07</Name>
+            <Left>96</Left>
+            <Top>8</Top>
+          </Tile>
+          <Tile>
+            <Name>mountain_top00</Name>
+            <Left>120</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>mountain_top00</Name>
+            <Left>120</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>mountain_top00</Name>
+            <Left>120</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>mountain_top00</Name>
+            <Left>120</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>mountain_top00</Name>
             <Left>120</Left>
             <Top>48</Top>
           </Tile>
           <Tile>
-            <Name>Plants00</Name>
-            <Left>56</Left>
-            <Top>48</Top>
+            <Name>mountain_top00</Name>
+            <Left>120</Left>
+            <Top>24</Top>
           </Tile>
           <Tile>
-            <Name>Plants06</Name>
-            <Left>0</Left>
-            <Top>120</Top>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>136</Top>
           </Tile>
           <Tile>
-            <Name>Plants07</Name>
-            <Left>64</Left>
-            <Top>120</Top>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>128</Top>
           </Tile>
           <Tile>
-            <Name>Plants07</Name>
-            <Left>208</Left>
-            <Top>120</Top>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>96</Top>
           </Tile>
           <Tile>
-            <Name>Plants11</Name>
-            <Left>80</Left>
-            <Top>120</Top>
-          </Tile>
-          <Tile>
-            <Name>Plants11</Name>
-            <Left>224</Left>
-            <Top>120</Top>
-          </Tile>
-          <Tile>
-            <Name>Plants10</Name>
-            <Left>0</Left>
-            <Top>88</Top>
-          </Tile>
-          <Tile>
-            <Name>Plants18</Name>
+            <Name>td_concrete_wall</Name>
             <Left>144</Left>
             <Top>88</Top>
           </Tile>
           <Tile>
-            <Name>Plants20</Name>
-            <Left>48</Left>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>80</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>40</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>32</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>120</Left>
+            <Top>16</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>120</Left>
+            <Top>8</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>120</Left>
             <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal</Name>
+            <Left>152</Left>
+            <Top>32</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal</Name>
+            <Left>152</Left>
+            <Top>80</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>232</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>232</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>232</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>232</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>232</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants07</Name>
+            <Left>88</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_window</Name>
+            <Left>144</Left>
+            <Top>56</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>208</Left>
+            <Top>56</Top>
+          </Tile>
+          <Tile>
+            <Name>td_box</Name>
+            <Left>200</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_window</Name>
+            <Left>144</Left>
+            <Top>104</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>160</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>208</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>152</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>144</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>232</Left>
+            <Top>144</Top>
           </Tile>
         </Tiles>
         <Sprites/>
@@ -5385,7 +5690,428 @@
       <Screen>
         <Left>3</Left>
         <Top>2</Top>
-        <DuplicateOf>22</DuplicateOf>
+        <Tiles>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>24</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>24</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>24</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>24</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>56</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>56</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>56</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>56</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>128</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>104</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>80</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>128</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>128</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>128</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>56</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>td_dangerZone</Name>
+            <Left>24</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_checker</Name>
+            <Left>128</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block</Name>
+            <Left>104</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_1</Name>
+            <Left>184</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>16</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>8</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>40</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>32</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>64</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>56</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>80</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>112</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>104</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>136</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>176</Left>
+            <Top>128</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>136</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>128</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>112</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>104</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>208</Left>
+            <Top>80</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block</Name>
+            <Left>80</Left>
+            <Top>72</Top>
+          </Tile>
+          <Tile>
+            <Name>td_chair</Name>
+            <Left>208</Left>
+            <Top>32</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>208</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>200</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>192</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>184</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>176</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>168</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>160</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>152</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>144</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>136</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>128</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>120</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>112</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>104</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>96</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>88</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>80</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>72</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>64</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>56</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>48</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>40</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>32</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>24</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>16</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>8</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>0</Left>
+            <Top>160</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>208</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>200</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>192</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>184</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>208</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>200</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>192</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>184</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>8</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>0</Left>
+            <Top>152</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>8</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_metal_block_mini</Name>
+            <Left>0</Left>
+            <Top>144</Top>
+          </Tile>
+          <Tile>
+            <Name>td_table</Name>
+            <Left>232</Left>
+            <Top>24</Top>
+          </Tile>
+        </Tiles>
         <Sprites/>
       </Screen>
       <Screen>
@@ -5607,7 +6333,108 @@
       <Screen>
         <Left>8</Left>
         <Top>2</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <Tiles>
+          <Tile>
+            <Name>Plants03</Name>
+            <Left>0</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants05</Name>
+            <Left>32</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants08</Name>
+            <Left>96</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants08</Name>
+            <Left>232</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants09</Name>
+            <Left>200</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants08</Name>
+            <Left>200</Left>
+            <Top>24</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants01</Name>
+            <Left>200</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants02</Name>
+            <Left>240</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants03</Name>
+            <Left>168</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants03</Name>
+            <Left>136</Left>
+            <Top>0</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants02</Name>
+            <Left>120</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants00</Name>
+            <Left>56</Left>
+            <Top>48</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants06</Name>
+            <Left>0</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants07</Name>
+            <Left>64</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants07</Name>
+            <Left>208</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants11</Name>
+            <Left>80</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants11</Name>
+            <Left>224</Left>
+            <Top>120</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants10</Name>
+            <Left>0</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants18</Name>
+            <Left>144</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>Plants20</Name>
+            <Left>48</Left>
+            <Top>0</Top>
+          </Tile>
+        </Tiles>
         <Sprites/>
       </Screen>
       <Screen>
@@ -6109,7 +6936,7 @@
       <Screen>
         <Left>6</Left>
         <Top>3</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -6671,7 +7498,7 @@
       <Screen>
         <Left>2</Left>
         <Top>4</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -6791,7 +7618,7 @@
       <Screen>
         <Left>6</Left>
         <Top>4</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -6827,7 +7654,7 @@
       <Screen>
         <Left>12</Left>
         <Top>4</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -7064,7 +7891,7 @@
       <Screen>
         <Left>11</Left>
         <Top>6</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -7650,7 +8477,7 @@
       <Screen>
         <Left>6</Left>
         <Top>8</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -7942,7 +8769,7 @@
       <Screen>
         <Left>11</Left>
         <Top>8</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -8708,7 +9535,7 @@
       <Screen>
         <Left>4</Left>
         <Top>10</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -8720,7 +9547,7 @@
       <Screen>
         <Left>6</Left>
         <Top>10</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -8762,7 +9589,7 @@
       <Screen>
         <Left>13</Left>
         <Top>10</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -8840,7 +9667,7 @@
       <Screen>
         <Left>10</Left>
         <Top>11</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -9252,7 +10079,7 @@
       <Screen>
         <Left>13</Left>
         <Top>13</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -9364,7 +10191,7 @@
       <Screen>
         <Left>3</Left>
         <Top>14</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -9406,7 +10233,7 @@
       <Screen>
         <Left>10</Left>
         <Top>14</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
@@ -9430,7 +10257,7 @@
       <Screen>
         <Left>14</Left>
         <Top>14</Top>
-        <DuplicateOf>34</DuplicateOf>
+        <DuplicateOf>40</DuplicateOf>
         <Sprites/>
       </Screen>
       <Screen>
