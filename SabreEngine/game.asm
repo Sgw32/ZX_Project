@@ -159,36 +159,30 @@ MM_Move:    ret
 ;       af,  af',  bc',  de'. hl'                               ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-SM_Move:    ld bc, 61438                ; load bc with Interface II port 2 address
-            in a, (c)                   ; read the Interface II port
-            and 191                     ; mask the 4 movement keys from the port value
-            xor 191                     ; invert the keys so that if no keys are pressed
-            ret z                       ; the value will be zero,  and ret if no key pressed
-            ld d, a                     ; put keys pressed into d
-            bit 3, d                    ; read the right key
-            exx
-            call nz, RIGHT              ; call right if pressed
-            exx
-            bit 4, d                    ; read the left key
-            exx
-            call nz, LEFT               ; call left if pressed
-            exx
-            ld a, d
-            and 24
-            ret nz                      ; ret if either the left or right are pressed
-            bit 1, d                    ; read the up key
-            exx
-            call nz, UP                 ; call up if pressed
-            exx
-            bit 2, d                    ; read the down key
-            exx
-            call nz, DOWN               ; call down if pressed
-            exx
-            bit 0, d                    ; read the fire key
-            exx
+SM_Move:    ld bc, &FBFE
+            in a, (c)
+            cpl
+            and %00000010 ;W
+            call nz, UP
+            ld bc, &FDFE
+            in a,(c)
+            cpl
+            and %00000010 ;S
+            call nz, DOWN
+            in a, (c)  
+            cpl  
+            and %00000100 ;D
+            call nz, RIGHT
+            in a, (c)
+            cpl    
+            and %00000001 ;A
+            call nz, LEFT
+            ld bc, 32766
+            in a, (c) 
+            cpl
+            and 31
             call nz, TOGGLECOLLISONS
-            exx
-            ret                         ; finished moving
+            ret
 TOGGLECOLLISONS:
             ;ld a, (DoColTest)
             ;xor 1
@@ -1475,7 +1469,7 @@ UP1:    defm "P1"
         defb 0
 UP2:    defm "P2"
         defb 0
-H I:     defm "HI"
+HI:     defm "HI"
         defb 0
 SCORE1: defm "000000"
         defb 0
@@ -1505,7 +1499,7 @@ SM_Color:       defb 71                 ; default color is Bright white on black
 SM_OSprite:     defw SabreManWalkLeft   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 128,  24           ; old position of sabreman
-MAP_Coord:      defb 2, 1              ; the coordinates of the curren screen in the map
+MAP_Coord:      defb 1, 1              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
