@@ -13,6 +13,8 @@
 ;         Added sprite drawing and animation                    ;
 ;                                                               ;
 ;---------------------------------------------------------------;
+include "isr.inc"
+
 MAPWIDTH:   equ     16                  ; number of screens the map is wide
 MAPHEIGHT:  equ     16                  ; number of screens the map is tall
 SCREEN:     equ     16384               ; spectrum display memory address
@@ -26,11 +28,24 @@ SCRWIDTH:   equ     32                  ; number of character the offscreen buff
 
 ;include "screen.inc"
 
-            org 24768
-            jp Start
+            ;org 24768
+            ;jp Start
             defb 0
 MemScr:     defs 5632                   ; off screen memory aligned to 4 byte boundary
 MemAttr:    defs 705
+
+main:
+                call SND_SETSFXM    ; turn off sound fx
+                call SFX_INIT
+                ld hl, TITLE_TUNE
+        	    call SND_INIT_HL
+        	    call ISR_Start
+;---------------------------------------------------------------;
+; Programs main loop                                            ;
+;   Controls the flow of the program                            ;
+;---------------------------------------------------------------;
+;MainLoop:       
+;                jp MainLoop
 
 Start:      ;ld sp,  63488
             ;jp Start
@@ -47,6 +62,8 @@ MoveLoop:   call MM_Move                ; move the Monsters
             jr MoveLoop                 ; move again
 
 
+include "ay_player.inc"            
+            
 Pause:      push bc                     ; save bc
             push de                     ; save de
             push hl                     ; hl
@@ -164,15 +181,18 @@ SM_Move:    ld bc, &FBFE
             cpl
             and %00000010 ;W
             call nz, UP
+SM_Move2:
             ld bc, &FDFE
             in a,(c)
             cpl
             and %00000010 ;S
             call nz, DOWN
+            ld bc, &FDFE
             in a, (c)  
             cpl  
             and %00000100 ;D
             call nz, RIGHT
+            ld bc, &FDFE
             in a, (c)
             cpl    
             and %00000001 ;A

@@ -11492,6 +11492,8 @@
       <File>map.inc</File>
       <File>sprites.inc</File>
       <File>tiles.inc</File>
+      <File>ay_player.inc</File>
+      <File>isr.inc</File>
     </Files>
     <Breakpoints/>
     <Buffers/>
