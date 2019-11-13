@@ -16,33 +16,33 @@ SabreManWalkLeft000:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0, 192
+defb   1,  32
 defb   3, 224
-defb   7,  48
-defb  58, 232
-defb  12, 232
-defb   3,  40
-defb   4, 200
-defb  27,  56
-defb  31, 204
-defb   7, 224
-defb   0,   4
-defb   2,  46
-defb   7,  36
-defb   6,  52
-defb   0, 116
-defb   1,   4
-defb   7, 244
-defb   2, 228
-defb   7, 112
-defb  16,   8
-defb  30,  56
-defb  14, 112
+defb   4,  16
+defb   8,  12
+defb  16,   4
+defb  19, 228
+defb  20,  20
+defb  20,  20
+defb  19, 228
+defb  16,   4
+defb  24,  12
+defb   4,  16
+defb   3, 224
+defb   1,  32
+defb   0, 192
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkLeft
 ; Frame  : 1
 ; Size   : 16x24
@@ -52,34 +52,34 @@ defb  71,  71
 SabreManWalkLeft001:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
-defb   3, 224
-defb   7,  48
-defb  58, 232
-defb  12, 232
-defb   3,  40
-defb   4, 200
-defb  27,  56
-defb  31, 204
-defb   7, 224
-defb   0,   4
-defb   2, 110
-defb   6,  52
-defb   7,  52
-defb   7,  52
-defb   0,  68
-defb   6, 116
-defb   3, 228
-defb   3, 192
 defb   0,   0
-defb   1, 128
-defb   3, 128
-defb   7, 128
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,  96
+defb   0, 144
+defb   1, 240
+defb   2,   8
+defb   4,   6
+defb   8,   2
+defb   9, 242
+defb  26,  10
+defb  26,  10
+defb  25, 242
+defb  56,   2
+defb 124,   6
+defb   2,   8
+defb   1, 240
+defb  15, 144
+defb   7, 224
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkLeft
 ; Frame  : 2
 ; Size   : 16x24
@@ -90,33 +90,33 @@ SabreManWalkLeft002:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0, 192
+defb   1,  32
 defb   3, 224
-defb   7,  48
-defb  58, 232
-defb  12, 232
-defb   3,  40
-defb   4, 200
-defb  27,  56
-defb  31, 204
-defb   7, 224
-defb   0,   4
-defb   2,  46
-defb   7,  20
-defb  15, 132
-defb  15,  52
-defb   0,  36
-defb   7, 244
-defb   3, 164
-defb   7, 112
-defb  16,   8
-defb  30,  56
-defb  14, 112
+defb   4,  16
+defb   8,  12
+defb  16,   4
+defb  19, 228
+defb  20,  20
+defb  20,  20
+defb  19, 228
+defb  16,   4
+defb  24,  12
+defb   4,  16
+defb   3, 224
+defb   1,  32
+defb   0, 192
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkLeft
 ; Frame  : 3
 ; Size   : 16x24
@@ -126,34 +126,34 @@ defb  71,  71
 SabreManWalkLeft003:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
-defb   3, 224
-defb   7,  48
-defb  58, 232
-defb  12, 232
-defb   3,  40
-defb   4, 200
-defb  27,  56
-defb  31, 204
-defb   7, 224
-defb   0,   4
-defb   2, 110
-defb   6,  52
-defb   7,  52
-defb   7,  52
-defb   0,  68
-defb   6, 116
-defb   3, 228
-defb   3, 192
 defb   0,   0
-defb   1, 128
-defb   3, 128
-defb   7, 128
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   7, 224
+defb  15, 144
+defb   1, 240
+defb   2,   8
+defb 124,   6
+defb  56,   2
+defb  25, 242
+defb  26,  10
+defb  26,  10
+defb   9, 242
+defb   8,   2
+defb   4,   6
+defb   2,   8
+defb   1, 240
+defb   0, 144
+defb   0,  96
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkLeft>]
 
 ; [RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkRight><Data:ScanlinesRowColumn:PlaceSize:MaskBeforePixels:MaskInvert:UseAttributes>]
@@ -167,33 +167,33 @@ SabreManWalkRight000:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   3,   0
+defb   4, 128
 defb   7, 192
-defb  12, 224
-defb  23,  92
-defb  23,  48
-defb  20, 192
-defb  19,  32
-defb  28, 216
-defb  51, 248
-defb   7, 224
-defb  32,   0
-defb 116,  64
-defb  36, 224
-defb  44,  96
-defb  46,   0
-defb  32, 128
-defb  47, 224
-defb  39,  64
-defb  14, 224
-defb  16,   8
-defb  28, 120
-defb  14, 112
+defb   8,  32
+defb  48,  16
+defb  32,   8
+defb  39, 200
+defb  40,  40
+defb  40,  40
+defb  39, 200
+defb  32,   8
+defb  48,  24
+defb   8,  32
+defb   7, 192
+defb   4, 128
+defb   3,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkRight
 ; Frame  : 1
 ; Size   : 16x24
@@ -203,34 +203,34 @@ defb  71,  71
 SabreManWalkRight001:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
-defb   7, 192
-defb  12, 224
-defb  23,  92
-defb  23,  48
-defb  20, 192
-defb  19,  32
-defb  28, 216
-defb  51, 248
-defb   7, 224
-defb  32,   0
-defb 118,  64
-defb  44,  96
-defb  44, 224
-defb  44, 224
-defb  34,   0
-defb  46,  96
-defb  39, 192
-defb   3, 192
 defb   0,   0
-defb   1, 128
-defb   1, 192
-defb   1, 224
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   6,   0
+defb   9,   0
+defb  15, 128
+defb  16,  64
+defb  96,  32
+defb  64,  16
+defb  79, 144
+defb  80,  88
+defb  80,  88
+defb  79, 152
+defb  64,  28
+defb  96,  62
+defb  16,  64
+defb  15, 128
+defb   9, 240
+defb   7, 224
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkRight
 ; Frame  : 2
 ; Size   : 16x24
@@ -241,33 +241,33 @@ SabreManWalkRight002:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   3,   0
+defb   4, 128
 defb   7, 192
-defb  12, 224
-defb  23,  92
-defb  23,  48
-defb  20, 192
-defb  19,  32
-defb  28, 216
-defb  51, 248
-defb   7, 224
-defb  32,   0
-defb 116,  64
-defb  33, 224
-defb  33, 240
-defb  44, 240
-defb  36,   0
-defb  47, 224
-defb  37, 192
-defb  14, 224
-defb  16,   8
-defb  28, 120
-defb  14, 112
+defb   8,  32
+defb  48,  16
+defb  32,   8
+defb  39, 200
+defb  40,  40
+defb  40,  40
+defb  39, 200
+defb  32,   8
+defb  48,  24
+defb   8,  32
+defb   7, 192
+defb   4, 128
+defb   3,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkRight
 ; Frame  : 3
 ; Size   : 16x24
@@ -277,34 +277,34 @@ defb  71,  71
 SabreManWalkRight003:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
-defb   7, 192
-defb  12, 224
-defb  23,  92
-defb  23,  48
-defb  20, 192
-defb  19,  32
-defb  28, 216
-defb  51, 248
-defb   7, 224
-defb  32,   0
-defb 118,  64
-defb  44,  96
-defb  44, 224
-defb  44, 224
-defb  34,   0
-defb  46,  96
-defb  39, 192
-defb   3, 192
 defb   0,   0
-defb   1, 128
-defb   1, 192
-defb   1, 224
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   7, 224
+defb   9, 240
+defb  15, 128
+defb  16,  64
+defb  96,  62
+defb  64,  28
+defb  79, 152
+defb  80,  88
+defb  80,  88
+defb  79, 144
+defb  64,  16
+defb  96,  32
+defb  16,  64
+defb  15, 128
+defb   9,   0
+defb   6,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkRight>]
 
 ; [RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkUp><Data:ScanlinesRowColumn:PlaceSize:MaskBeforePixels:MaskInvert:UseAttributes>]
@@ -318,33 +318,33 @@ SabreManWalkUp000:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb   6,  96
-defb  13, 176
-defb  27, 216
-defb  91, 218
-defb 103, 230
-defb  56,  28
-defb  31, 248
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  55, 236
-defb  23, 220
-defb  15, 184
-defb   0,  48
-defb  15, 192
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb  15, 224
-defb   6,  24
-defb   0, 120
-defb   7, 112
-defb  15,   0
+defb   8,  16
+defb  17, 136
+defb  34,  68
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  17, 136
+defb   8,  16
+defb  15, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkUp
 ; Frame  : 1
 ; Size   : 16x24
@@ -355,33 +355,33 @@ SabreManWalkUp001:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb   6,  96
-defb  13, 176
-defb  27, 216
-defb  91, 186
-defb 103, 230
-defb  56,  28
-defb  31, 248
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  55, 236
-defb  55, 236
-defb  39, 228
-defb  32,   4
-defb   7, 224
-defb   7, 224
-defb  14, 112
 defb   0,   0
-defb   6,  96
-defb  14, 112
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   8,   0
+defb  12,   0
+defb  15, 128
+defb  79, 224
+defb 200,  16
+defb 209, 136
+defb 226,  68
+defb 226,  70
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  17, 136
+defb   8,  16
+defb  15, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkUp
 ; Frame  : 2
 ; Size   : 16x24
@@ -392,33 +392,33 @@ SabreManWalkUp002:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb   6,  96
-defb  13, 176
-defb  27, 216
-defb  91, 218
-defb 103, 230
-defb  56,  28
-defb  31, 248
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  55, 236
-defb  59, 232
-defb  29, 240
-defb  12,   0
-defb   3, 240
-defb   7, 240
-defb  24,  96
-defb  30,   0
-defb  14, 224
-defb   0, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb  15, 224
+defb   8,  16
+defb  17, 136
+defb  34,  68
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  17, 136
+defb   8,  16
+defb  15, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkUp
 ; Frame  : 3
 ; Size   : 16x24
@@ -429,33 +429,33 @@ SabreManWalkUp003:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb   6,  96
-defb  13, 176
-defb  27, 216
-defb  91, 186
-defb 103, 230
-defb  56,  28
-defb  31, 248
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  55, 236
-defb  55, 236
-defb  39, 228
-defb  32,   4
-defb   7, 224
-defb   7, 224
-defb  14, 112
 defb   0,   0
-defb   6,  96
-defb  14, 112
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,  16
+defb   0,  48
+defb   1, 240
+defb   7, 242
+defb   8,  19
+defb  17, 139
+defb  34,  71
+defb  98,  71
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  17, 136
+defb   8,  16
+defb  15, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkUp>]
 
 ; [RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkDown><Data:ScanlinesRowColumn:PlaceSize:MaskBeforePixels:MaskInvert:UseAttributes>]
@@ -469,33 +469,33 @@ SabreManWalkDown000:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb  13, 176
-defb  27, 216
-defb  27, 216
-defb  63, 252
-defb  96,   6
-defb  22, 104
-defb  21, 168
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb  15, 240
-defb   7, 224
-defb  24,  24
-defb  59, 252
-defb  59, 244
-defb  29, 244
-defb  14,   8
-defb   5, 240
-defb  11, 240
-defb  30,  78
-defb   0,  62
-defb   7,  56
-defb  15,   0
+defb   8,  16
+defb  17, 136
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  34,  68
+defb  17, 136
+defb   8,  16
+defb  15, 224
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkDown
 ; Frame  : 1
 ; Size   : 16x24
@@ -506,33 +506,33 @@ SabreManWalkDown001:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb  13, 176
-defb  27, 216
-defb  27, 216
-defb  63, 252
-defb  96,   6
-defb  22, 104
-defb  21, 168
-defb  15, 240
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  63, 252
-defb  55, 236
-defb  48,  12
-defb  39, 228
-defb   7, 224
-defb  14, 112
 defb   0,   0
-defb  14, 112
-defb  30, 120
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb  15, 240
+defb   8,  16
+defb  17, 136
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb 226,  70
+defb 226,  68
+defb 209, 136
+defb 200,  16
+defb  79, 224
+defb  15, 128
+defb  12,   0
+defb   8,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkDown
 ; Frame  : 2
 ; Size   : 16x24
@@ -543,33 +543,33 @@ SabreManWalkDown002:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb  13, 176
-defb  27, 216
-defb  27, 216
-defb  63, 252
-defb  96,   6
-defb  22, 104
-defb  21, 168
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb  15, 224
+defb   8,  16
+defb  17, 136
+defb  34,  68
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb  98,  70
+defb  17, 136
+defb   8,  16
 defb  15, 240
-defb   7, 224
-defb  24,  24
-defb  63, 220
-defb  47, 220
-defb  47, 184
-defb  16, 112
-defb  15, 160
-defb  15, 208
-defb 114, 120
-defb 124,   0
-defb  28, 224
-defb   0, 240
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; Name   : SabreManWalkDown
 ; Frame  : 3
 ; Size   : 16x24
@@ -580,33 +580,33 @@ SabreManWalkDown003:
 defb 16, 24             ; size: WxH - (pixels x pixels)
 ; pixels and mask bit pairs
 defb   0,   0
-defb   3, 192
-defb  13, 176
-defb  27, 216
-defb  27, 216
-defb  63, 252
-defb  96,   6
-defb  22, 104
-defb  21, 168
-defb  15, 240
-defb   7, 224
-defb  24,  24
-defb  63, 252
-defb  63, 252
-defb  55, 236
-defb  48,  12
-defb  39, 228
-defb   7, 224
-defb  14, 112
 defb   0,   0
-defb  14, 112
-defb  30, 120
+defb   0,   0
+defb   0,   0
+defb   0,   0
+defb  15, 240
+defb   8,  16
+defb  17, 136
+defb  98,  70
+defb 162,  69
+defb 162,  69
+defb  98,  71
+defb  34,  71
+defb  17, 139
+defb   8,  19
+defb   7, 242
+defb   1, 240
+defb   0,  48
+defb   0,  16
+defb   0,   0
+defb   0,   0
+defb   0,   0
 defb   0,   0
 defb   0,   0
 ; attrs
-defb  71,  71
-defb  71,  71
-defb  71,  71
+defb   2,   2
+defb   2,   2
+defb   2,   2
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManWalkDown>]
 
 ; [RESOURCE: <Parser:Attribute Based Images><Resource:Sprite\SabreManSwordLeft><Data:ScanlinesRowColumn:PlaceSize:MaskBeforePixels:MaskInvert:UseAttributes>]
