@@ -1519,7 +1519,7 @@ SM_Color:       defb 71                 ; default color is Bright white on black
 SM_OSprite:     defw SabreManWalkLeft   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 128,  24           ; old position of sabreman
-MAP_Coord:      defb 1, 1              ; the coordinates of the curren screen in the map
+MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
