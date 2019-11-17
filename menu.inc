@@ -706,23 +706,14 @@ MainMenu_0:     defw 16495
                 defb 79
                 defm "Game Menu"
                 defb $ff
-MainMenu_0_Rect defb 8
+MainMenu_0_Rect defb 5
                 defb 74, 40, 192, 48
                 defw MainGameNormal
-                defb 0
-                defb 74, 48, 184, 56
-                defw MainGameTimed
                 defb 0
                 defb 74, 56, 168, 64
                 defw MenuControl
                 defb 0
-                defb 74, 64, 144, 72
-                defw MenuMusic
-                defb 0
-                defb 74, 72, 168, 80
-                defw MenuGraphics
-                defb 0
-                defb 74, 80, 208, 88
+                defb 74, 72, 208, 80
                 defw MainMenuCont
                 defb 0
                 defb 74, 88, 192, 96
@@ -735,22 +726,13 @@ MainMenu_0_Txt: defb 77
                 defm "Normal Game"
                 defb $ff
                 defb 77
-                defm "Timed Game"
-                defb $ff
-                defb 77
                 defm "Controls"
-                defb $ff
-                defb 77
-                defm "Music"
-                defb $ff
-                defb 77
-                defm "Graphics"
                 defb $ff
                 defb 77
                 defm "Continue Game"
                 defb $ff
                 defb 77
-                defm "View Scores"
+                defm "Info"
                 defb $ff
                 defb 77
                 defm "QUIT"
