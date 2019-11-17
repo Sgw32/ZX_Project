@@ -7,8 +7,9 @@
 ;                                                               ;
 ;---------------------------------------------------------------;
 
-GameStartNew:   ld a, GF_GAME_OVER
-                call SetGameFlag
+GameStartNew:   ;ld a, GF_GAME_OVER
+                ;call SetGameFlag
+                ;rst 40
                 ret
 
 GameOver:       ld b, 24                ; show the hi score table

@@ -1521,13 +1521,13 @@ FXCHUNKBIN
 	incbin "SoundFX.SFX"
 
 TITLE_TUNE:
-    incbin "TitleTune.pt3"
+    incbin "darkman007_title.pt3"
     
 TUNE_A:
-    incbin "TuneA.pt3"
+    incbin "darkman007_turbo.pt3"
 
 TUNE_B:
     incbin "TuneB.pt3"
     
 TUNE_C:
-    incbin "TuneC.pt3"
+    incbin "darkman007_turbo.pt3"

@@ -5,12 +5,21 @@
   <ImageEditor>
     <Palettes>
       <Palette>
-        <Name>Monochrome</Name>
+        <Name>Timex Hi Colour</Name>
         <BitsPerPixel>1</BitsPerPixel>
+        <BitPerAttribute>8</BitPerAttribute>
+        <PixelsWidePerAttribute>8</PixelsWidePerAttribute>
+        <PixelsHighPerAttribute>1</PixelsHighPerAttribute>
+        <PixelsPerByte>8.000000</PixelsPerByte>
+        <SupportsPixelsOnly>false</SupportsPixelsOnly>
+      </Palette>
+      <Palette>
+        <Name>Spectrum Next (256 Color)</Name>
+        <BitsPerPixel>8</BitsPerPixel>
         <BitPerAttribute>1</BitPerAttribute>
         <PixelsWidePerAttribute>1</PixelsWidePerAttribute>
         <PixelsHighPerAttribute>1</PixelsHighPerAttribute>
-        <PixelsPerByte>8.000000</PixelsPerByte>
+        <PixelsPerByte>1.000000</PixelsPerByte>
         <SupportsPixelsOnly>true</SupportsPixelsOnly>
       </Palette>
       <Palette>
@@ -22,6 +31,90 @@
         <PixelsPerByte>8.000000</PixelsPerByte>
         <SupportsPixelsOnly>false</SupportsPixelsOnly>
       </Palette>
+      <Palette>
+        <Name>ZX Spectrum ULAplus</Name>
+        <BitsPerPixel>1</BitsPerPixel>
+        <BitPerAttribute>8</BitPerAttribute>
+        <PixelsWidePerAttribute>8</PixelsWidePerAttribute>
+        <PixelsHighPerAttribute>1</PixelsHighPerAttribute>
+        <PixelsPerByte>8.000000</PixelsPerByte>
+        <SupportsPixelsOnly>false</SupportsPixelsOnly>
+        <Colors>
+          <Color>0</Color>
+          <Color>5</Color>
+          <Color>6</Color>
+          <Color>7</Color>
+          <Color>68</Color>
+          <Color>69</Color>
+          <Color>70</Color>
+          <Color>71</Color>
+          <Color>132</Color>
+          <Color>133</Color>
+          <Color>134</Color>
+          <Color>135</Color>
+          <Color>196</Color>
+          <Color>197</Color>
+          <Color>198</Color>
+          <Color>199</Color>
+          <Color>12</Color>
+          <Color>13</Color>
+          <Color>14</Color>
+          <Color>15</Color>
+          <Color>76</Color>
+          <Color>77</Color>
+          <Color>78</Color>
+          <Color>79</Color>
+          <Color>140</Color>
+          <Color>141</Color>
+          <Color>142</Color>
+          <Color>143</Color>
+          <Color>204</Color>
+          <Color>205</Color>
+          <Color>206</Color>
+          <Color>207</Color>
+          <Color>20</Color>
+          <Color>21</Color>
+          <Color>22</Color>
+          <Color>23</Color>
+          <Color>84</Color>
+          <Color>85</Color>
+          <Color>86</Color>
+          <Color>87</Color>
+          <Color>148</Color>
+          <Color>149</Color>
+          <Color>150</Color>
+          <Color>151</Color>
+          <Color>212</Color>
+          <Color>213</Color>
+          <Color>214</Color>
+          <Color>215</Color>
+          <Color>28</Color>
+          <Color>29</Color>
+          <Color>30</Color>
+          <Color>31</Color>
+          <Color>92</Color>
+          <Color>93</Color>
+          <Color>94</Color>
+          <Color>95</Color>
+          <Color>156</Color>
+          <Color>157</Color>
+          <Color>158</Color>
+          <Color>159</Color>
+          <Color>220</Color>
+          <Color>221</Color>
+          <Color>222</Color>
+          <Color>255</Color>
+        </Colors>
+      </Palette>
+      <Palette>
+        <Name>Monochrome</Name>
+        <BitsPerPixel>1</BitsPerPixel>
+        <BitPerAttribute>1</BitPerAttribute>
+        <PixelsWidePerAttribute>1</PixelsWidePerAttribute>
+        <PixelsHighPerAttribute>1</PixelsHighPerAttribute>
+        <PixelsPerByte>8.000000</PixelsPerByte>
+        <SupportsPixelsOnly>true</SupportsPixelsOnly>
+      </Palette>
     </Palettes>
     <Images>
       <Type>Sprite</Type>
@@ -29,6 +122,7 @@
         <Frame>
           <Name>Pointer</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>12</Height>
           <IsMasked>true</IsMasked>
@@ -45,6 +139,7 @@
         <Frame>
           <Name>Pointer2</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>9</Height>
           <IsMasked>true</IsMasked>
@@ -61,6 +156,7 @@
         <Frame>
           <Name>qwef</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>16</Width>
           <Height>8</Height>
           <IsMasked>true</IsMasked>
@@ -78,6 +174,7 @@
         <Frame>
           <Name>qwef2</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>16</Width>
           <Height>8</Height>
           <IsMasked>true</IsMasked>
@@ -97,6 +194,7 @@
         <Frame>
           <Name>Tile0</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>24</Width>
           <Height>24</Height>
           <IsMasked>false</IsMasked>
@@ -113,6 +211,7 @@
         <Frame>
           <Name>Number0</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -128,6 +227,7 @@
         <Frame>
           <Name>Number1</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -143,6 +243,7 @@
         <Frame>
           <Name>Number2</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -158,6 +259,7 @@
         <Frame>
           <Name>Number3</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -173,6 +275,7 @@
         <Frame>
           <Name>Number4</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -188,6 +291,7 @@
         <Frame>
           <Name>Number5</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -203,6 +307,7 @@
         <Frame>
           <Name>Number6</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -218,6 +323,7 @@
         <Frame>
           <Name>Number7</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -233,6 +339,7 @@
         <Frame>
           <Name>Number8</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -248,6 +355,7 @@
         <Frame>
           <Name>Number9</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>16</Height>
           <IsMasked>false</IsMasked>
@@ -263,6 +371,7 @@
         <Frame>
           <Name>CornerTL</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -279,6 +388,7 @@
         <Frame>
           <Name>CornerTR</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -295,6 +405,7 @@
         <Frame>
           <Name>CornerBL</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -311,6 +422,7 @@
         <Frame>
           <Name>CornerBR</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -327,6 +439,7 @@
         <Frame>
           <Name>FrameT</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -343,6 +456,7 @@
         <Frame>
           <Name>FrameL</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -359,6 +473,7 @@
         <Frame>
           <Name>FrameB</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -375,6 +490,7 @@
         <Frame>
           <Name>FrameR</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -391,6 +507,7 @@
         <Frame>
           <Name>Blank</Name>
           <Palette>ZX Spectrum</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -407,6 +524,7 @@
         <Frame>
           <Name>GemCursor</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>24</Width>
           <Height>24</Height>
           <IsMasked>false</IsMasked>
@@ -425,6 +543,7 @@
         <Frame>
           <Name>Modern2_ascii_032</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -440,6 +559,7 @@
         <Frame>
           <Name>Modern2_ascii_033</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -455,6 +575,7 @@
         <Frame>
           <Name>Modern2_ascii_034</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -470,6 +591,7 @@
         <Frame>
           <Name>Modern2_ascii_035</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -485,6 +607,7 @@
         <Frame>
           <Name>Modern2_ascii_036</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -500,6 +623,7 @@
         <Frame>
           <Name>Modern2_ascii_037</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -515,6 +639,7 @@
         <Frame>
           <Name>Modern2_ascii_038</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -530,6 +655,7 @@
         <Frame>
           <Name>Modern2_ascii_039</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -545,6 +671,7 @@
         <Frame>
           <Name>Modern2_ascii_040</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -560,6 +687,7 @@
         <Frame>
           <Name>Modern2_ascii_041</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -575,6 +703,7 @@
         <Frame>
           <Name>Modern2_ascii_042</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -590,6 +719,7 @@
         <Frame>
           <Name>Modern2_ascii_043</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -605,6 +735,7 @@
         <Frame>
           <Name>Modern2_ascii_044</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -620,6 +751,7 @@
         <Frame>
           <Name>Modern2_ascii_045</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -635,6 +767,7 @@
         <Frame>
           <Name>Modern2_ascii_046</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -650,6 +783,7 @@
         <Frame>
           <Name>Modern2_ascii_047</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -665,6 +799,7 @@
         <Frame>
           <Name>Modern2_ascii_048</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -680,6 +815,7 @@
         <Frame>
           <Name>Modern2_ascii_049</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -695,6 +831,7 @@
         <Frame>
           <Name>Modern2_ascii_050</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -710,6 +847,7 @@
         <Frame>
           <Name>Modern2_ascii_051</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -725,6 +863,7 @@
         <Frame>
           <Name>Modern2_ascii_052</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -740,6 +879,7 @@
         <Frame>
           <Name>Modern2_ascii_053</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -755,6 +895,7 @@
         <Frame>
           <Name>Modern2_ascii_054</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -770,6 +911,7 @@
         <Frame>
           <Name>Modern2_ascii_055</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -785,6 +927,7 @@
         <Frame>
           <Name>Modern2_ascii_056</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -800,6 +943,7 @@
         <Frame>
           <Name>Modern2_ascii_057</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -815,6 +959,7 @@
         <Frame>
           <Name>Modern2_ascii_058</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -830,6 +975,7 @@
         <Frame>
           <Name>Modern2_ascii_059</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -845,6 +991,7 @@
         <Frame>
           <Name>Modern2_ascii_060</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -860,6 +1007,7 @@
         <Frame>
           <Name>Modern2_ascii_061</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -875,6 +1023,7 @@
         <Frame>
           <Name>Modern2_ascii_062</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -890,6 +1039,7 @@
         <Frame>
           <Name>Modern2_ascii_063</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -905,6 +1055,7 @@
         <Frame>
           <Name>Modern2_ascii_064</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -920,6 +1071,7 @@
         <Frame>
           <Name>Modern2_ascii_065</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -935,6 +1087,7 @@
         <Frame>
           <Name>Modern2_ascii_066</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -950,6 +1103,7 @@
         <Frame>
           <Name>Modern2_ascii_067</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -965,6 +1119,7 @@
         <Frame>
           <Name>Modern2_ascii_068</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -980,6 +1135,7 @@
         <Frame>
           <Name>Modern2_ascii_069</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -995,6 +1151,7 @@
         <Frame>
           <Name>Modern2_ascii_070</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1010,6 +1167,7 @@
         <Frame>
           <Name>Modern2_ascii_071</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1025,6 +1183,7 @@
         <Frame>
           <Name>Modern2_ascii_072</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1040,6 +1199,7 @@
         <Frame>
           <Name>Modern2_ascii_073</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1055,6 +1215,7 @@
         <Frame>
           <Name>Modern2_ascii_074</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1070,6 +1231,7 @@
         <Frame>
           <Name>Modern2_ascii_075</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1085,6 +1247,7 @@
         <Frame>
           <Name>Modern2_ascii_076</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1100,6 +1263,7 @@
         <Frame>
           <Name>Modern2_ascii_077</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1115,6 +1279,7 @@
         <Frame>
           <Name>Modern2_ascii_078</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1130,6 +1295,7 @@
         <Frame>
           <Name>Modern2_ascii_079</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1145,6 +1311,7 @@
         <Frame>
           <Name>Modern2_ascii_080</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1160,6 +1327,7 @@
         <Frame>
           <Name>Modern2_ascii_081</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1175,6 +1343,7 @@
         <Frame>
           <Name>Modern2_ascii_082</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1190,6 +1359,7 @@
         <Frame>
           <Name>Modern2_ascii_083</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1205,6 +1375,7 @@
         <Frame>
           <Name>Modern2_ascii_084</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1220,6 +1391,7 @@
         <Frame>
           <Name>Modern2_ascii_085</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1235,6 +1407,7 @@
         <Frame>
           <Name>Modern2_ascii_086</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1250,6 +1423,7 @@
         <Frame>
           <Name>Modern2_ascii_087</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1265,6 +1439,7 @@
         <Frame>
           <Name>Modern2_ascii_088</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1280,6 +1455,7 @@
         <Frame>
           <Name>Modern2_ascii_089</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1295,6 +1471,7 @@
         <Frame>
           <Name>Modern2_ascii_090</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1310,6 +1487,7 @@
         <Frame>
           <Name>Modern2_ascii_091</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1325,6 +1503,7 @@
         <Frame>
           <Name>Modern2_ascii_092</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1340,6 +1519,7 @@
         <Frame>
           <Name>Modern2_ascii_093</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1355,6 +1535,7 @@
         <Frame>
           <Name>Modern2_ascii_094</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1370,6 +1551,7 @@
         <Frame>
           <Name>Modern2_ascii_095</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1385,6 +1567,7 @@
         <Frame>
           <Name>Modern2_ascii_096</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1400,6 +1583,7 @@
         <Frame>
           <Name>Modern2_ascii_097</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1415,6 +1599,7 @@
         <Frame>
           <Name>Modern2_ascii_098</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1430,6 +1615,7 @@
         <Frame>
           <Name>Modern2_ascii_099</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1445,6 +1631,7 @@
         <Frame>
           <Name>Modern2_ascii_100</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1460,6 +1647,7 @@
         <Frame>
           <Name>Modern2_ascii_101</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1475,6 +1663,7 @@
         <Frame>
           <Name>Modern2_ascii_102</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1490,6 +1679,7 @@
         <Frame>
           <Name>Modern2_ascii_103</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1505,6 +1695,7 @@
         <Frame>
           <Name>Modern2_ascii_104</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1520,6 +1711,7 @@
         <Frame>
           <Name>Modern2_ascii_105</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1535,6 +1727,7 @@
         <Frame>
           <Name>Modern2_ascii_106</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1550,6 +1743,7 @@
         <Frame>
           <Name>Modern2_ascii_107</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1565,6 +1759,7 @@
         <Frame>
           <Name>Modern2_ascii_108</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1580,6 +1775,7 @@
         <Frame>
           <Name>Modern2_ascii_109</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1595,6 +1791,7 @@
         <Frame>
           <Name>Modern2_ascii_110</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1610,6 +1807,7 @@
         <Frame>
           <Name>Modern2_ascii_111</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1625,6 +1823,7 @@
         <Frame>
           <Name>Modern2_ascii_112</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1640,6 +1839,7 @@
         <Frame>
           <Name>Modern2_ascii_113</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1655,6 +1855,7 @@
         <Frame>
           <Name>Modern2_ascii_114</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1670,6 +1871,7 @@
         <Frame>
           <Name>Modern2_ascii_115</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1685,6 +1887,7 @@
         <Frame>
           <Name>Modern2_ascii_116</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1700,6 +1903,7 @@
         <Frame>
           <Name>Modern2_ascii_117</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1715,6 +1919,7 @@
         <Frame>
           <Name>Modern2_ascii_118</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1730,6 +1935,7 @@
         <Frame>
           <Name>Modern2_ascii_119</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1745,6 +1951,7 @@
         <Frame>
           <Name>Modern2_ascii_120</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1760,6 +1967,7 @@
         <Frame>
           <Name>Modern2_ascii_121</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1775,6 +1983,7 @@
         <Frame>
           <Name>Modern2_ascii_122</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1790,6 +1999,7 @@
         <Frame>
           <Name>Modern2_ascii_123</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1805,6 +2015,7 @@
         <Frame>
           <Name>Modern2_ascii_124</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1820,6 +2031,7 @@
         <Frame>
           <Name>Modern2_ascii_125</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1835,6 +2047,7 @@
         <Frame>
           <Name>Modern2_ascii_126</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1850,6 +2063,7 @@
         <Frame>
           <Name>Modern2_ascii_127</Name>
           <Palette>Monochrome</Palette>
+          <SubType>0</SubType>
           <Width>8</Width>
           <Height>8</Height>
           <IsMasked>false</IsMasked>
@@ -1866,10 +2080,7 @@
   <MapEditor>
     <Settings>
       <ScorePanel>
-        <Alignment>1</Alignment>
-        <Layout>0</Layout>
         <Show>false</Show>
-        <AllowOverlap>false</AllowOverlap>
         <XOverlap>0</XOverlap>
         <YOverlap>0</YOverlap>
       </ScorePanel>
@@ -1880,6 +2091,9 @@
         <GridHeight>8</GridHeight>
         <Magnification>3</Magnification>
       </ScreenLayout>
+      <StartScreen>
+        <Screen>-1</Screen>
+      </StartScreen>
       <MapLayout>
         <Scale>100</Scale>
         <Gap>0</Gap>
@@ -1895,48 +2109,6 @@
       <GridHeight>8</GridHeight>
     </Properties>
     <Screens/>
+    <Objects/>
   </MapEditor>
-  <StringEditor>
-    <Tables/>
-  </StringEditor>
-  <CodeEditor>
-    <Settings>
-      <Compilation>
-        <BuildTool>
-          <Application>C:\Projects\Freelance\ZX\Asm\pasmo.exe</Application>
-          <Parameters>-v --tapbas --err game.asm game.tap game.map</Parameters>
-          <Compiler/>
-          <CParameters/>
-        </BuildTool>
-        <Linking>
-          <Application/>
-          <Parameters/>
-        </Linking>
-        <Emulation>
-          <Application>C:\Projects\Freelance\ZX\Fuse\fuse.exe</Application>
-          <Parameters>%Pfolder%\game.tap</Parameters>
-        </Emulation>
-      </Compilation>
-      <Preset>Pasmo, Fuse</Preset>
-    </Settings>
-    <Files>
-      <File>game.asm</File>
-      <File>gameplay.inc</File>
-      <File>control.inc</File>
-      <File>hiscore.inc</File>
-      <File>menu.inc</File>
-      <File>window.inc</File>
-      <File>screen.inc</File>
-      <File>hiscoredata.inc</File>
-      <File>images.inc</File>
-      <File>font.inc</File>
-      <File>ay_player.inc</File>
-      <File>isr.inc</File>
-      <File>game_logic.txt</File>
-      <File>startuplogo.inc</File>
-      <File>sabre_game.inc</File>
-      <File>sprites_sabre.inc</File>
-      <File>map_sabre.inc</File>
-    </Files>
-  </CodeEditor>
 </TommyGunProject>

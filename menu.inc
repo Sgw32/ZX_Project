@@ -694,10 +694,10 @@ CredMenu_0_Txt: defb 78                              ; item 1 colour
                 defm "Game by SGL Team"   ; item 1 text
                 defb $ff                             ; item 1 EOL
                 defb 78                              ; item 2 colour
-                defm "Graphics: "       ; item 2 text
+                defm "Graphics: Pavel Kolyshev"       ; item 2 text
                 defb $ff                             ; item 2 EOL
                 defb 78                              ; item 3 colour
-                defm "Music   : Sgw32"              ; item 3 text
+                defm "Music   : Darkman007"              ; item 3 text
                 defb $ff                             ; item 3 EOL
 
 ; Main Menu
