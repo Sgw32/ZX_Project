@@ -7,9 +7,19 @@
 ;                                                               ;
 ;---------------------------------------------------------------;
 
+Screen1:    
+             ld hl, CNT1
+             ld (hl), 2
+             ld hl, StartupLogo        ; display the title screen	
+	     call DrawScr            ; draw the screen    
+PGL1_SN1:      
+             call Pause1000              ; pause between key presses  
+             call PGL1_SN1
+             ret
 GameStartNew:   ;ld a, GF_GAME_OVER
                 ;call SetGameFlag
-                ;rst 40
+                ;rst 40	
+                call SplashScreen
                 ret
 
 GameOver:       ld b, 24                ; show the hi score table

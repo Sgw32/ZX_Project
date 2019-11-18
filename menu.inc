@@ -51,15 +51,17 @@ MainMenuRet:    ld a, GF_MENU
 ; MainGameNormal                                                ;
 ;   Setups a normal game                                        ;
 ;---------------------------------------------------------------;
-MainGameNormal: ld a, GF_QUIT
-                call SetGameFlag
-                call ISR_Stop
-                ld a, 7
-                call 8859
+MainGameNormal: ;ld a, GF_QUIT
+                ;call SetGameFlag
+                ;call ISR_Stop
+                ;ld a, 7
+                ;call 8859
 		;call BASIC_LOADER
+		ld hl, (GameTune)
+                call SND_INIT_HL
 		ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
                 call SetGameFlag                    ; set the flags
-                call BASIC_LOADER
+                call GameStartNew
 		jr MainMenuRet
 
 ;---------------------------------------------------------------;
