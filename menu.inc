@@ -51,9 +51,16 @@ MainMenuRet:    ld a, GF_MENU
 ; MainGameNormal                                                ;
 ;   Setups a normal game                                        ;
 ;---------------------------------------------------------------;
-MainGameNormal: ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
+MainGameNormal: ld a, GF_QUIT
+                call SetGameFlag
+                call ISR_Stop
+                ld a, 7
+                call 8859
+		;call BASIC_LOADER
+		ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
                 call SetGameFlag                    ; set the flags
-                jr MainMenuRet
+                call BASIC_LOADER
+		jr MainMenuRet
 
 ;---------------------------------------------------------------;
 ; MainGameTimed                                                 ;

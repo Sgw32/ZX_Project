@@ -140,6 +140,9 @@ include "images.inc"
 include "hiscoredata.inc"
 include "font.inc"
 
+BASIC_LOADER:
+incbin "loader_basic.bin"
+
 ;---------------------------------------------------------------;
 ;                                                               ;
 ; VARIABLES                                                     ;
