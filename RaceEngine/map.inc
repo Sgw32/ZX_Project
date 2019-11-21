@@ -13,22 +13,7 @@ ScorePanel equ 0
 ; SCREEN (0, 0)
 ;
 Screen000x000:
-defb 0x0F              ; 15 tiles
-defb 0x22, 0xD0, 0x00    ; mountain_top02
-defb 0x20, 0xB8, 0x00    ; mountain_top00
-defb 0x21, 0x80, 0x00    ; mountain_top01
-defb 0x20, 0x68, 0x00    ; mountain_top00
-defb 0x22, 0x38, 0x00    ; mountain_top02
-defb 0x21, 0x08, 0x00    ; mountain_top01
-defb 0x0C, 0xF0, 0x30    ; Plants02
-defb 0x10, 0xC8, 0x30    ; Plants01
-defb 0x11, 0x88, 0x30    ; Plants00
-defb 0x10, 0x60, 0x30    ; Plants01
-defb 0x0C, 0x50, 0x30    ; Plants02
-defb 0x0E, 0xA8, 0x78    ; Plants06
-defb 0x0E, 0x40, 0x78    ; Plants06
-defb 0x08, 0x80, 0x78    ; Plants13
-defb 0x07, 0xE8, 0x78    ; Plants14
+defb 0x00              ; 0 tiles
 ;
 ; SCREEN (1, 0)
 ;
@@ -247,11 +232,6 @@ defb 0x35, 0x78, 0x90    ; td_box
 defb 0x3A, 0x18, 0x30    ; td_checker
 defb 0x2D, 0x18, 0x90    ; td_concrete_1
 defb 0x2D, 0x30, 0x90    ; td_concrete_1
-;
-; SCREEN (2, 1)
-;
-Screen002x001:
-defb 0x00              ; 0 tiles
 ;
 ; SCREEN (5, 1)
 ;
@@ -1430,9 +1410,9 @@ defw Screen004x000
 defw Screen015x000
 defw Screen000x001
 defw Screen001x001
-defw Screen002x001
-defw Screen002x001
-defw Screen002x001
+defw Screen000x000
+defw Screen000x000
+defw Screen000x000
 defw Screen005x001
 defw Screen006x001
 defw Screen007x001
@@ -1446,9 +1426,9 @@ defw Screen014x001
 defw Screen015x001
 defw Screen000x002
 defw Screen001x002
-defw Screen002x001
-defw Screen002x001
-defw Screen002x001
+defw Screen000x000
+defw Screen000x000
+defw Screen000x000
 defw Screen005x001
 defw Screen006x002
 defw Screen007x002
@@ -1462,9 +1442,9 @@ defw Screen012x001
 defw Screen015x002
 defw Screen000x002
 defw Screen001x003
-defw Screen002x001
-defw Screen002x001
-defw Screen002x001
+defw Screen000x000
+defw Screen000x000
+defw Screen000x000
 defw Screen006x002
 defw Screen008x002
 defw Screen007x003
@@ -1478,9 +1458,9 @@ defw Screen012x001
 defw Screen015x003
 defw Screen000x004
 defw Screen008x003
-defw Screen002x001
-defw Screen002x001
-defw Screen002x001
+defw Screen000x000
+defw Screen000x000
+defw Screen000x000
 defw Screen007x002
 defw Screen008x002
 defw Screen006x001

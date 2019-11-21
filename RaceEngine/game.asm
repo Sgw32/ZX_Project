@@ -1,5 +1,7 @@
 include "isr.inc"
 
+org 24768
+
 MAPWIDTH:   equ     16                  ; number of screens the map is wide
 MAPHEIGHT:  equ     16                  ; number of screens the map is tall
 SCREEN:     equ     16384               ; spectrum display memory address
@@ -10,17 +12,18 @@ ATTRLEN:    equ     768                 ; size of the ATTR in bytes
 MEMSCRLEN:  equ     6335                ; size of the offscreen buffer
 CHRSET:     equ     15616               ; address of the spectrum ROM character
 SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
-
+CNT1        equ  23675
+CAR_SPEED   equ  23676 
 ScorePanel equ 0
 
-;include "screen.inc"
 
-            ;org 24768
             ;jp Start
             defb 0
 MemScr:     defs 5632                   ; off screen memory aligned to 4 byte boundary
 MemAttr:    defs 705
 
+main_gs:
+                call SplashScreen
 main:
                 call SND_SETSFXM    ; turn off sound fx
                 call SFX_INIT
@@ -37,9 +40,11 @@ main:
 Start:      ;ld sp,  63488
             ;jp Start
             call ClrScr
+            ld hl, StartupLogo        ; display the title screen
+            call DrawScr
             call DrwPanel
             call DrwMapPos
-            call DrawMap
+            ;call DrawMap
             call SM_Draw
             ;ret
 
@@ -198,7 +203,7 @@ TOGGLECOLLISONS:
 
 UP:         ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
-            ld de, SabreManWalkUp       ; load de with what it should be
+            ld de, lada_2105       ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
             jr z, UPMOVE                ; zero if the same so goto next frame
@@ -216,7 +221,7 @@ UPMOVE:
             ret
 DOWN:       ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
-            ld de, SabreManWalkDown     ; load de with what it should be
+            ld de, lada_2105     ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
             jr z,  DOWNMOVE             ; zero if the same so goto next frame
@@ -235,7 +240,7 @@ DOWNMOVE:
             ret
 LEFT:       ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
-            ld de, SabreManWalkLeft     ; load de with what it should be
+            ld de, lada_2105_left     ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
             jr z,  LEFTMOVE             ; zero if the same so goto next frame
@@ -250,11 +255,28 @@ LEFT:       ld hl, (SM_Sprite)          ; get the current sprite set
             call SM_Draw                ; draw the new sabreman
             ;call SM_Erase              ; erase the old sabreman
             ret                         ; done
-LEFTMOVE:   
-            ret
+LEFTMOVE:   call SM_Size                ; get the size of the current sprite
+            ld bc, (SM_Pos)             ; load position into bc
+            ld a, c
+            sub 4
+            ld c, a
+            and 7
+            jr z,  LEFTDOTEST
+            inc e                       ; inc the width for non boundary position
+LEFTDOTEST: inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            
+            ld (SM_OPos), bc            ; no collision,  so save the old position
+            ld a, c
+            sub 4
+            ld c, a
+            ld (SM_Pos), bc             ; save the new position
+            jp NEXTFRAME                ; go to the next frame
 RIGHT:      ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl         ; save the sprite set
-            ld de, SabreManWalkRight    ; load de with what it should be
+            ld de, lada_2105    ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
             jr z, RIGHTMOVE             ; zero if the same so move sprite
@@ -418,7 +440,7 @@ SM_Size:    ld hl, (SM_OSprite)         ; load the sprite set into hl
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
 ;
-DrawMap:    ld bc, (MAP_Coord)          ; get the map coords
+DrawMap:    ;ld bc, (MAP_Coord)          ; get the map coords
             ;call Map2Scr                ; convert map cell coords to tile screen address
             ;call DrwScr                 ; draw the screen
             ;call BltMemScr              ; show the screen
@@ -1276,6 +1298,129 @@ ColTestEnd: pop hl                      ;(pos)
             pop bc                      ;()
             ret
 
+SplashScreen:    
+             ld hl, CNT1
+             ld (hl), 2
+             ld hl, StartupLogo        ; display the title screen
+PGLoop1:      
+             call DrawScr            ; draw the screen    
+             call Pause1000              ; pause between key presses  
+             
+             call ClrScr
+             call Pause1000              ; pause between key presses
+             
+             ld a,(CNT1)
+             dec a
+             ld (CNT1),a
+             jr nz, PGLoop1               ; keep going still the game is finished
+             ld hl, CNT1
+             ld (hl), 2
+             ld hl, StartupLogo        ; display the title screen
+PGLoop2:      
+             dec bc
+             call DrawScr            ; draw the screen    
+             call Pause60000              ; pause between key presses  
+             
+             call ClrScr
+             call Pause60000              ; pause between key presses
+             ld a,(CNT1)
+             dec a
+             ld (CNT1),a
+             jr nz, PGLoop2               ; keep going still the game is finished
+             
+ExitFromSplash:
+             ld hl, StartupLogo        ; display the title screen
+             call DrawScr            ; draw the screen 
+             call ClrScr
+             call Pause60000
+             ret             
+
+;---------------------------------------------------------------;
+; Pause                                                         ;
+;   pause briefly                                               ;
+;---------------------------------------------------------------;
+Pause1000:       push bc                 ; save bc
+             push de                 ; save de
+             push hl                 ; hl
+             ld bc, 100            ; define the pause length
+             ld de, 0                ; define block transfer destination
+             ld hl, 0                ; define block transfer source
+             ldir                    ; do a block transfer (takes a little while) 
+             pop hl                  ; restore hl
+             pop de                  ; restore de
+             pop bc                  ; restore bc
+             ret                     ; pause complete   
+             
+
+;---------------------------------------------------------------;
+; Pause2                                                         ;
+;   pause briefly                                               ;
+;---------------------------------------------------------------;
+Pause60000:       push bc                 ; save bc
+             push de                 ; save de
+             push hl                 ; hl
+             ld bc, 6000            ; define the pause length
+             ld de, 0                ; define block transfer destination
+             ld hl, 0                ; define block transfer source
+             ldir                    ; do a block transfer (takes a little while) 
+             pop hl                  ; restore hl
+             pop de                  ; restore de
+             pop bc                  ; restore bc
+             ret                     ; pause complete                         
+
+;---------------------------------------------------------------;
+; DrawScr                                                       ;
+;                                                               ;
+;   Draws a screen object onto the display                      ;
+;   Written by Tony Thompson                                    ;
+;   Created         2006                                        ;
+;   Last Changed    18 March 2006                               ;
+;                                                               ;
+;   Inputs                                                      ;
+;       hl - the address of a screen to draw                    ;
+;                                                               ;
+;   Regs Used                                                   ;
+;       af,  bc, de, hl                                         ;
+;                                                               ;
+;   Regs destoryed                                              ;
+;       none                                                    ;
+;---------------------------------------------------------------;
+DrawScr:    push af
+            push bc
+            push de
+            push hl            ; save all the registers
+            push bc
+            push hl
+            ld bc, 768        ; clear the attributes to black
+            ld hl, ATTR              
+DrwScrClr:  ld (hl), 0
+            inc hl
+            dec bc
+            ld a, c
+            or b
+            jr nz, DrwScrClr
+            pop hl
+            pop bc
+            ld b, 192          ; transfer 192 lines
+            ld de, SCREEN      ; point de at the screen address  
+DrwScrLp:   push bc            ; save bc
+            ld bc, 32          ; transfer 1 line of pixels  
+            push de            ; save the screen position
+            ldir               ; do the transfer
+            pop de             ; restore the screen position
+            ex de, hl          ; swap screen address for off screen address
+            call Incy          ; get next line of the physical screen
+            ex de, hl          ; put screen address back into de
+            pop bc             ; get the line count
+            djnz DrwScrLp      ; decrement it and keep draw lines if not zero
+            ld bc, 768         ; transfer the attributes to the screen
+            ldir               ; do the transfer
+            pop hl             ; restore all the registers
+            pop de
+            pop bc
+            pop af
+            ret                ; return to caller
+
 LastCode:   nop
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1290,6 +1435,7 @@ include "sprites.inc"
 ;                                                               ;
 ;---------------------------------------------------------------;
 include "tiles.inc"
+include "screen.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1328,14 +1474,14 @@ TXT16:  defm "0001020304050607080910111213141516"
 ;                                                               ;
 ;---------------------------------------------------------------;
 Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
-SM_Sprite:      defw SabreManWalkLeft   ; current sprite set to use for sabreman
+SM_Sprite:      defw lada_2105   ; current sprite set to use for sabreman
 SM_Frame:       defb 0                  ; current frame of the sprite set
-SM_Pos:         defb 120,  80           ; current position of sabreman
-SM_Color:       defb 71                 ; default color is Bright white on black
+SM_Pos:         defb 72,  112           ; current position of sabreman
+SM_Color:       defb 06                 ; default color is Bright white on black
 ; old versions of the above
-SM_OSprite:     defw SabreManWalkLeft   ; old sprite set to use for sabreman
+SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
-SM_OPos:        defb 128,  24           ; old position of sabreman
+SM_OPos:        defb 108,  24           ; old position of sabreman
 MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
