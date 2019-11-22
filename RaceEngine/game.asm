@@ -206,7 +206,7 @@ UP:         ld hl, (SM_Sprite)          ; get the current sprite set
             ld de, lada_2105       ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
-            jr z, UPMOVE                ; zero if the same so goto next frame
+            ;jr z, UPMOVE                ; zero if the same so goto next frame
             push de                     ; save the sprite pointer
             call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
@@ -268,11 +268,11 @@ LEFTDOTEST: inc c                       ;
             inc c                       ;
             inc c                       ;
             
-            ld (SM_OPos), bc            ; no collision,  so save the old position
-            ld a, c
-            sub 4
-            ld c, a
-            ld (SM_Pos), bc             ; save the new position
+            ;ld (SM_OPos), bc            ; no collision,  so save the old position
+            ;ld a, c
+            ;sub 4
+            ;ld c, a
+            ;ld (SM_Pos), bc             ; save the new position
             jp NEXTFRAME                ; go to the next frame
 RIGHT:      ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl         ; save the sprite set
@@ -290,8 +290,16 @@ RIGHT:      ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_Frame), a            ; set the frame index
             call SM_Draw                ; draw the new sabreman
             ret                         ; done
-RIGHTMOVE:  
-            ret
+RIGHTMOVE:  call SM_Size
+            ld bc, (SM_Pos)             ; load position into bc
+            ld a, 4
+            add a, c
+            ld c, a
+            and 7
+            jr z, RIGHTDOTEST
+            inc e                       ; inc the width for non boundary position
+RIGHTDOTEST:
+            jr NEXTFRAME                ; go to the next frame
 NEXTFRAME:  ld hl, (SM_Sprite)          ; get the current sprite set
             ld b, (hl)                  ; load b with the number of frames for the sprite set
             ld a, (SM_Frame)            ; get the current frame in a
@@ -300,7 +308,7 @@ NEXTFRAME:  ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_Frame), a            ; store the result
             cp b                        ; cp to b
             jr nz, NEXTFRAME1           ; skip if the result is not zero
-            xor a                       ; reset the frame index to zero (ie. loop around)
+            dec a                       ; reset the frame index to zero (ie. loop around)
             ld (SM_Frame), a            ; store the new frame index
 NEXTFRAME1: call SM_Draw                ; draw the new sabreman
             call SM_Erase               ; erase the old sabreman
@@ -1475,13 +1483,13 @@ TXT16:  defm "0001020304050607080910111213141516"
 ;---------------------------------------------------------------;
 Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
 SM_Sprite:      defw lada_2105   ; current sprite set to use for sabreman
-SM_Frame:       defb 0                  ; current frame of the sprite set
+SM_Frame:       defb 1                  ; current frame of the sprite set
 SM_Pos:         defb 72,  112           ; current position of sabreman
 SM_Color:       defb 06                 ; default color is Bright white on black
 ; old versions of the above
 SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
-SM_OPos:        defb 108,  24           ; old position of sabreman
+SM_OPos:        defb 72,  112           ; old position of sabreman
 MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
