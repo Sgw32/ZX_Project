@@ -14,7 +14,7 @@ CHRSET:     equ     15616               ; address of the spectrum ROM character
 SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
 CNT1        equ  23675
 CAR_SPEED   equ  23676
-ScorePanel equ 0
+;ScorePanel equ 0
 
 
             ;jp Start
@@ -44,7 +44,7 @@ Start:      ;ld sp,  63488
             call DrawScr
             call DrwPanel
             call DrwMapPos
-            ;call DrawMap
+            call DrawMap
             call SM_Draw ; Draw car
             ld bc, 1
             ld (CAR_SPEED), bc
@@ -482,10 +482,10 @@ SM_Size:    ld hl, (SM_OSprite)         ; load the sprite set into hl
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
 ;
-DrawMap:    ;ld bc, (MAP_Coord)          ; get the map coords
-            ;call Map2Scr                ; convert map cell coords to tile screen address
-            ;call DrwScr                 ; draw the screen
-            ;call BltMemScr              ; show the screen
+DrawMap:    ld bc, (MAP_Coord)          ; get the map coords
+            call Map2Scr                ; convert map cell coords to tile screen address
+            call DrwScr                 ; draw the screen
+            call BltMemScr              ; show the screen
             ret
 
 ;---------------------------------------------------------------;
@@ -772,9 +772,16 @@ Map2Scr:    push bc                     ; save the coords
             or b                        ; combine the two
             ld c, a
             ld b, 0
-MapIdx2Scr: 
+MapIdx2Scr: sla c                       ; multiply bc by 2
+            rl b                        ;
+            ld hl, MapTable             ;
+            add hl, bc
+            pop bc                      ; restore the coords
+            ld e, (hl)                  ; put the address of the tile screen into de
+            inc hl                      ; from the screentable entry
+            ld d, (hl)                  ; stored in hl
+            ex de, hl                   ; hl contains tile screen address
             ret
-
 
 ;---------------------------------------------------------------;
 ; ClrScr                                                        ;
@@ -1469,7 +1476,7 @@ LastCode:   nop
 ; Sprites and Sprite Table used in the game                     ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-include "sprites.inc"
+include "sprites_car.inc"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1478,7 +1485,7 @@ include "sprites.inc"
 ;---------------------------------------------------------------;
 include "tiles.inc"
 include "screen.inc"
-
+include "map.inc"
 ;---------------------------------------------------------------;
 ;                                                               ;
 ; Map Table and Screens used in the game                        ;
@@ -1524,7 +1531,7 @@ SM_Color:       defb 06                 ; default color is Bright white on black
 SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 72,  112           ; old position of sabreman
-MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
+MAP_Coord:      defb 0, 0              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 

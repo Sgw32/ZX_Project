@@ -15,11 +15,16 @@ ScorePanel equ 0
 Screen000x000:
 defb 0x00              ; 0 tiles
 ;
+; SCREEN (1, 0)
+;
+Screen001x000:
+defb 0x00              ; 0 tiles
+;
 ; MAP TABLE (16 x 16)
 ;
 MapTable:
 defw Screen000x000
-defw Screen000x000
+defw Screen001x000
 defw Screen000x000
 defw Screen000x000
 defw Screen000x000
