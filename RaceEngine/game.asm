@@ -13,7 +13,7 @@ MEMSCRLEN:  equ     6335                ; size of the offscreen buffer
 CHRSET:     equ     15616               ; address of the spectrum ROM character
 SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
 CNT1        equ  23675
-CAR_SPEED   equ  23676 
+CAR_SPEED   equ  23676
 ScorePanel equ 0
 
 
@@ -40,15 +40,18 @@ main:
 Start:      ;ld sp,  63488
             ;jp Start
             call ClrScr
-            ld hl, StartupLogo        ; display the title screen
+            ld hl, bck_nightsky        ; display the title screen
             call DrawScr
             call DrwPanel
             call DrwMapPos
             ;call DrawMap
-            call SM_Draw
+            call SM_Draw ; Draw car
+            ld bc, 1
+            ld (CAR_SPEED), bc
             ;ret
 
-MoveLoop:   call MM_Move                ; move the Monsters
+MoveLoop:   call DrwMapPos
+            call MM_Move                ; move the Monsters
             call SM_Move                ; move SabreMan
             call Pause                  ; pause a little while
             jr MoveLoop                 ; move again
@@ -68,19 +71,13 @@ Pause:      push bc                     ; save bc
             pop bc                      ; restore bc
             ret                         ; pause complete
 
-DrwPanel:   ld hl, SCREEN+3
+DrwPanel:   ld hl, SCREEN+1
             ld de, UP1
             call DrwStr
             ld hl, SCREEN+33
             ld de, SCORE1
             call DrwStr
-            ld hl,  SCREEN+27
-            ld de,  UP2
-            call DrwStr
-            ld hl,  SCREEN+57
-            ld de,  SCORE2
-            call DrwStr
-            ld hl, SCREEN+15
+            ld hl, SCREEN+14
             ld de,  HI
             call DrwStr
             ld hl,  SCREEN+45
@@ -93,11 +90,12 @@ DrwPanel:   ld hl, SCREEN+3
             ldir
             ret
 
-DrwMapPos:  ld a, (MAP_Coord)
+DrwMapPos:  
+            ld a, (CAR_SPEED)
+            srl a
+            srl a
+            srl a
             ld de, MAPPOS
-            call Num2Txt
-            ld a, (MAP_Coord + 1)
-            ld de, MAPPOS + 4
             call Num2Txt
             ld hl, SCREEN+33
             ld de, MAPPOS
@@ -173,7 +171,6 @@ SM_Move:    ld bc, &FBFE
             cpl
             and %00000010 ;W
             call nz, UP
-SM_Move2:
             ld bc, &FDFE
             in a,(c)
             cpl
@@ -201,7 +198,20 @@ TOGGLECOLLISONS:
             ;ld (DoColTest), a
             ret
 
-UP:         ld hl, (SM_Sprite)          ; get the current sprite set
+UP:         
+            ld de,(CAR_SPEED)
+            inc de
+            inc de
+            inc de
+            inc de
+            ld hl, 130 ;130 kmh limit
+            ld a, e
+            cp l
+            jr c, ACCELERATE
+            ret
+ACCELERATE:
+            ld (CAR_SPEED),de
+            ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
             ld de, lada_2105       ; load de with what it should be
             and a                       ; reset the carry flag
@@ -216,29 +226,52 @@ UP:         ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OFrame), a           ; save the frame index
             ld (SM_Frame),  a           ; set the frame index
             call SM_Draw                ; draw the new sabreman
+            
             ret                         ; done
 UPMOVE:	    
             ret
-DOWN:       ld hl, (SM_Sprite)          ; get the current sprite set
+DOWN:         
+            ld de,(CAR_SPEED)
+            ld hl, 1
+            sbc hl, de
+            jr z, BRAKE
+            dec de
+            ld hl, 252
+            sbc hl, de
+            jr nz, BRAKE
+            ld de,1
+            ld (CAR_SPEED),de
+            ret
+BRAKE:
+            ld (CAR_SPEED),de
+            ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
-            ld de, lada_2105     ; load de with what it should be
+            ld de, lada_2105       ; load de with what it should be
             and a                       ; reset the carry flag
             sbc hl, de                  ; compare them
-            jr z,  DOWNMOVE             ; zero if the same so goto next frame
+            ;jr z, UPMOVE                ; zero if the same so goto next frame
             push de                     ; save the sprite pointer
             call SM_Draw                ; erase the last sabreman
             pop de                      ; restore the sprite pointer
             ld (SM_Sprite), de          ; not the same,  so change the sprite set
             ld a, (SM_Frame)            ; get the frame index
-            ld (SM_OFrame), a           ; save the frame index
             xor a                       ; reset the frame to zero
+            ld (SM_OFrame), a           ; save the frame index
             ld (SM_Frame),  a           ; set the frame index
             call SM_Draw                ; draw the new sabreman
-            ;call SM_Erase              ; erase the old sabreman
+            
             ret                         ; done
-DOWNMOVE:   
+DOWNMOVE    
             ret
-LEFT:       ld hl, (SM_Sprite)          ; get the current sprite set
+LEFT:       ld a,(CAR_SPEED)
+            ;dec a
+            jr nz, LEFT_CONT
+            ld a,1
+            ld (CAR_SPEED),a
+            ret
+LEFT_CONT:
+            ld (CAR_SPEED),a
+            ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
             ld de, lada_2105_left     ; load de with what it should be
             and a                       ; reset the carry flag
@@ -263,18 +296,18 @@ LEFTMOVE:   call SM_Size                ; get the size of the current sprite
             and 7
             jr z,  LEFTDOTEST
             inc e                       ; inc the width for non boundary position
-LEFTDOTEST: inc c                       ;
-            inc c                       ;
-            inc c                       ;
-            inc c                       ;
-            
-            ;ld (SM_OPos), bc            ; no collision,  so save the old position
-            ;ld a, c
-            ;sub 4
-            ;ld c, a
-            ;ld (SM_Pos), bc             ; save the new position
+LEFTDOTEST: 
             jp NEXTFRAME                ; go to the next frame
-RIGHT:      ld hl, (SM_Sprite)          ; get the current sprite set
+            ret
+RIGHT:      ld a,(CAR_SPEED)
+            ;dec a
+            jr nz, RIGHT_CONT
+            ld a,1
+            ld (CAR_SPEED),a
+            ret
+RIGHT_CONT:
+            ld (CAR_SPEED),a
+            ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl         ; save the sprite set
             ld de, lada_2105    ; load de with what it should be
             and a                       ; reset the carry flag
@@ -300,6 +333,7 @@ RIGHTMOVE:  call SM_Size
             inc e                       ; inc the width for non boundary position
 RIGHTDOTEST:
             jr NEXTFRAME                ; go to the next frame
+            ret
 NEXTFRAME:  ld hl, (SM_Sprite)          ; get the current sprite set
             ld b, (hl)                  ; load b with the number of frames for the sprite set
             ld a, (SM_Frame)            ; get the current frame in a
@@ -1309,7 +1343,7 @@ ColTestEnd: pop hl                      ;(pos)
 SplashScreen:    
              ld hl, CNT1
              ld (hl), 2
-             ld hl, StartupLogo        ; display the title screen
+             ld hl, bck_nightsky        ; display the title screen
 PGLoop1:      
              call DrawScr            ; draw the screen    
              call Pause1000              ; pause between key presses  
@@ -1323,7 +1357,7 @@ PGLoop1:
              jr nz, PGLoop1               ; keep going still the game is finished
              ld hl, CNT1
              ld (hl), 2
-             ld hl, StartupLogo        ; display the title screen
+             ld hl, bck_nightsky        ; display the title screen
 PGLoop2:      
              dec bc
              call DrawScr            ; draw the screen    
@@ -1337,7 +1371,7 @@ PGLoop2:
              jr nz, PGLoop2               ; keep going still the game is finished
              
 ExitFromSplash:
-             ld hl, StartupLogo        ; display the title screen
+             ld hl, bck_nightsky        ; display the title screen
              call DrawScr            ; draw the screen 
              call ClrScr
              call Pause60000
@@ -1456,11 +1490,11 @@ include "screen.inc"
 ; String Table                                                  ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-UP1:    defm "P1"
+UP1:    defm "SPEED"
         defb 0
 UP2:    defm "P2"
         defb 0
-HI:     defm "HI"
+HI:     defm "ADLER"
         defb 0
 SCORE1: defm "000000"
         defb 0
@@ -1468,10 +1502,10 @@ SCORE2: defm "000000"
         defb 0
 SCOREH: defm "100000"
         defb 0
-MAPPOS: defm "08, 10"
+MAPPOS: defm "08    "
         defb 0
 ; ATTR for the score panel at the top of the screen
-SCOREC: defb 69, 69, 69, 69, 69, 69, 71, 71, 71,  7,  7,  7,  7,  7,  7, 87, 87,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 69, 69, 69, 69, 69
+SCOREC: defb 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 87, 87, 87, 87, 87, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
 
 TXT16:  defm "0001020304050607080910111213141516"
@@ -1483,7 +1517,7 @@ TXT16:  defm "0001020304050607080910111213141516"
 ;---------------------------------------------------------------;
 Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
 SM_Sprite:      defw lada_2105   ; current sprite set to use for sabreman
-SM_Frame:       defb 1                  ; current frame of the sprite set
+SM_Frame:       defb 0                  ; current frame of the sprite set
 SM_Pos:         defb 72,  112           ; current position of sabreman
 SM_Color:       defb 06                 ; default color is Bright white on black
 ; old versions of the above

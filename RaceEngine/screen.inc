@@ -12,7 +12,7 @@
 ; Palette: ZX Spectrum
 ; Masked : No
 ; RowOrder: Classic
-StartupLogo:
+bck_nightsky:
 defb 32, 24             ; size: WxH - (chars x chars)
 ; pixels and mask bit pairs
 defb 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255

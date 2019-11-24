@@ -1521,4 +1521,4 @@ FXCHUNKBIN
 	incbin "SoundFX.SFX"
 
 TITLE_TUNE:
-    incbin "1.pt3"
+    incbin "darkman007_turbo.pt3"
