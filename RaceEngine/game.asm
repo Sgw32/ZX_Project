@@ -50,15 +50,30 @@ Start:      ;ld sp,  63488
             ld (CAR_SPEED), bc
             ;ret
 
-MoveLoop:   call DrwMapPos
+MoveLoop:   
+            call ProcessRideForward
+            call DrwMapPos
             call MM_Move                ; move the Monsters
             call SM_Move                ; move SabreMan
             call Pause                  ; pause a little while
+            call SpendEnergy
             jr MoveLoop                 ; move again
 
 
 include "ay_player.inc"            
-            
+SpendEnergy:
+            ld de,(CAR_SPEED)
+            ld hl, 1
+            sbc hl, de
+            jr z, SpendEnergy_0
+            dec de
+            ld hl, 252
+            sbc hl, de
+            jr nz, SpendEnergy_0
+            ld de,1
+SpendEnergy_0:
+            ld (CAR_SPEED),de
+            ret
 Pause:      push bc                     ; save bc
             push de                     ; save de
             push hl                     ; hl
@@ -263,14 +278,14 @@ BRAKE:
             ret                         ; done
 DOWNMOVE    
             ret
-LEFT:       ld a,(CAR_SPEED)
-            ;dec a
-            jr nz, LEFT_CONT
-            ld a,1
-            ld (CAR_SPEED),a
+LEFT:       ld de,(CAR_SPEED)
+            ld hl, 8 ;130 kmh limit
+            ld a, e
+            cp l
+            ;jr nc, LEFT_CONT
+            jp LEFT_CONT
             ret
 LEFT_CONT:
-            ld (CAR_SPEED),a
             ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
             ld de, lada_2105_left     ; load de with what it should be
@@ -291,19 +306,35 @@ LEFT_CONT:
 LEFTMOVE:   call SM_Size                ; get the size of the current sprite
             ld bc, (SM_Pos)             ; load position into bc
             ld a, c
-            sub 4
+            sub 8
             ld c, a
             and 7
             jr z,  LEFTDOTEST
             inc e                       ; inc the width for non boundary position
-LEFTDOTEST: 
+LEFTDOTEST: call ColTest  
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            inc c                       ;
+            and a                       ; test for collision
+            ret nz                      ; non zero is a collision
+            ld (SM_OPos), bc            ; no collision,  so save the old position
+            ld a, c
+            sub 8
+            ld c, a
+            ;jr z, LEFTSCREEN
+            ld (SM_Pos), bc             ; save the new position
             jp NEXTFRAME                ; go to the next frame
             ret
-RIGHT:      ld a,(CAR_SPEED)
-            ;dec a
-            jr nz, RIGHT_CONT
-            ld a,1
-            ld (CAR_SPEED),a
+RIGHT:       ld de,(CAR_SPEED)
+            ld hl, 8 ;130 kmh limit
+            ld a, e
+            cp l
+            jr nc, RIGHT_CONT
             ret
 RIGHT_CONT:
             ld (CAR_SPEED),a
@@ -325,13 +356,30 @@ RIGHT_CONT:
             ret                         ; done
 RIGHTMOVE:  call SM_Size
             ld bc, (SM_Pos)             ; load position into bc
-            ld a, 4
+            ld a, 8
             add a, c
             ld c, a
             and 7
             jr z, RIGHTDOTEST
             inc e                       ; inc the width for non boundary position
-RIGHTDOTEST:
+RIGHTDOTEST:call ColTest
+            dec c
+            dec c
+            dec c
+            dec c
+            dec c
+            dec c
+            dec c
+            dec c
+            and a
+            ret nz
+            ld (SM_OPos), bc            ; save the old position
+            ld a, 8
+            add a, c
+            ld c, a
+            ;cp 240
+            ;jr z, RIGHTSCREEN
+            ld (SM_Pos), bc             ; save the new position
             jr NEXTFRAME                ; go to the next frame
             ret
 NEXTFRAME:  ld hl, (SM_Sprite)          ; get the current sprite set
@@ -473,11 +521,40 @@ SM_Size:    ld hl, (SM_OSprite)         ; load the sprite set into hl
             srl d
             srl d
             srl d
+            srl d
+            srl e
             srl e
             srl e
             srl e
             ret
 
+ProcessRideForward:
+            ld de,(CAR_SPEED)
+            ld hl, 8 ;130 kmh limit
+            ld a, e
+            cp l
+            jr nc, RideForwardShift
+            ret
+RideForwardShift:
+            ld bc, (MAP_Coord)          ; get the map coordss
+            inc c
+            ld hl, 15 ;130 kmh limit
+            ld a, c
+            cp l
+            jr nc, FlipAround
+            ld (MAP_Coord), bc
+            call DrwMapPos
+            call DrawMap
+            call SM_Draw
+            ;call SM_Draw
+            ret
+FlipAround:
+            ld bc, 0
+            ld (MAP_Coord), bc
+            call DrwMapPos
+            call DrawMap
+            call SM_Draw
+            ret
 ;
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
@@ -1525,12 +1602,12 @@ TXT16:  defm "0001020304050607080910111213141516"
 Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
 SM_Sprite:      defw lada_2105   ; current sprite set to use for sabreman
 SM_Frame:       defb 0                  ; current frame of the sprite set
-SM_Pos:         defb 72,  112           ; current position of sabreman
+SM_Pos:         defb 32,  120           ; current position of sabreman
 SM_Color:       defb 06                 ; default color is Bright white on black
 ; old versions of the above
 SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
-SM_OPos:        defb 72,  112           ; old position of sabreman
+SM_OPos:        defb 80,  12           ; old position of sabreman
 MAP_Coord:      defb 0, 0              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0

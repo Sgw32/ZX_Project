@@ -931,23 +931,21 @@ defb   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0, 
 SpriteTable:
 ; [RESOURCE: <Parser:Image Tables><Resource:Sprite\lada_2105><Data:>]         
 lada_2105:
-defb 4
 defw lada_2105000
 defw lada_2105001
 defw lada_2105002
 defw lada_2105003
-;defw lada_2105004
-;defw lada_2105005
+defw lada_2105004
+defw lada_2105005
 ; ]RESOURCE: <Parser:Image Tables><Resource:Sprite\lada_2105>]                
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Sprite\lada_2105_left><Data:>]    
 lada_2105_left:
-defb 4
 defw lada_2105_left000
 defw lada_2105_left001
 defw lada_2105_left002
 defw lada_2105_left003
-;defw lada_2105_left004
+defw lada_2105_left004
 ; ]RESOURCE: <Parser:Image Tables><Resource:Sprite\lada_2105_left>]           
 
 ; ]RESOURCE: <Parser:Image Tables><Resource:Sprite>]
