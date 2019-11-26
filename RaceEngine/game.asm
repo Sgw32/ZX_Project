@@ -77,7 +77,14 @@ SpendEnergy_0:
 Pause:      push bc                     ; save bc
             push de                     ; save de
             push hl                     ; hl
-            ld bc, 5000                 ; define the pause length
+            ld hl, 200                 ; define the pause length
+            ld de,(CAR_SPEED)
+            ld b, 0
+            ld c, e ; 0..128
+            sbc hl,bc
+            ld c, l
+            ld b, h
+            ;ld bc, 200
             ld de, 0                    ; define block transfer destination
             ld hl, 0                    ; define block transfer source
             ldir                        ; do a block transfer (takes a little while)

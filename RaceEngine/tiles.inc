@@ -61,6 +61,160 @@ defw road_brick
 defw grass_brick
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick>]                
 
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick><Data:>]         
+defw trd_pillar_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick>]                
+
+
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile>]                            
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\3d_pillar_1><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : 3d_pillar_1
+; Size   : 48x120
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+trd_pillar_1:
+defb 6, 15             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb   0,   0,   0,   0,   0,   0
+defb   0,   0,   0,   0,   0,   0
+defb   0, 254,   0,   0,   0,   0
+defb   7, 255, 192,   0,   0,   0
+defb  15, 255, 248,   0,   0,   0
+defb  12,   0, 119, 252,   0,   0
+defb   6,   0, 192,  15, 224,   0
+defb   3, 255, 128,   0, 240,   0
+defb   0,   0,   0,   0,  56,   0
+defb   0,   0,   0,   0,  28,   0
+defb   0,   0,   0,   0,  14,   0
+defb   0,   0,   0,   0,   7,   0
+defb   0,   0,   0,   0,   3,   0
+defb   0,   0,   0,   0,   3, 128
+defb   0,   0,   0,   0,   1, 128
+defb   0,   0,   0,   0,   1, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   0, 192
+defb   0,   0,   0,   0,   3,   0
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   3, 208
+defb   0,   0,   0,   0,   3, 224
+defb   0,   0,   0,   0,   1, 208
+defb   0,   0,   0,   0,   0,   0
+defb   0,   0,   0,   0,   0,   0
+; attrs
+defb   7,   7,   7,   7,   7,   0
+defb   0,   0,   0,   0,   7,   7
+defb   0,   0,   0,   0,   7,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+defb   0,   0,   0,   0,  71,   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\3d_pillar_1>]      
+
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]                  
 
 ; ]RESOURCES SECTION                                                         
