@@ -556,7 +556,7 @@ RideForwardShift:
             ;call SM_Draw
             ret
 FlipAround:
-            ld bc, 0
+            ld c, 0
             ld (MAP_Coord), bc
             call DrwMapPos
             call DrawMap
@@ -1615,7 +1615,7 @@ SM_Color:       defb 06                 ; default color is Bright white on black
 SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 80,  12           ; old position of sabreman
-MAP_Coord:      defb 0, 0              ; the coordinates of the curren screen in the map
+MAP_Coord:      defb 0, 2              ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
