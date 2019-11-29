@@ -14,6 +14,7 @@ CHRSET:     equ     15616               ; address of the spectrum ROM character
 SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
 CNT1        equ  23675
 CAR_SPEED   equ  23676
+randData    equ  23677
 ;ScorePanel equ 0
 
 
@@ -22,8 +23,8 @@ CAR_SPEED   equ  23676
 MemScr:     defs 5632                   ; off screen memory aligned to 4 byte boundary
 MemAttr:    defs 705
 
-main_gs:
-                call SplashScreen
+;main_gs:
+;                ;call SplashScreen
 main:
                 call SND_SETSFXM    ; turn off sound fx
                 call SFX_INIT
@@ -40,14 +41,16 @@ main:
 Start:      ;ld sp,  63488
             ;jp Start
             call ClrScr
-            ld hl, bck_nightsky        ; display the title screen
-            call DrawScr
+            ;ld hl, bck_nightsky        ; display the title screen
+            ;call DrawScr
             call DrwPanel
             call DrwMapPos
             call DrawMap
             call SM_Draw ; Draw car
             ld bc, 1
             ld (CAR_SPEED), bc
+            ld bc,133
+            ld (randData),bc
             ;ret
 
 MoveLoop:   
@@ -369,7 +372,7 @@ RIGHTMOVE:  call SM_Size
             and 7
             jr z, RIGHTDOTEST
             inc e                       ; inc the width for non boundary position
-RIGHTDOTEST:call ColTest
+RIGHTDOTEST:;call ColTest
             dec c
             dec c
             dec c
@@ -555,13 +558,51 @@ RideForwardShift:
             call SM_Draw
             ;call SM_Draw
             ret
+            
 FlipAround:
-            ld c, 0
-            ld (MAP_Coord), bc
+            call Gameplay
+            
             call DrwMapPos
             call DrawMap
             call SM_Draw
             ret
+            
+Gameplay:
+            ld h, b
+            ld l, c
+            ld bc, (SM_Pos) 
+            ld a, 40
+            cp c ;A<B - C set, A>=B C reset
+            jr c, SolutionRight ;goes right
+            jr nc, SolutionLeft ;goes left
+            ret
+
+SolutionRight:
+            ;call random
+            ld l, 0
+            ld (MAP_Coord), hl
+            ret
+SolutionLeft:
+            ;call random
+            ld l, 127
+            inc h
+            ld l, 0
+            ld (MAP_Coord), hl
+            ret
+random:
+        push    hl
+        push    de
+        ld      hl,(randData)
+        ld      a,r
+        ld      d,a
+        ld      e,(hl)
+        add     hl,de
+        add     a,l
+        xor     h
+        ld      (randData),hl
+        pop     de
+        pop     hl
+        ret
 ;
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
@@ -1430,44 +1471,7 @@ ColTest2:   ld b, (hl)
 ColTestEnd: pop hl                      ;(pos)
             pop bc                      ;()
             ret
-
-SplashScreen:    
-             ld hl, CNT1
-             ld (hl), 2
-             ld hl, bck_nightsky        ; display the title screen
-PGLoop1:      
-             call DrawScr            ; draw the screen    
-             call Pause1000              ; pause between key presses  
-             
-             call ClrScr
-             call Pause1000              ; pause between key presses
-             
-             ld a,(CNT1)
-             dec a
-             ld (CNT1),a
-             jr nz, PGLoop1               ; keep going still the game is finished
-             ld hl, CNT1
-             ld (hl), 2
-             ld hl, bck_nightsky        ; display the title screen
-PGLoop2:      
-             dec bc
-             call DrawScr            ; draw the screen    
-             call Pause60000              ; pause between key presses  
-             
-             call ClrScr
-             call Pause60000              ; pause between key presses
-             ld a,(CNT1)
-             dec a
-             ld (CNT1),a
-             jr nz, PGLoop2               ; keep going still the game is finished
-             
-ExitFromSplash:
-             ld hl, bck_nightsky        ; display the title screen
-             call DrawScr            ; draw the screen 
-             call ClrScr
-             call Pause60000
-             ret             
-
+            
 ;---------------------------------------------------------------;
 ; Pause                                                         ;
 ;   pause briefly                                               ;
@@ -1567,8 +1571,8 @@ include "sprites_car.inc"
 ; Tiles used in the Map                                         ;
 ;                                                               ;
 ;---------------------------------------------------------------;
-include "tiles.inc"
-include "screen.inc"
+include "tiles_prod.inc"
+;include "screen.inc"
 include "map.inc"
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -1595,9 +1599,12 @@ SCOREH: defm "100000"
         defb 0
 MAPPOS: defm "08    "
         defb 0
-; ATTR for the score panel at the top of the screen
+; ATTR for the score panel at the top of the screen 
 SCOREC: defb 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 87, 87, 87, 87, 87, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
+
+GAMEPLAY_DATA: defb 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2
+GAMEPLAY_DIR:  defb 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
 
 TXT16:  defm "0001020304050607080910111213141516"
 
@@ -1609,13 +1616,13 @@ TXT16:  defm "0001020304050607080910111213141516"
 Scrolls:        defb 0                  ; the number of scrolls to do when drawing a sprite
 SM_Sprite:      defw lada_2105   ; current sprite set to use for sabreman
 SM_Frame:       defb 0                  ; current frame of the sprite set
-SM_Pos:         defb 32,  120           ; current position of sabreman
+SM_Pos:         defb 32,120           ; current position of sabreman
 SM_Color:       defb 06                 ; default color is Bright white on black
 ; old versions of the above
 SM_OSprite:     defw lada_2105   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 80,  12           ; old position of sabreman
-MAP_Coord:      defb 0, 2              ; the coordinates of the curren screen in the map
+MAP_Coord:      defb 0, 0                 ; the coordinates of the curren screen in the map
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
