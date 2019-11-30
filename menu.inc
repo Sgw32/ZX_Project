@@ -43,8 +43,8 @@ MainMenuRet:    ld a, GF_MENU
                 call WindowClose
                 call WindowClose
                 call RefreshPtrBuf
-                ld hl, (GameTune)
-        	    call SND_INIT_HL
+                ;ld hl, (GameTune)
+        	;    call SND_INIT_HL
                 ret
                 
 ;---------------------------------------------------------------;
@@ -56,13 +56,18 @@ MainGameNormal: ;ld a, GF_QUIT
                 ;call ISR_Stop
                 ;ld a, 7
                 ;call 8859
-		;call BASIC_LOADER
-		ld hl, (GameTune)
+                ;call BASIC_LOADER
+                
+                ld hl, (GameTune)
                 call SND_INIT_HL
-		ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
-                call SetGameFlag                    ; set the flags
+                
+                ;ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
+                ;call SetGameFlag                    ; set the flags
                 call GameStartNew
-		jr MainMenuRet
+                ld a, GF_QUIT
+                call SetGameFlag
+                call ISR_Stop
+                jr MainMenuRet
 
 ;---------------------------------------------------------------;
 ; MainGameTimed                                                 ;
@@ -118,9 +123,9 @@ CreditsWindow:  ld a, 79
 ;---------------------------------------------------------------;
 MenuControl:    call EraseMenuPtr
                 ld b, 64
-                ld c, 96
+                ld c, 56
                 ld d, 9
-                ld e, 18
+                ld e, 24
                 call WindowOpen
 
                 ld hl,ControlMenu_0
@@ -146,7 +151,7 @@ MC_Intf_II:     ld a, CF_INTERFACE_II
                 jr MC_End
 
 MC_Kemp:        ld a, CF_KEM_JOYSTICK
-                jr MC_End
+                jr MC_End                                                                                      
 
 MC_Mouse:       ld a, CF_KEM_MOUSE
                 jr MC_End
@@ -754,32 +759,32 @@ ControlMenu_0:  defw 18481
                 defm "Controls"
                 defb $ff
 CtrlMenu_Rect   defb 5
-                defb 120, 88, 184, 94
-                defw MC_Keys
+                defb 72, 88, 80, 94
+                defw MC_Back
                 defb CF_KEYBOARD
-                defb 120, 96, 216, 104
-                defw MC_Intf_II
+                defb 72, 96, 80, 104
+                defw MC_Back
                 defb CF_INTERFACE_II
-                defb 120, 104, 184, 112
-                defw MC_Kemp
+                defb 72, 104, 80, 112
+                defw MC_Back
                 defb CF_KEM_JOYSTICK
-                defb 120, 112, 208, 120
-                defw MC_Mouse
+                defb 72, 112, 80, 120
+                defw MC_Back
                 defb CF_KEM_MOUSE
                 defb 120, 128, 192, 136
                 defw MC_Back
                 defb 0
 CtrlMenu_0_Txt: defb 77
-                defm "Keyboard"
+                defm "Sochi Nights Controls"
                 defb $ff
                 defb 77
-                defm "Interface II"
+                defm "Use WASD for move"
                 defb $ff
                 defb 77
-                defm "Kempston"
+                defm "SPACE for proceed"
                 defb $ff
                 defb 77
-                defm "Kemp. Mouse"
+                defm "E to interact"
                 defb $ff
                 defb 77
                 defm "Main Menu"

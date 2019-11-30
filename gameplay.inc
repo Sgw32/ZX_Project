@@ -10,16 +10,58 @@
 Screen1:    
              ld hl, CNT1
              ld (hl), 2
-             ld hl, StartupLogo        ; display the title screen	
-	     call DrawScr            ; draw the screen    
-PGL1_SN1:      
+             ld hl, Moscow2        ; display the title screen
+SN1_PGLoop1:      
+             call DrawScr            ; draw the screen    
              call Pause1000              ; pause between key presses  
-             call PGL1_SN1
-             ret
-GameStartNew:   ;ld a, GF_GAME_OVER
-                ;call SetGameFlag
-                ;rst 40	
+             
+             call ClrScr
+             call Pause1000              ; pause between key presses
+             
+             ld a,(CNT1)
+             dec a
+             ld (CNT1),a
+             jr nz, SN1_PGLoop1               ; keep going still the game is finished
+             ld hl, CNT1
+             ld (hl), 2
+             ld hl, Moscow2        ; display the title screen
+SN1_PGLoop2:      
+             dec bc
+             call DrawScr            ; draw the screen    
+             call Pause60000              ; pause between key presses  
+             
+             call ClrScr
+             call Pause60000              ; pause between key presses
+             ld a,(CNT1)
+             dec a
+             ld (CNT1),a
+             jr nz, SN1_PGLoop2               ; keep going still the game is finished
+             
+SN1_ExitFromSplash:
+             ld hl, Moscow2        ; display the title screen
+             call DrawScr            ; draw the screen 
+             call WaitForSpace
+             call ClrScr
+             call Pause60000
+             ret             
+             
+GameStartNew:   
+                call Screen1
                 call SplashScreen
+                
+                ;jp load_and_run_file
+                ret
+load_and_run_file:
+                ld ix, 24317
+                ld de, 41027
+                push ix
+                scf 
+                ld a,#ff
+                inc d
+                exa
+                dec d
+                jp $0556
+                jp 24317
                 ret
 
 GameOver:       ld b, 24                ; show the hi score table

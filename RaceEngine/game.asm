@@ -15,6 +15,8 @@ SCRWIDTH:   equ     32                  ; number of character the offscreen buff
 CNT1        equ  23675
 CAR_SPEED   equ  23676
 randData    equ  23677
+mapCntDATA    equ  23678
+mapCntDIR    equ  23680
 ;ScorePanel equ 0
 
 
@@ -41,16 +43,14 @@ main:
 Start:      ;ld sp,  63488
             ;jp Start
             call ClrScr
-            ;ld hl, bck_nightsky        ; display the title screen
-            ;call DrawScr
+            call PrepareGameplayData
+
             call DrwPanel
             call DrwMapPos
             call DrawMap
             call SM_Draw ; Draw car
             ld bc, 1
             ld (CAR_SPEED), bc
-            ld bc,133
-            ld (randData),bc
             ;ret
 
 MoveLoop:   
@@ -62,6 +62,12 @@ MoveLoop:
             call SpendEnergy
             jr MoveLoop                 ; move again
 
+PrepareGameplayData: ;load mapCntDATA and DIR with zeros
+            ld hl, mapCntDIR
+            ld (hl), 0
+            ld hl, mapCntDATA
+            ld (hl), 0
+            ret
 
 include "ay_player.inc"            
 SpendEnergy:
@@ -561,7 +567,7 @@ RideForwardShift:
             
 FlipAround:
             call Gameplay
-            
+            call CheckGameEnd
             call DrwMapPos
             call DrawMap
             call SM_Draw
@@ -576,33 +582,58 @@ Gameplay:
             jr c, SolutionRight ;goes right
             jr nc, SolutionLeft ;goes left
             ret
+            
+CheckGameEnd:
+            ld bc, (mapCntDIR)
+            ld a, 16
+            cp c
+            jr c, CheckGameEnd ;goes right
+            ret
 
 SolutionRight:
-            ;call random
-            ld l, 0
+            push hl ;save hl to restore it next time
+            ld hl, GAMEPLAY_DIR ; load DIRECTION to HL
+            ld de, (mapCntDIR) ; load array index to DE
+            add hl,de ; Get pointer to array 
+            ld a, (hl) ;load current map direction
+            pop hl ;restore hl
+            dec a          ;1-1=0 0-1=255 and zero set
+            jr z, SkipRight ;a was equal 1 - skip
+            ; There we go to the next map
+            jp SwitchMap
+SkipRight: 
+            ld hl,0
+            ld (mapCntDIR), hl ;load new mapCntDIR
             ld (MAP_Coord), hl
             ret
 SolutionLeft:
-            ;call random
-            ld l, 127
-            inc h
+            push hl ;save hl to restore it next time
+            ld hl, GAMEPLAY_DIR ; load DIRECTION to HL
+            ld de, (mapCntDIR) ; load array index to DE
+            add hl,de ; Get pointer to array 
+            ld a, (hl) ;load current map direction
+            pop hl ;restore hl
+            dec a          ;1-1=0 0-1=255 and zero set
+            jr nz, SkipLeft ;a was equal 0 - skip
+            ; There we go to the next map
+            jp SwitchMap
+SkipLeft: 
+            ld hl,0
+            ld (mapCntDIR), hl ;load new mapCntDIR
+            ld (MAP_Coord), hl
+            ret
+SwitchMap:
+            ld de, (mapCntDIR) ;load DE with map index to continue(or not?)
+            ld hl, GAMEPLAY_DATA  ;load pointer to map array
+            add hl,de ;load pointer to the next map
+            ld b, (hl) ;load next map value
+            ld h, b ;perform exchange h=b
+            inc de  ;proceed map count
+            ld (mapCntDIR), de ;load new mapCntDIR
+            ;inc h ;Here we go and change the map
             ld l, 0
             ld (MAP_Coord), hl
             ret
-random:
-        push    hl
-        push    de
-        ld      hl,(randData)
-        ld      a,r
-        ld      d,a
-        ld      e,(hl)
-        add     hl,de
-        add     a,l
-        xor     h
-        ld      (randData),hl
-        pop     de
-        pop     hl
-        ret
 ;
 ; bc - sprite position in pixels
 ; returns new x position for sprite based on the collision attributes
@@ -1603,8 +1634,11 @@ MAPPOS: defm "08    "
 SCOREC: defb 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 87, 87, 87, 87, 87, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
 
-GAMEPLAY_DATA: defb 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2, 1, 0, 1, 2
-GAMEPLAY_DIR:  defb 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
+GAMEPLAY_DATA: defb 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4
+GAMEPLAY_DIR:  defb 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1
+
+; 0 is right
+; 1 is left
 
 TXT16:  defm "0001020304050607080910111213141516"
 

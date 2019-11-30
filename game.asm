@@ -67,6 +67,7 @@ Quit:           call ISR_Stop
                 pop de
                 pop bc
                 pop af
+                jp load_and_run_file
                 ret                 ; return to BASIC
 
 

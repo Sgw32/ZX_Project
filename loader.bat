@@ -1,3 +1,3 @@
-D:\VARIOUS_BACKUPS!\ZX_Project\Assembler\pasmo.exe -v --tapbas --err test.asm game.tap game.map
+C:\Projects\Freelance\ZX\TOMMYGUN\Pasmo\pasmo.exe -v --tapbas --err test.asm loader.tap game.map
 taskkill /IM "fuse.exe" /F
-D:\VARIOUS_BACKUPS!\ZX_Project\Emulator\Fuse\fuse.exe game.tap
+C:\Projects\Freelance\ZX\Fuse\fuse.exe loader.tap
