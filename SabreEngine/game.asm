@@ -1461,7 +1461,7 @@ ColTestEnd: pop hl                      ;(pos)
 LastCode:   nop
 ;---------------------------------------------------------------;
 ;                                                               ;
-; Sprites and Sprite Table used in the agame                     ;
+; Sprites and Sprite Table used in the aagame                     ;
 ;                                                               ;
 ;---------------------------------------------------------------;
 include "sprites.inc"
@@ -1519,7 +1519,10 @@ SM_Color:       defb 71                 ; default color is Bright white on black
 SM_OSprite:     defw SabreManWalkLeft   ; old sprite set to use for sabreman
 SM_OFrame:      defb 0                  ; old frame of the sprite set
 SM_OPos:        defb 128,  24           ; old position of sabreman
-MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
+;Car Part:
+;MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
+;NII Part:
+MAP_Coord:      defb 1,1
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
