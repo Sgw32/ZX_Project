@@ -46,6 +46,28 @@ defb 255
 defb  62
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\grass_brick>]      
 
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_concrete_wall
+; Size   : 8x8
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_concrete_wall:
+defb 1, 1             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 129
+defb 194
+defb 228
+defb 248
+defb 248
+defb 228
+defb 194
+defb 129
+; attrs
+defb   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall>] 
+
+
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]                  
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile><Data:[Begin]>]              
@@ -63,6 +85,14 @@ defw grass_brick
 
 ; [RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick><Data:>]         
 defw trd_pillar_1
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick>]                
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick><Data:>]         
+defw td_concrete_wall
+; ]RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick>]                
+
+; [RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick><Data:>]         
+defw td_concrete_wall
 ; ]RESOURCE: <Parser:Image Tables><Resource:Tile\grass_brick>]                
 
 

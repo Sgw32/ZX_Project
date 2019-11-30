@@ -217,4 +217,36 @@ defb   0,   0,   0,   0,  71,   7
 
 ; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]                  
 
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_water><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_water
+; Size   : 12x12
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_water:
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_water>]         
+
+; [RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall><Data:ScanlinesRowColumn:PlaceSize:XChar:YChar:MaskBeforePixels:MaskInvert:UseAttributes>]
+; Name   : td_concrete_wall
+; Size   : 8x8
+; Palette: ZX Spectrum
+; Masked : No
+; RowOrder: Classic
+td_concrete_wall:
+defb 1, 1             ; size: WxH - (chars x chars)
+; pixels and mask bit pairs
+defb 129
+defb 194
+defb 228
+defb 248
+defb 248
+defb 228
+defb 194
+defb 129
+; attrs
+defb   7
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile\td_concrete_wall>] 
+
+; ]RESOURCE: <Parser:Attribute Based Images><Resource:Tile>]                  
+
 ; ]RESOURCES SECTION                                                         
