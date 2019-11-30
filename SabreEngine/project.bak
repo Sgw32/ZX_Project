@@ -8370,22 +8370,22 @@
           <Tile>
             <Name>td_dangerZone</Name>
             <Left>224</Left>
-            <Top>128</Top>
+            <Top>144</Top>
           </Tile>
           <Tile>
             <Name>td_dangerZone</Name>
             <Left>224</Left>
-            <Top>104</Top>
+            <Top>120</Top>
           </Tile>
           <Tile>
             <Name>td_dangerZone</Name>
             <Left>224</Left>
-            <Top>80</Top>
+            <Top>96</Top>
           </Tile>
           <Tile>
             <Name>td_dangerZone</Name>
             <Left>224</Left>
-            <Top>56</Top>
+            <Top>72</Top>
           </Tile>
           <Tile>
             <Name>td_metal_block_mini</Name>
@@ -8638,11 +8638,6 @@
             <Name>td_bricks</Name>
             <Left>216</Left>
             <Top>48</Top>
-          </Tile>
-          <Tile>
-            <Name>td_metal_block_mini</Name>
-            <Left>0</Left>
-            <Top>56</Top>
           </Tile>
           <Tile>
             <Name>td_metal_block_mini</Name>
@@ -9589,18 +9584,8 @@
           </Tile>
           <Tile>
             <Name>td_roadLane</Name>
-            <Left>136</Left>
-            <Top>48</Top>
-          </Tile>
-          <Tile>
-            <Name>td_roadLane</Name>
             <Left>112</Left>
             <Top>48</Top>
-          </Tile>
-          <Tile>
-            <Name>td_roadLane</Name>
-            <Left>160</Left>
-            <Top>24</Top>
           </Tile>
           <Tile>
             <Name>td_roadLane</Name>
@@ -10860,6 +10845,26 @@
             <Name>td_concrete_wall</Name>
             <Left>32</Left>
             <Top>128</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>240</Left>
+            <Top>104</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>240</Left>
+            <Top>96</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>240</Left>
+            <Top>88</Top>
+          </Tile>
+          <Tile>
+            <Name>td_concrete_wall</Name>
+            <Left>240</Left>
+            <Top>80</Top>
           </Tile>
           <Tile>
             <Name>td_concrete_wall</Name>

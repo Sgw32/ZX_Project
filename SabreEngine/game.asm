@@ -1461,7 +1461,7 @@ ColTestEnd: pop hl                      ;(pos)
 LastCode:   nop
 ;---------------------------------------------------------------;
 ;                                                               ;
-; Sprites and Sprite Table used in the game                     ;
+; Sprites and Sprite Table used in the agame                     ;
 ;                                                               ;
 ;---------------------------------------------------------------;
 include "sprites.inc"
