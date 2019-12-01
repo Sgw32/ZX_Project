@@ -64,7 +64,7 @@ MainGameNormal: ;ld a, GF_QUIT
                 ;ld a, GF_START_GAME + GF_PLAY_MODE  ; choose start & normal game
                 ;call SetGameFlag                    ; set the flags
                 call GameStartNew
-                ld a, GF_QUIT
+                ld a, GF_PLAYING
                 call SetGameFlag
                 call ISR_Stop
                 jr MainMenuRet

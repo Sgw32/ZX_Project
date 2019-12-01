@@ -51,19 +51,6 @@ GameStartNew:
                 
                 ;jp load_and_run_file
                 ret
-load_and_run_file:
-                ld ix, 24317
-                ld de, 41027
-                push ix
-                scf 
-                ld a,#ff
-                inc d
-                exa
-                dec d
-                jp $0556
-                jp 24317
-                ret
-
 GameOver:       ld b, 24                ; show the hi score table
                 ld c, 72
                 ld d, 10

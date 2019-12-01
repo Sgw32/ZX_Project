@@ -6,6 +6,9 @@
 ;                                                                        ;
 ;------------------------------------------------------------------------;
 
+NEXTTAP_ADR:    equ     24317
+NEXTTAP_SIZE:   equ     37036
+
 include "isr.inc"
 include "startuplogo_rt.inc"
 ;include "sabre_game.inc"
@@ -51,8 +54,7 @@ MainLoop:       ld a, (GameFlags)   ; get game flags
                 call nz, GameOver   ; game over if set
                 ld a, (GameFlags)   ; get game flags
                 and GF_PLAYING      ; check playing flag
-                call nz, GamePlay   ; continue playing game if set
-                call MoveGameCursor ; move the games cursor
+                call nz, TapLoad   ; continue playing game if set
                 jp MainLoop
 
 ;---------------------------------------------------------------;
@@ -67,10 +69,37 @@ Quit:           call ISR_Stop
                 pop de
                 pop bc
                 pop af
+                ;jp load_and_run_file
+                ret                 ; return to BASIC
+                
+;---------------------------------------------------------------;
+; TapLoad                                                   ;
+;   Returns control back to BASIC                               ;
+;---------------------------------------------------------------;
+TapLoad:        call ISR_Stop
+                xor a               ; reset accum
+                ld (CursorLive), a  ; reset the cursorlive variable
+                call ClrScr         ; clear the screen
+                pop hl              ; restore the registers
+                pop de
+                pop bc
+                pop af
                 jp load_and_run_file
                 ret                 ; return to BASIC
 
-
+load_and_run_file:
+                ld ix, NEXTTAP_ADR
+                ld de, NEXTTAP_SIZE
+                push ix
+                scf 
+                ld a,#ff
+                inc d
+                exa
+                dec d
+                jp $0556
+                jp 24317
+                ret
+                
 ;---------------------------------------------------------------;
 ; Pause                                                         ;
 ;   A generic pause function                                    ;

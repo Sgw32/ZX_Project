@@ -26,6 +26,8 @@ MEMSCRLEN:  equ     6335                ; size of the offscreen buffer
 CHRSET:     equ     15616               ; address of the spectrum ROM character
 SCRWIDTH:   equ     32                  ; number of character the offscreen buffer is wide
 
+CNT1         equ  23675
+SPRINT         equ  23676
 ;include "screen.inc"
 
             ;org 24768
@@ -56,8 +58,12 @@ Start:      ;ld sp,  63488
             call SM_Draw
             ;ret
 
-MoveLoop:   call MM_Move                ; move the Monsters
+MoveLoop:   
+            ld a,32
+            ld (SPRINT),a
+            call MM_Move                ; move the Monsters
             call SM_Move                ; move SabreMan
+            call GameTrigger
             call Pause                  ; pause a little while
             jr MoveLoop                 ; move again
 
@@ -67,7 +73,9 @@ include "ay_player.inc"
 Pause:      push bc                     ; save bc
             push de                     ; save de
             push hl                     ; hl
-            ld bc, 5000                 ; define the pause length
+            ld c, 255                 ; define the pause length
+            ld a, (SPRINT)
+            ld b,a
             ld de, 0                    ; define block transfer destination
             ld hl, 0                    ; define block transfer source
             ldir                        ; do a block transfer (takes a little while)
@@ -202,12 +210,21 @@ SM_Move2:
             cpl
             and 31
             call nz, TOGGLECOLLISONS
+            ld bc, 32766           ; check keys from Space-B
+            in a, (c)              ; get keys
+            bit 0, a               ; if space pressed
+            jr z, START_SPRINT    ; no, then check again
             ret
 TOGGLECOLLISONS:
             ;ld a, (DoColTest)
             ;xor 1
             ;ld (DoColTest), a
             ret
+
+START_SPRINT:
+            ld a,16
+            ld (SPRINT), a
+            ret            
 
 UP:         ld hl, (SM_Sprite)          ; get the current sprite set
             ld (SM_OSprite), hl
@@ -1458,8 +1475,52 @@ ColTestEnd: pop hl                      ;(pos)
             pop bc                      ;()
             ret
 
+
+;Check we need to load next tape
+GameTrigger:
+       ;Test pos
+       ld bc, (SM_Pos)
+       
+       ld a,c              ; x coord.
+       cp 78               ; within x range?
+       ret c ;PosX>TrigX1
+       
+       ld a,b              ; y coord.
+       cp 94               ; 
+       ret c ;PosY>TrigY1
+       
+       ld a,c              ; x coord.
+       cp 108               ; within x range?
+       ret nc ;PosX<TrigX1
+       
+       ld a,b              ; y coord.
+       cp 124               ; 
+       ret nc ;PosY<TrigY1
+       
+       ld a, (MAP_Coord)
+       cp 1
+       ret nz
+       ld a, (MAP_Coord + 1)  
+       cp 3
+       ret nz
+       ; window 0x58, 0x68
+       call Screen1
+       ret
+       
+
+; Check (l, h) for collision with (c, b), strict enforcement.
+colx16 ld a,b              ; x coord.
+       cp 120               ; within x range?
+       ret nc              ; no - they've missed.
+       jp colx16
+       ;ld a,h              ; y coord.
+       ;sub b               ; subtract y.
+       ;add a,64            ; add maximum distance.
+       ;cp 128               ; within y range?
+       ret                 ; carry flag set if there's a collision.
+
 LastCode:   nop
-;---------------------------------------------------------------;
+;--------------------------------------------------------------;
 ;                                                               ;
 ; Sprites and Sprite Table used in the aagame                     ;
 ;                                                               ;
@@ -1479,7 +1540,7 @@ include "tiles_prod.inc"
 ;                                                               ;
 ;---------------------------------------------------------------;
 include "map.inc"
-
+include "nexttap.inc"
 ;---------------------------------------------------------------;
 ;                                                               ;
 ; String Table                                                  ;
@@ -1487,20 +1548,20 @@ include "map.inc"
 ;---------------------------------------------------------------;
 UP1:    defm "P1"
         defb 0
-UP2:    defm "P2"
+UP2:    defm "  "
         defb 0
-HI:     defm "HI"
+HI:     defm "R&D DEPARTMENT"
         defb 0
-SCORE1: defm "000000"
+SCORE1: defm "      "
         defb 0
-SCORE2: defm "000000"
+SCORE2: defm "      "
         defb 0
-SCOREH: defm "100000"
+SCOREH: defm "      "
         defb 0
 MAPPOS: defm "08, 10"
         defb 0
 ; ATTR for the score panel at the top of the screen
-SCOREC: defb 69, 69, 69, 69, 69, 69, 71, 71, 71,  7,  7,  7,  7,  7,  7, 87, 87,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7, 69, 69, 69, 69, 69
+SCOREC: defb 69, 69, 69, 69, 69, 69, 71, 71, 71,  7,  7,  7,  7,  7,  7, 87, 87,  87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 69, 69, 69
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
 
 TXT16:  defm "0001020304050607080910111213141516"
@@ -1523,6 +1584,9 @@ SM_OPos:        defb 128,  24           ; old position of sabreman
 ;MAP_Coord:      defb 4, 4              ; the coordinates of the curren screen in the map
 ;NII Part:
 MAP_Coord:      defb 1,1
+
+;NII exit 1,3
+
 DoColTest:      defb 1                  ; state whether to do the collision test (zero - no,  non-zero yes)
 ;ScorePanel      defw 0
 
