@@ -19,43 +19,43 @@
 ;---------------------------------------------------------------;
 
 ScoreTable      defb $47 + 8                            ; colour
-                defm "010000 KIWI......"                ; score and name
+                defm "MOSCOW, 2020s    "                ; score and name
                 defb $ff                                ; end of line
                 
 scoretablepos1  defb $7 + 8
-                defm "009000 RETROCODER"
+                defm "THE PROTAGONIST  "
                 defb $ff
                 
 scoretablepos2  defb $47 + 8
-                defm "008000 LEE_DC...."
+                defm "IS WORKING IN THE"
                 defb $ff
                 
 scoretablepos3  defb $7 + 8
-                defm "007000 SADAKO...."
+                defm "OLD R&D DEP.     "
                 defb $ff
                 
 scoretablepos4  defb $47 + 8
-                defm "006000 JOHN......"
+                defm "WHILE EXPLORING  "
                 defb $ff
                 
 scoretablepos5  defb $7 + 8
-                defm "005000 MARY......"
+                defm "THE OLD CORRIDORS"
                 defb $ff
                 
 scoretablepos6  defb $47 + 8
-                defm "004000 PETER....."
+                defm "HE'VE FOUND      "
                 defb $ff
                 
 scoretablepos7  defb $7 + 8
-                defm "003000 BOB......."
+                defm "SOMETHING...     "
                 defb $ff
                 
 scoretablepos8  defb $47 + 8
-                defm "002000 BARRY....."
+                defm " THE DEVICE IS   "
                 defb $ff
                 
 scoretablepos9  defb $7 + 8
-                defm "001000 HARRY....."
+                defm "POINTING TO SOCHI"
 ScoreTableEnd   defb $ff
 
 
@@ -69,7 +69,7 @@ NewName         defm "          "                   ; temp name store
 
 
 Text_HiScore    defb 71 + 8                        ; colour
-                defm "HI SCORE TABLE"
+                defm "GAME PLOT:    "
                 defb $ff                            ; end of line
 
 Text_Space      defb 87 + 8                         ; colour

@@ -7,7 +7,7 @@
 ;------------------------------------------------------------------------;
 
 NEXTTAP_ADR:    equ     24317
-NEXTTAP_SIZE:   equ     37036
+NEXTTAP_SIZE:   equ     35022
 
 include "isr.inc"
 include "startuplogo_rt.inc"
@@ -77,6 +77,7 @@ Quit:           call ISR_Stop
 ;   Returns control back to BASIC                               ;
 ;---------------------------------------------------------------;
 TapLoad:        call ISR_Stop
+                call SND_MUTE
                 xor a               ; reset accum
                 ld (CursorLive), a  ; reset the cursorlive variable
                 call ClrScr         ; clear the screen
@@ -169,9 +170,8 @@ include "ay_player.inc"
 include "images.inc"
 include "hiscoredata.inc"
 include "font.inc"
-
-BASIC_LOADER:
-incbin "loader_basic.bin"
+;BASIC_LOADER:
+;incbin "loader_basic.bin"
 
 ;---------------------------------------------------------------;
 ;                                                               ;
@@ -256,6 +256,7 @@ AAA_END:        defb 0
 ;---------------------------------------------------------------;
 ; Program start location                                        ;
 ;---------------------------------------------------------------;
+
 end start
 
 

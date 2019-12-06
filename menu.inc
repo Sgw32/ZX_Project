@@ -743,7 +743,7 @@ MainMenu_0_Txt: defb 77
                 defm "Controls"
                 defb $ff
                 defb 77
-                defm "Continue Game"
+                defm "             "
                 defb $ff
                 defb 77
                 defm "Info"
@@ -781,10 +781,10 @@ CtrlMenu_0_Txt: defb 77
                 defm "Use WASD for move"
                 defb $ff
                 defb 77
-                defm "SPACE for proceed"
+                defm "RET to proceed"
                 defb $ff
                 defb 77
-                defm "E to interact"
+                defm "SHIFT to run"
                 defb $ff
                 defb 77
                 defm "Main Menu"
@@ -855,7 +855,7 @@ MusMenu_0_Txt:  defb 77
 
 HiScoreMenu_0:  defw 16523
                 defb 79
-                defm "High Score Table"
+                defm "STORY:          "
                 defb $ff
 HiSMenu_0_Rect: defb 1
                 defb 88, 136, 184, 144

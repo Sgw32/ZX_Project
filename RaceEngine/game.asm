@@ -17,6 +17,11 @@ CAR_SPEED   equ  23676
 randData    equ  23677
 mapCntDATA    equ  23678
 mapCntDIR    equ  23680
+
+NEXTTAP     equ  23681
+NEXTTAP_ADR:    equ     24317
+NEXTTAP_SIZE:   equ     27727
+
 ;ScorePanel equ 0
 
 
@@ -42,11 +47,13 @@ main:
 
 Start:      ;ld sp,  63488
             ;jp Start
+            ld a,0
+            ld (NEXTTAP),a
             call ClrScr
             call PrepareGameplayData
 
             call DrwPanel
-            call DrwMapPos
+            call DrwMapSpeed
             call DrawMap
             call SM_Draw ; Draw car
             ld bc, 1
@@ -55,12 +62,44 @@ Start:      ;ld sp,  63488
 
 MoveLoop:   
             call ProcessRideForward
-            call DrwMapPos
+            call DrwMapSpeed
             call MM_Move                ; move the Monsters
             call SM_Move                ; move SabreMan
             call Pause                  ; pause a little while
             call SpendEnergy
+            ld a, (NEXTTAP)
+            or a
+            jr nz, TapLoad
             jr MoveLoop                 ; move again
+
+;---------------------------------------------------------------;
+; TapLoad                                                   ;
+;   Returns control back to BASIC                               ;
+;---------------------------------------------------------------;
+TapLoad:        call ISR_Stop
+                xor a               ; reset accum
+                ;ld (CursorLive), a  ; reset the cursorlive variable
+                call ClrScr         ; clear the screen
+                pop hl              ; restore the registers
+                pop de
+                pop bc
+                pop af
+                jp load_and_run_file
+                ret                 ; return to BASIC
+
+load_and_run_file:
+                ld ix, NEXTTAP_ADR
+                ld de, NEXTTAP_SIZE
+                push ix
+                scf 
+                ld a,#ff
+                inc d
+                exa
+                dec d
+                jp $0556
+                jp 24317
+                ret
+                
 
 PrepareGameplayData: ;load mapCntDATA and DIR with zeros
             ld hl, mapCntDIR
@@ -122,6 +161,17 @@ DrwPanel:   ld hl, SCREEN+1
             ret
 
 DrwMapPos:  
+            ld bc, (mapCntDIR)
+            ld a, 16
+            sub c
+            ld de, SCOREH
+            call Num2Txt
+            ld hl, SCREEN+45
+            ld de, SCOREH
+            call DrwStr
+            ret
+            
+DrwMapSpeed:  
             ld a, (CAR_SPEED)
             srl a
             srl a
@@ -559,6 +609,7 @@ RideForwardShift:
             cp l
             jr nc, FlipAround
             ld (MAP_Coord), bc
+            call DrwMapSpeed
             call DrwMapPos
             call DrawMap
             call SM_Draw
@@ -568,6 +619,7 @@ RideForwardShift:
 FlipAround:
             call Gameplay
             call CheckGameEnd
+            call DrwMapSpeed
             call DrwMapPos
             call DrawMap
             call SM_Draw
@@ -587,7 +639,9 @@ CheckGameEnd:
             ld bc, (mapCntDIR)
             ld a, 16
             cp c
-            jr c, CheckGameEnd ;goes right
+            ret nc
+            ld a,1
+            ld (NEXTTAP),a
             ret
 
 SolutionRight:
@@ -1620,22 +1674,22 @@ UP1:    defm "SPEED"
         defb 0
 UP2:    defm "P2"
         defb 0
-HI:     defm "ADLER"
+HI:     defm "NEXT STOP: SOCHI"
         defb 0
 SCORE1: defm "000000"
         defb 0
-SCORE2: defm "000000"
+SCORE2: defm "SOCHI "
         defb 0
-SCOREH: defm "100000"
+SCOREH: defm "0000    "
         defb 0
 MAPPOS: defm "08    "
         defb 0
 ; ATTR for the score panel at the top of the screen 
-SCOREC: defb 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 87, 87, 87, 87, 87, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69
+SCOREC: defb 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 69, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87, 87
         defb 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70
 
 GAMEPLAY_DATA: defb 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4
-GAMEPLAY_DIR:  defb 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1
+GAMEPLAY_DIR:  defb 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1
 
 ; 0 is right
 ; 1 is left

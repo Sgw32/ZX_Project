@@ -46,8 +46,8 @@ SN1_ExitFromSplash:
              ret             
              
 GameStartNew:   
-                call Screen1
-                call SplashScreen
+                ;call Screen1
+                ;call SplashScreen
                 
                 ;jp load_and_run_file
                 ret
